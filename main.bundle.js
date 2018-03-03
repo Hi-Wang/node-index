@@ -65,19 +65,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AppComponent = (function () {
     function AppComponent() {
+        this.normal_title = "Hi,小汪";
         this.loading = {
             display: 'none'
         };
         this.loading = {
             display: 'block'
         };
-        // this.timer = setTimeout( () = > {
-        //     this.loading = {
-        //         display : 'none'
-        //     }
-        // }, 1000 )
+        //浏览器title监听事件 
+        this.Index();
     }
     AppComponent.prototype.ngOnInit = function () {
+    };
+    //浏览器title监听事件 
+    AppComponent.prototype.Index = function () {
+        window.addEventListener('visibilitychange', function () {
+            if (document.visibilityState == 'hidden') {
+                this.normal_title = document.title;
+                document.title = '出BUG了，快回来！';
+            }
+            else
+                document.title = "Hi,小汪";
+        });
     };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -119,25 +128,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-// import { LocationStrategy, HashLocationStrategy, APP_BASE_HREF, CommonModule } from '@angular/common';
 
 
-// import { HomeComponent } from './components/home/home.component';
-// import { AboutComponent } from './components/about/about.component';
-// import { ContactComponent } from './components/contact/contact.component';
-// import { CallmeComponent } from './components/callme/callme.component';
-// import { SimpleHttpComponent } from './components/simple-http/simple-http.component';
-// import { LoginComponent } from './components/login/login.component';
-// const routes: Routes = [
-//   { path: '',redirectTo: 'login',pathMatch: 'full'},
-//   { path: 'login', component: LoginComponent },
-//   { path: 'home', component: HomeComponent },
-//   { path: 'about', component: AboutComponent },
-//   { path: 'contact', component: ContactComponent },
-//   { path: 'callme', component: CallmeComponent },
-//   { path: 'http', component: SimpleHttpComponent },
-//   { path: 'contacts', redirectTo: 'contact' }
-// ];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -145,12 +137,6 @@ var AppModule = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["I" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]
-                // HomeComponent,
-                // AboutComponent
-                // ContactComponent,
-                // CallmeComponent,
-                // SimpleHttpComponent,
-                // LoginComponent
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],

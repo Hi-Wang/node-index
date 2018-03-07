@@ -3,7 +3,7 @@ webpackJsonp(["home.module"],{
 /***/ "../../../../../views/app/components/baby-room/baby-room.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section>\n  <div class=\"imgBox\">\n\n  </div>\n  <div class=\"babyRoom\">\n    <div class=\"nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" >\n          <a>\n            <span>{{item.babyNavName}}</span>\n            <span class=\"span\">20</span>\n          </a>\n        </li>\n      </ul>\n    </div>\n\n     <!-- 内容 -->\n    <div class=\"babyRoomContent\">\n      index\n    </div>\n\n    <!-- 内容 -->\n    <div class=\"babyRoomAddNewWord\">\n      <div class=\"addNewWord\">\n        <!-- 头部 -->\n        <p class=\"addHeader\">来添一笔</p>\n        <!-- 标题 -->\n        <div class=\"addTitle\">\n          <span>标题</span>\n          <input placeholder=\"请填写标题\"/>\n        </div>\n        <!-- 标签 -->\n        <div class=\"addLabel\">\n          <span class=\"labelSpan\">选择标签</span>\n          <p>\n            <span *ngFor=\"let item of addNewNav\" >\n              <a>{{item.babyNavName}}</a>\n            </span>\n          </p>\n        </div>\n        <!-- 新增内容 -->\n        <div class=\"addContent\">\n          <span>内容</span>\n          <textarea name=\"\" placeholder=\"想写什么些什么...\"></textarea>\n        </div>\n        <!-- 提交按钮 -->\n        <div class=\"addPics\">\n            <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" (change)=\"selectedFileOnChanged($event)\" />\n          <!-- <input type=\"file\" ng2FileSelect [uploader]='uploader' (change)='selectedFileOnChanged($event);' multiple > -->\n          <!-- <input type=\"file\" (change)=\"selectedFileOnChanged($event)\" /> -->\n        </div>\n        <div class=\"addPics\">\n          <button (click)=\"uploadFile();\"> 提交 </button>\n        </div>\n\n      </div>\n    </div>\n\n  </div>\n</section>\n"
+module.exports = "<section>\n  <div class=\"imgBox\">\n\n  </div>\n  <div class=\"babyRoom\">\n    <div class=\"nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" >\n          <a (click)=\"getList(item);\">\n            <span>{{item.babyNavName}}</span>\n            <span class=\"span\">20</span>\n          </a>\n        </li>\n      </ul>\n    </div>\n\n     <!-- 内容 -->\n    <div class=\"babyRoomContent\">\n      index\n    </div>\n\n    <!-- 内容 -->\n    <div class=\"babyRoomAddNewWord\">\n      <div class=\"addNewWord\">\n        <!-- 头部 -->\n        <p class=\"addHeader\">来添一笔</p>\n        <!-- 标题 -->\n        <div class=\"addTitle\">\n          <span>标题</span>\n          <input placeholder=\"请填写标题\"/>\n        </div>\n        <!-- 标签 -->\n        <div class=\"addLabel\">\n          <span class=\"labelSpan\">选择标签</span>\n          <p>\n            <span *ngFor=\"let item of addNewNav\" >\n              <a>{{item.babyNavName}}</a>\n            </span>\n          </p>\n        </div>\n        <!-- 新增内容 -->\n        <div class=\"addContent\">\n          <span>内容</span>\n          <textarea name=\"\" placeholder=\"想写什么些什么...\"></textarea>\n        </div>\n        <!-- 提交按钮 -->\n        <div class=\"addPics\">\n            <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" (change)=\"selectedFileOnChanged($event)\" />\n          <!-- <input type=\"file\" ng2FileSelect [uploader]='uploader' (change)='selectedFileOnChanged($event);' multiple > -->\n          <!-- <input type=\"file\" (change)=\"selectedFileOnChanged($event)\" /> -->\n        </div>\n        <div class=\"addPics\">\n          <button (click)=\"uploadFile();\"> 提交 </button>\n        </div>\n\n      </div>\n    </div>\n\n  </div>\n</section>\n"
 
 /***/ }),
 
@@ -117,6 +117,18 @@ var BabyRoomComponent = (function () {
             _this.addNewNav = res.json().splice(1, len);
             console.log(_this.navList);
         });
+    };
+    // 点击导航栏获取信息
+    BabyRoomComponent.prototype.getList = function (item) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
+        body.set('name', item.babyNavName);
+        this.http.post('http://localhost:4400/babyRoom/getList', body, options)
+            .subscribe(function (res) {
+            console.log(res.json());
+        });
+        console.log(item);
     };
     BabyRoomComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({

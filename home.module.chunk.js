@@ -3,7 +3,7 @@ webpackJsonp(["home.module"],{
 /***/ "../../../../../views/app/components/baby-room/baby-room.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section>\n  <div class=\"imgBox\">\n\n  </div>\n  <div class=\"babyRoom\">\n    <div class=\"nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" >\n          <a (click)=\"getList(item);\">\n            <span>{{item.babyNavName}}</span>\n            <span class=\"span\">20</span>\n          </a>\n        </li>\n      </ul>\n    </div>\n\n     <!-- 内容 -->\n    <div class=\"babyRoomContent\">\n      index\n    </div>\n\n    <!-- 内容 -->\n    <div class=\"babyRoomAddNewWord\">\n      <div class=\"addNewWord\">\n        <!-- 头部 -->\n        <p class=\"addHeader\">来添一笔</p>\n        <!-- 标题 -->\n        <div class=\"addTitle\">\n          <span>标题</span>\n          <input placeholder=\"请填写标题\"/>\n        </div>\n        <!-- 标签 -->\n        <div class=\"addLabel\">\n          <span class=\"labelSpan\">选择标签</span>\n          <p>\n            <span *ngFor=\"let item of addNewNav\" >\n              <a>{{item.babyNavName}}</a>\n            </span>\n          </p>\n        </div>\n        <!-- 新增内容 -->\n        <div class=\"addContent\">\n          <span>内容</span>\n          <textarea name=\"\" placeholder=\"想写什么些什么...\"></textarea>\n        </div>\n        <!-- 提交按钮 -->\n        <div class=\"addPics\">\n            <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" (change)=\"selectedFileOnChanged($event)\" />\n          <!-- <input type=\"file\" ng2FileSelect [uploader]='uploader' (change)='selectedFileOnChanged($event);' multiple > -->\n          <!-- <input type=\"file\" (change)=\"selectedFileOnChanged($event)\" /> -->\n        </div>\n        <div class=\"addPics\">\n          <button (click)=\"uploadFile();\"> 提交 </button>\n        </div>\n\n      </div>\n    </div>\n\n  </div>\n</section>\n"
+module.exports = "<section>\n  <div class=\"imgBox\">\n\n  </div>\n  <div class=\"babyRoom\">\n    <div class=\"nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" >\n          <a (click)=\"getList($event,item);\" #navStyle>\n            <span>{{item.babyNavName}}</span>\n            <span class=\"span\">20</span>\n          </a>\n        </li>\n      </ul>\n    </div>\n\n     <!-- 内容 -->\n    <div class=\"babyRoomContent\">\n      index\n    </div>\n\n    <!-- 内容 -->\n    <div class=\"babyRoomAddNewWord\">\n      <div class=\"addNewWord\">\n        <!-- 头部 -->\n        <p class=\"addHeader\">来添一笔</p>\n        <!-- 标题 -->\n        <div class=\"addTitle\">\n          <span>标题</span>\n          <input placeholder=\"请填写标题\" [(ngModel)]=\"addSet.title\"/>\n        </div>\n        <!-- 标签 -->\n        <div class=\"addLabel\">\n          <span class=\"labelSpan\">选择标签</span>\n          <p>\n            <span #addLabel *ngFor=\"let item of navList\" (click)=\"addClickLabel($event,item);\">\n              <a>{{item.babyNavName}}</a>\n            </span>\n          </p>\n        </div>\n        <!-- 新增内容 -->\n        <div class=\"addContent\">\n          <span>内容</span>\n          <textarea name=\"\" placeholder=\"想写什么些什么...\" [(ngModel)]=\"addSet.content\"></textarea>\n        </div>\n        <!-- 提交按钮 -->\n        <div class=\"addPics\">\n            <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" (change)=\"selectedFileOnChanged($event)\" />\n          <!-- <input type=\"file\" ng2FileSelect [uploader]='uploader' (change)='selectedFileOnChanged($event);' multiple > -->\n          <!-- <input type=\"file\" (change)=\"selectedFileOnChanged($event)\" /> -->\n        </div>\n        <div class=\"addPics\">\n          <button (click)=\"uploadFile();\"> 提交 </button>\n        </div>\n\n      </div>\n    </div>\n\n  </div>\n</section>\n"
 
 /***/ }),
 
@@ -16,7 +16,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "section {\n  padding-top: 240px;\n  position: relative;\n  overflow-y: auto; }\n  section .imgBox {\n    margin-top: -240px;\n    height: 240px;\n    background: #FAFAFA url(" + escape(__webpack_require__("../../../../../views/assets/images/babyRoom/ekg-2753759_960_720.png")) + ") no-repeat;\n    background-size: cover; }\n  section .babyRoom {\n    height: 100%;\n    z-index: 100;\n    background: #DEE3E7; }\n    section .babyRoom .nav {\n      width: 100%;\n      background: #FAFAFA;\n      padding: 10px 6%;\n      border-bottom: 1px solid #c4cdd4; }\n      section .babyRoom .nav ul li {\n        float: left;\n        list-style: none;\n        margin: 2px 10px;\n        font-size: 12px;\n        cursor: pointer; }\n        section .babyRoom .nav ul li a {\n          position: relative;\n          display: inline-block;\n          max-width: 100%;\n          height: 24px;\n          margin: 0 10px 5px 0;\n          line-height: 24px;\n          padding: 0 8px 0 18px;\n          border-radius: 0 4px 4px 0;\n          background: #eee;\n          font-size: 12px;\n          color: #333;\n          overflow: hidden;\n          text-overflow: ellipsis;\n          white-space: nowrap;\n          box-sizing: border-box;\n          -moz-box-sizing: border-box;\n          -webkit-box-sizing: border-box; }\n        section .babyRoom .nav ul li a .span {\n          display: inline-block;\n          opacity: .3;\n          padding: 0 0 0 5px; }\n        section .babyRoom .nav ul li a:hover {\n          background: #0366E1;\n          color: #fff; }\n        section .babyRoom .nav ul li a:before {\n          position: absolute;\n          content: \"\";\n          top: 0;\n          left: 0;\n          width: 0;\n          height: 0;\n          border-width: 12px 12px 12px 0;\n          border-color: #fff transparent;\n          border-style: solid; }\n        section .babyRoom .nav ul li a:after {\n          position: absolute;\n          content: \"\";\n          width: 4px;\n          height: 4px;\n          top: 10px;\n          left: 8px;\n          border-radius: 100%;\n          background: #fff; }\n    section .babyRoom .babyRoomContent {\n      width: 100%;\n      height: auto;\n      background: #900; }\n    section .babyRoom .babyRoomAddNewWord {\n      width: 100%;\n      height: 100%;\n      background: #090;\n      padding: 20px; }\n      section .babyRoom .babyRoomAddNewWord .addNewWord {\n        width: 100%;\n        height: 100%;\n        background: #fff; }\n        section .babyRoom .babyRoomAddNewWord .addNewWord .addHeader {\n          padding: 16px;\n          font-size: 18px;\n          font-weight: 600;\n          text-align: center;\n          color: #333; }\n        section .babyRoom .babyRoomAddNewWord .addNewWord .addTitle {\n          padding: 10px 10px 10px 30%; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addTitle span {\n            display: inline-block;\n            text-align: right;\n            width: 30%;\n            margin-left: -30%;\n            margin-right: 6%;\n            font-size: 14px;\n            color: #333; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addTitle input {\n            width: 40%;\n            height: 30px;\n            font-size: 14px;\n            padding-left: 10px;\n            border: 1px solid #ccc;\n            border-radius: 4px;\n            transition: all 1s; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addTitle input:focus {\n            width: 70%; }\n        section .babyRoom .babyRoomAddNewWord .addNewWord .addLabel {\n          padding: 10px 10px 10px 30%;\n          width: 100%;\n          height: auto; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addLabel .labelSpan {\n            display: inline-block;\n            text-align: right;\n            width: 30%;\n            line-height: 30px;\n            margin: auto 6% auto -30%;\n            font-size: 14px;\n            color: #333; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addLabel p {\n            display: inline-block;\n            width: 90%;\n            height: 30px;\n            line-height: 30px;\n            text-align: left;\n            font-size: 14px; }\n            section .babyRoom .babyRoomAddNewWord .addNewWord .addLabel p span {\n              display: inline-block;\n              padding: 0 10px;\n              font-size: 12px;\n              border: 1px solid #ccc;\n              border-radius: 6px;\n              margin-right: 10px;\n              cursor: pointer; }\n        section .babyRoom .babyRoomAddNewWord .addNewWord .addContent {\n          padding: 20px 10px 0 30%; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addContent span {\n            position: absolute;\n            display: inline-block;\n            text-align: right;\n            width: 30%;\n            margin-left: -30%;\n            margin-right: 6%;\n            font-size: 14px;\n            color: #333; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addContent textarea {\n            display: line-block;\n            margin-left: 6%;\n            font-size: 12px;\n            padding: 10px;\n            width: 50%;\n            height: 140px;\n            resize: none;\n            transition: all 1s; }\n        section .babyRoom .babyRoomAddNewWord .addNewWord .addPics {\n          padding: 10px;\n          background: yellow;\n          text-align: center; }\n", ""]);
+exports.push([module.i, "section {\n  padding-top: 240px;\n  position: relative;\n  overflow-y: auto; }\n  section .imgBox {\n    margin-top: -240px;\n    height: 240px;\n    background: #FAFAFA url(" + escape(__webpack_require__("../../../../../views/assets/images/babyRoom/ekg-2753759_960_720.png")) + ") no-repeat;\n    background-size: cover; }\n  section .babyRoom {\n    height: 100%;\n    z-index: 100;\n    background: #DEE3E7; }\n    section .babyRoom .nav {\n      width: 100%;\n      background: #FAFAFA;\n      padding: 10px 6%;\n      border-bottom: 1px solid #c4cdd4; }\n      section .babyRoom .nav ul li {\n        float: left;\n        list-style: none;\n        margin: 2px 10px;\n        font-size: 12px;\n        cursor: pointer; }\n        section .babyRoom .nav ul li a {\n          position: relative;\n          display: inline-block;\n          max-width: 100%;\n          height: 24px;\n          margin: 0 10px 5px 0;\n          line-height: 24px;\n          padding: 0 8px 0 18px;\n          border-radius: 0 4px 4px 0;\n          background: #eee;\n          font-size: 12px;\n          color: #333;\n          overflow: hidden;\n          text-overflow: ellipsis;\n          white-space: nowrap;\n          box-sizing: border-box;\n          -moz-box-sizing: border-box;\n          -webkit-box-sizing: border-box;\n          transition: all 0.6s; }\n        section .babyRoom .nav ul li a .span {\n          display: inline-block;\n          opacity: .3;\n          padding: 0 0 0 5px; }\n        section .babyRoom .nav ul li a:hover {\n          background: #0366E1;\n          color: #fff; }\n        section .babyRoom .nav ul li a:before {\n          position: absolute;\n          content: \"\";\n          top: 0;\n          left: 0;\n          width: 0;\n          height: 0;\n          border-width: 12px 12px 12px 0;\n          border-color: #fff transparent;\n          border-style: solid; }\n        section .babyRoom .nav ul li a:after {\n          position: absolute;\n          content: \"\";\n          width: 4px;\n          height: 4px;\n          top: 10px;\n          left: 8px;\n          border-radius: 100%;\n          background: #fff; }\n    section .babyRoom .babyRoomContent {\n      width: 100%;\n      height: auto;\n      background: #ccc; }\n    section .babyRoom .babyRoomAddNewWord {\n      width: 100%;\n      height: 100%;\n      background: #fff;\n      padding: 20px; }\n      section .babyRoom .babyRoomAddNewWord .addNewWord {\n        width: 100%;\n        height: 100%;\n        background: #fff; }\n        section .babyRoom .babyRoomAddNewWord .addNewWord .addHeader {\n          padding: 16px;\n          font-size: 18px;\n          font-weight: 600;\n          text-align: center;\n          color: #333; }\n        section .babyRoom .babyRoomAddNewWord .addNewWord .addTitle {\n          padding: 10px 10px 10px 30%; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addTitle span {\n            display: inline-block;\n            text-align: right;\n            width: 30%;\n            margin-left: -30%;\n            margin-right: 6%;\n            font-size: 14px;\n            color: #333; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addTitle input {\n            width: 40%;\n            height: 30px;\n            font-size: 14px;\n            padding-left: 10px;\n            border: 1px solid #ccc;\n            border-radius: 4px;\n            transition: all 1s; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addTitle input:focus {\n            width: 70%; }\n        section .babyRoom .babyRoomAddNewWord .addNewWord .addLabel {\n          padding: 10px 10px 10px 30%;\n          width: 100%;\n          height: auto; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addLabel .labelSpan {\n            display: inline-block;\n            text-align: right;\n            width: 30%;\n            line-height: 30px;\n            margin: auto 6% auto -30%;\n            font-size: 14px;\n            color: #333; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addLabel p {\n            display: inline-block;\n            width: 90%;\n            height: 30px;\n            line-height: 30px;\n            text-align: left;\n            font-size: 14px; }\n            section .babyRoom .babyRoomAddNewWord .addNewWord .addLabel p span {\n              display: inline-block;\n              padding: 0 10px;\n              font-size: 12px;\n              border: 1px solid #ccc;\n              border-radius: 6px;\n              margin-right: 10px;\n              cursor: pointer;\n              transition: all 0.6s; }\n        section .babyRoom .babyRoomAddNewWord .addNewWord .addContent {\n          padding: 20px 10px 0 30%; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addContent span {\n            position: absolute;\n            display: inline-block;\n            text-align: right;\n            width: 30%;\n            margin-left: -30%;\n            margin-right: 6%;\n            font-size: 14px;\n            color: #333; }\n          section .babyRoom .babyRoomAddNewWord .addNewWord .addContent textarea {\n            display: line-block;\n            margin-left: 6%;\n            font-size: 12px;\n            padding: 10px;\n            width: 50%;\n            height: 140px;\n            resize: none;\n            transition: all 1s; }\n        section .babyRoom .babyRoomAddNewWord .addNewWord .addPics {\n          padding: 10px;\n          background: yellow;\n          text-align: center; }\n", ""]);
 
 // exports
 
@@ -48,8 +48,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var BabyRoomComponent = (function () {
-    function BabyRoomComponent(http) {
+    function BabyRoomComponent(http, ele, renderer) {
         this.http = http;
+        this.ele = ele;
+        this.renderer = renderer;
+        // 新增一个文章什么的
+        this.addSet = {
+            title: '',
+            content: '',
+            label: ''
+        };
         this.uploader = new __WEBPACK_IMPORTED_MODULE_2_ng2_file_upload__["FileUploader"]({
             url: 'http://localhost:4400/upDataFile/upDataFile',
             method: 'get',
@@ -76,15 +84,29 @@ var BabyRoomComponent = (function () {
         };
         return this.reader = reader;
     };
+    BabyRoomComponent.prototype.addClickLabel = function (event, item) {
+        this.addSet.label = item.babyNavName;
+        this.todoNames.forEach(function (e) {
+            e.nativeElement.style.background = '#fff';
+            e.nativeElement.style.border = '1px solid #ccc';
+            e.nativeElement.style.color = '#333';
+            if (e.nativeElement.innerText === item.babyNavName) {
+                console.log(e);
+                e.nativeElement.style.background = '#84CFE1';
+                e.nativeElement.style.border = '1px solid #fff';
+                e.nativeElement.style.color = '#fff';
+            }
+        });
+    };
     // 定义上传事件
     BabyRoomComponent.prototype.uploadFile = function () {
         var _this = this;
-        console.log(this.file);
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
         var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
-        body.set('File', this.reader.result);
-        console.log(this.reader.result);
+        var setData = JSON.stringify(this.addSet);
+        body.set('data', setData);
+        // console.log(this.reader.result)
         this.http.post('http://localhost:4400/upDataFile/upDataFile', body, options)
             .subscribe(function (res) {
             _this.data = res.json();
@@ -114,29 +136,47 @@ var BabyRoomComponent = (function () {
             .subscribe(function (res) {
             var len = res.json().length;
             _this.navList = res.json();
-            _this.addNewNav = res.json().splice(1, len);
+            // this.addNewNav = res.json().splice(1,len)
             console.log(_this.navList);
         });
     };
-    // 点击导航栏获取信息
-    BabyRoomComponent.prototype.getList = function (item) {
+    BabyRoomComponent.prototype.getList = function (event, item) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
         var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
+        // 改变样式
+        this.navStyle.forEach(function (e) {
+            e.nativeElement.style.background = '#eee';
+            e.nativeElement.style.color = '#333';
+            if (e.nativeElement.children[0].innerText === item.babyNavName) {
+                console.log(e);
+                e.nativeElement.style.background = '#0366E1';
+                e.nativeElement.style.color = '#fff';
+            }
+        });
         body.set('name', item.babyNavName);
         this.http.post('http://localhost:4400/babyRoom/getList', body, options)
             .subscribe(function (res) {
+            var list = res.json();
             console.log(res.json());
         });
-        console.log(item);
+        // console.log(item)
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChildren"])('addLabel'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["QueryList"])
+    ], BabyRoomComponent.prototype, "todoNames", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChildren"])('navStyle'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["QueryList"])
+    ], BabyRoomComponent.prototype, "navStyle", void 0);
     BabyRoomComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-baby-room',
             template: __webpack_require__("../../../../../views/app/components/baby-room/baby-room.component.html"),
             styles: [__webpack_require__("../../../../../views/app/components/baby-room/baby-room.component.scss")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]])
     ], BabyRoomComponent);
     return BabyRoomComponent;
 }());

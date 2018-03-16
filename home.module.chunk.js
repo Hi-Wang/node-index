@@ -70,9 +70,9 @@ var BabyRoomComponent = (function () {
         this.pullList = [];
         this.currentDisplay = 'none';
         // 请求页面数据
-        this.getBabyRoomNav();
     }
     BabyRoomComponent.prototype.ngOnInit = function () {
+        this.getBabyRoomNav();
     };
     // 刚进页面拿到导航栏信息
     BabyRoomComponent.prototype.getBabyRoomNav = function () {
@@ -85,17 +85,46 @@ var BabyRoomComponent = (function () {
             // var len = res.json().length;
             _this.navList = res.json().data;
             _this.viewList = res.json().message;
-            _this.pullListFunction();
             _this.cdr.markForCheck();
             _this.cdr.detectChanges();
             _this.pullListFunction();
         });
     };
+    // 获得图片数组
     BabyRoomComponent.prototype.pullListFunction = function () {
-        console.log(this.boxDiv.toArray().length);
+        var parent = this.containerDiv;
+        var content = this.boxDiv.toArray();
+        this.get_width(parent, content);
     };
-    BabyRoomComponent.prototype.ngAfterViewInit = function () {
-        // console.log(this.boxDiv.toArray().length);
+    // 获取图片宽度
+    BabyRoomComponent.prototype.get_width = function (parent, content) {
+        var img_width = content[1].nativeElement.offsetWidth;
+        var win_width = document.documentElement.clientWidth;
+        var num_width = Math.floor(win_width / img_width);
+        parent.nativeElement.style.cssText = "width:" + img_width * num_width + "px;margin:0 auto";
+        // this.min_image_locatin(num_width, content)
+        console.log(num_width);
+    };
+    // min_image_locatin
+    BabyRoomComponent.prototype.min_image_locatin = function (dec_width, content) {
+        var box_height_array = [], min_height, min_index;
+        for (var i = 0; i < content.length; i++) {
+            if (i < dec_width) {
+                box_height_array[i] = content[i].nativeElement.offsetHeight;
+            }
+            else {
+                min_height = Math.min.apply(null, box_height_array); //获取第一排图片中高度最小的图片
+                //函数获取高度最小的图片位置
+                // for (let h in box_height_array) {
+                //   console.log(box_height_array)
+                //   if (box_height_array[h] === min_height) { //循环所有数组的高度 让它等于最小图片的高度 返回i值
+                //     min_index = h;
+                //   }
+                // } 
+            }
+        }
+        console.log(min_height);
+        console.log(min_index);
     };
     // 上传文件
     BabyRoomComponent.prototype.selectedFileOnChanged = function (event) {

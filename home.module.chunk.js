@@ -3,7 +3,7 @@ webpackJsonp(["home.module"],{
 /***/ "../../../../../views/app/components/baby-room/baby-room.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section>\n  <div class=\"imgBox\">\n\n  </div>\n  <div class=\"babyRoom\">\n    <div class=\"nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" >\n          <a (click)=\"getList($event,item);\" #navStyle>\n            <span>{{item.babyNavName}}</span>\n            <span class=\"span\">20</span>\n          </a>\n        </li>\n      </ul>\n    </div>\n\n     <!-- 内容 -->\n    <div class=\"babyRoomContent\">\n      <!-- 容器 -->\n\n      <div #container id=\"container\"> \n        <!-- 承载单个图片 -->\n        <div class=\"box\" *ngFor=\"let item of viewList\" #boxList >\n          <!-- 设置图片边框效果 -->\n          <div class=\"box_img\">\n            <!-- 加载图片 -->\n            <img [src]=\"item.url\" alt=\"\">\n          </div>\n        </div>\n      </div>\n\n      <!-- <ul>\n        <li *ngFor=\"let v of viewList\" style=\"padding:10px 10px 10px 10px;text-align:center;\">\n          <P>{{v.title}}</P>\n        </li>\n      </ul>  -->\n\n\n    </div>\n    \n\n    <div class=\"addBtn\">\n      <span>点我点我！</span>\n        <svg class=\"icon\" aria-hidden=\"true\" (click)=\"hideAddClick()\">\n            <use xlink:href=\"#wang-meiguoduichang\"></use>\n        </svg>\n    </div>\n\n    <!-- 内容 -->\n    <div class=\"babyRoomAddNewWord\" #addNewWordDiv [@display]=\"currentDisplay\">\n      <div class=\"addNewWord\">\n          <svg class=\"icon hideIcon\" aria-hidden=\"true\" (click)=\"hideAddClick()\">\n              <use xlink:href=\"#wang-quxiao2\"></use>\n          </svg>\n        <!-- 头部 -->\n        <p class=\"addHeader\">来添一笔</p>\n        <!-- 标题 -->\n        <div class=\"addTitle\">\n          <span>标题</span>\n          <input placeholder=\"请填写标题\" type=\"text\" name=\"title\" [(ngModel)]=\"addSet.title\"/>\n        </div>\n        <!-- 标签 -->\n        <div class=\"addLabel\">\n          <span class=\"labelSpan\">选择标签</span>\n          <p>\n            <span class=\"span\" #addLabel *ngFor=\"let item of navList\" (click)=\"addClickLabel($event,item);\">\n              <a>{{item.babyNavName}}</a>\n            </span>\n            <span class=\"error\" #errorText [@errorText]=\"errorTextIndex\">\n              <svg class=\"icon errorIcon\" aria-hidden=\"true\">\n                <use xlink:href=\"#wang-cuowu1\"></use>\n              </svg>\n              <span>选择一个标签吧~</span>\n            </span>\n          </p>\n        </div>\n        <!-- 新增内容 -->\n        <div class=\"addContent\">\n          <span>内容</span>\n          <textarea name=\"content\" type='text' placeholder=\"想写什么些什么...\" [(ngModel)]=\"addSet.content\"></textarea>\n        </div>\n\n        <div class=\"upData\" [@display]=\"imgListDisplay\">\n          <div class=\"addImgListBox\">\n            <ul>\n              <li *ngFor=\"let img of imgList; let i = index\">\n                <span>\n                  <svg class=\"icon hideImg\" aria-hidden=\"true\" (click)=\"delImg(i)\">\n                    <use xlink:href=\"#wang-chacha\"></use>\n                  </svg>\n                </span>\n                <img [src]=\"img.base\">\n              </li>\n              <li style=\"border:1px dashed #ccc;\" *ngIf=\"addImgShow\">\n                <svg class=\"icon\" aria-hidden=\"true\">\n                  <use xlink:href=\"#wang-weibiaoti-zhuanhuan\"></use>\n                </svg>\n                <input type=\"file\" #newImg (change)=\"FileUploader(newImg, $event)\"/>\n              </li>\n            </ul>\n          </div>\n        </div>\n        <!-- 提交按钮 -->\n        <!-- <div class=\"addPics\">\n          <input type=\"file\" (change)=\"FileUploader($event)\" />\n        </div> -->\n        <div class=\"addPics\">\n          <span (click)=\"uploadFile();\"> 提交 </span>\n        </div>\n\n      </div>\n    </div>\n\n  </div>\n</section>\n"
+module.exports = "<section>\n  <div class=\"imgBox\">\n\n  </div>\n  <div class=\"babyRoom\">\n    <div class=\"nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" >\n          <a (click)=\"getList($event,item);\" #navStyle>\n            <span>{{item.babyNavName}}</span>\n            <span class=\"span\">20</span>\n          </a>\n        </li>\n      </ul>\n    </div>\n\n     <!-- 内容 -->\n    <div class=\"babyRoomContent\">\n      <!-- 容器 -->\n\n      <div #container id=\"container\"> \n        <!-- 承载单个图片 -->\n        <div class=\"box\" *ngFor=\"let item of viewList\" #boxList >\n          <!-- 设置图片边框效果 -->\n          <div class=\"box_img\">\n            <!-- 加载图片 -->\n            <img [src]=\"item.url\" alt=\"\">\n          </div>\n        </div>\n      </div>\n\n      <!-- <ul>\n        <li *ngFor=\"let v of viewList\" style=\"padding:10px 10px 10px 10px;text-align:center;\">\n          <P>{{v.title}}</P>\n        </li>\n      </ul>  -->\n\n\n    </div>\n    \n\n    <div class=\"addBtn\">\n      <span>点我点我！</span>\n        <svg class=\"icon\" aria-hidden=\"true\" (click)=\"hideAddClick()\">\n            <use xlink:href=\"#wang-meiguoduichang\"></use>\n        </svg>\n    </div>\n\n    <!-- 内容 -->\n    <div class=\"babyRoomAddNewWord\" #addNewWordDiv [@display]=\"currentDisplay\">\n      <div class=\"addNewWord\">\n          <svg class=\"icon hideIcon\" aria-hidden=\"true\" (click)=\"hideAddClick()\">\n              <use xlink:href=\"#wang-quxiao2\"></use>\n          </svg>\n        <!-- 头部 -->\n        <p class=\"addHeader\">来添一笔</p>\n        <!-- 标题 -->\n        <div class=\"addTitle\">\n          <span>标题</span>\n          <input placeholder=\"请填写标题\" type=\"text\" name=\"title\" [(ngModel)]=\"addSet.title\"/>\n        </div>\n        <!-- 标签 -->\n        <div class=\"addLabel\">\n          <span class=\"labelSpan\">选择标签</span>\n          <p>\n            <span class=\"span\" #addLabel *ngFor=\"let item of navList\" (click)=\"addClickLabel($event,item);\">\n              <a>{{item.babyNavName}}</a>\n            </span>\n            <span class=\"error\" #errorText [@errorText]=\"errorTextIndex\">\n              <svg class=\"icon errorIcon\" aria-hidden=\"true\">\n                <use xlink:href=\"#wang-cuowu1\"></use>\n              </svg>\n              <span>选择一个标签吧~</span>\n            </span>\n          </p>\n        </div>\n        <!-- 新增内容 -->\n        <div class=\"addContent\">\n          <span>内容</span>\n          <textarea name=\"content\" type='text' placeholder=\"想写什么些什么...\" [(ngModel)]=\"addSet.content\"></textarea>\n        </div>\n\n        <div class=\"upData\" [@display]=\"imgListDisplay\">\n          <div class=\"addImgListBox\">\n            <ul>\n              <li *ngFor=\"let img of imgList; let i = index\">\n                <span>\n                  <svg class=\"icon hideImg\" aria-hidden=\"true\" (click)=\"delImg(i)\">\n                    <use xlink:href=\"#wang-chacha\"></use>\n                  </svg>\n                </span>\n                <img [src]=\"img.base\">\n              </li>\n              <li style=\"border:1px dashed #ccc;\" *ngIf=\"addImgShow\">\n                <svg class=\"icon\" aria-hidden=\"true\">\n                  <use xlink:href=\"#wang-weibiaoti-zhuanhuan\"></use>\n                </svg>\n                <input type=\"file\" #newImg (change)=\"FileUploader(newImg, $event)\"/>\n              </li>\n            </ul>\n          </div>\n        </div>\n        <!-- 提交按钮 -->\n        <!-- <div class=\"addPics\">\n          <input type=\"file\" (change)=\"FileUploader($event)\" />\n        </div> -->\n        <div class=\"addPics\">\n          <span (click)=\"upDateImg();\"> 提交 </span>\n        </div>\n\n      </div>\n    </div>\n\n  </div>\n</section>\n"
 
 /***/ }),
 
@@ -136,9 +136,9 @@ var BabyRoomComponent = (function () {
         var _this = this;
         this.file.push({ "file": img.files[0] });
         // for( let i=0;i<this.file.length;i++ ){
-        this.form.append('file', this.file);
+        // this.form.append('file', this.file )
         // }
-        console.log(this.form);
+        // console.log(this.form)
         var reader = new FileReader;
         reader.readAsDataURL(img.files[0]);
         var base;
@@ -146,6 +146,7 @@ var BabyRoomComponent = (function () {
             base = this.result;
         };
         setTimeout(function () {
+            _this.file.push(base);
             _this.imgList.push({
                 base: base
             });
@@ -178,6 +179,43 @@ var BabyRoomComponent = (function () {
     };
     // 明天改
     // 这里需要些两个请求，一个上传图片，一个上传数据
+    // file转Blob
+    BabyRoomComponent.prototype.toBlob = function (dataURL) {
+        console.log(dataURL);
+        var mimeString = dataURL.split(',')[0].split(':')[1].split(';')[0]; // 
+        var byteString = atob(dataURL.split(',')[1]); //base64 
+        var arrayBuffer = new ArrayBuffer(byteString.length); //
+        var intArray = new Uint8Array(arrayBuffer); //
+        for (var i = 0; i < byteString.length; i += 1) {
+            intArray[i] = byteString.charCodeAt(i);
+        }
+        var blob = new Blob([intArray], { type: mimeString }); //转成blob
+        this.form.append('file', blob);
+    };
+    // 上传图片
+    BabyRoomComponent.prototype.upDateImg = function () {
+        if (this.imgList.length > 0) {
+            for (var f = 0; f < this.imgList.length; f++) {
+                this.toBlob(this.imgList[f].base);
+            }
+            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+            // let formData = new FormData();
+            headers.append("Accept", "application/json");
+            headers.append('Content-Type', 'application/www-x-form-urlencoded');
+            headers.append('Access-Control-Allow-Origin', '*');
+            headers.append('Access-Control-Allow-Headers', 'Content-Type');
+            // formData = this.form;
+            // console.log(this.form);
+            // return false
+            var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+            this.http.post('http://localhost:4400/upDataFile/upDateImg', this.form, options)
+                .subscribe(function (res) {
+                var data;
+                data = res.json().data;
+                console.log(data);
+            });
+        }
+    };
     // 定义上传事件upDataFile,新增各类消息
     BabyRoomComponent.prototype.uploadFile = function () {
         var _this = this;

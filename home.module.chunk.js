@@ -151,6 +151,7 @@ var BabyRoomComponent = (function () {
                 base: base
             });
             _this.addImgBtn();
+            _this.toBlob(base);
             console.log(_this.imgList);
         }, 500);
         console.log(base);
@@ -181,34 +182,24 @@ var BabyRoomComponent = (function () {
     // 这里需要些两个请求，一个上传图片，一个上传数据
     // file转Blob
     BabyRoomComponent.prototype.toBlob = function (dataURL) {
-        console.log(dataURL);
-        var mimeString = dataURL.split(',')[0].split(':')[1].split(';')[0]; // 
-        var byteString = atob(dataURL.split(',')[1]); //base64 
+        // let mimeString =  dataURL.split(',')[0].split(':')[1].split(';')[0]; // 
+        var byteString = window.atob(dataURL.split(',')[1]); //base64 
         var arrayBuffer = new ArrayBuffer(byteString.length); //
         var intArray = new Uint8Array(arrayBuffer); //
         for (var i = 0; i < byteString.length; i += 1) {
             intArray[i] = byteString.charCodeAt(i);
         }
-        var blob = new Blob([intArray], { type: mimeString }); //转成blob
-        this.form.append('file', blob);
+        // let blob = new Blob([intArray], { type:  mimeString }); //转成blob
+        this.form.append('file', new Blob([intArray], { type: 'image/jpg' }));
     };
     // 上传图片
     BabyRoomComponent.prototype.upDateImg = function () {
         if (this.imgList.length > 0) {
-            for (var f = 0; f < this.imgList.length; f++) {
-                this.toBlob(this.imgList[f].base);
-            }
-            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
-            // let formData = new FormData();
-            headers.append("Accept", "application/json");
-            headers.append('Content-Type', 'application/www-x-form-urlencoded');
-            headers.append('Access-Control-Allow-Origin', '*');
-            headers.append('Access-Control-Allow-Headers', 'Content-Type');
-            // formData = this.form;
-            // console.log(this.form);
-            // return false
+            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
             var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
-            this.http.post('http://localhost:4400/upDataFile/upDateImg', this.form, options)
+            var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
+            body.set('data', JSON.stringify(this.imgList));
+            this.http.post('http://localhost:4400/upDataFile/upDateImg', body, options)
                 .subscribe(function (res) {
                 var data;
                 data = res.json().data;

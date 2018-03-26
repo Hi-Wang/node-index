@@ -166,31 +166,50 @@ var BabyRoomComponent = (function () {
                 e.nativeElement.style.color = '#fff';
             }
         });
+        //图片
         if (item.babyNavName === "图片") {
             this.imgListDisplay = 'block';
+            this.tabNav();
+        }
+        else if (item.babyNavName === "电影") {
+            this.imgListDisplay = 'block';
+            this.tabNav();
+        }
+        else if (item.babyNavName === "文章") {
+            this.imgListDisplay = 'block';
+            this.tabNav();
+        }
+        else if (item.babyNavName === "其他") {
+            this.imgListDisplay = 'block';
+            this.tabNav();
+        }
+        else if (item.babyNavName === "视频") {
+            this.imgListDisplay = 'none';
+            this.tabNav();
+        }
+        else if (item.babyNavName === "音乐") {
+            this.imgListDisplay = 'none';
+            this.tabNav();
+        }
+    };
+    BabyRoomComponent.prototype.tabNav = function () {
+        var len = this.upDateURL.length;
+        if (len === 0) {
+            this.addSet = {
+                title: '',
+                content: '',
+                label: '',
+                url: this.upDateURL
+            };
         }
         else {
-            this.imgListDisplay = 'none';
-            var len = this.upDateURL.length;
-            if (len === 0) {
-                this.addSet = {
-                    title: '',
-                    content: '',
-                    label: '',
-                    url: this.upDateURL
-                };
-            }
-            else {
-                var text = '取消';
-                var key = '';
-                for (var i = 0; i < len; i++) {
-                    this.delImgHttp(this.upDateURL[i], text, key);
-                }
+            var text = '取消';
+            var key = '';
+            for (var i = 0; i < len; i++) {
+                this.delImgHttp(this.upDateURL[i], text, key);
             }
         }
     };
-    // 明天改
-    // 这里需要些两个请求，一个上传图片，一个上传数据
     // 数据序列化
     BabyRoomComponent.prototype.toQueryString = function (obj) {
         var result = [];

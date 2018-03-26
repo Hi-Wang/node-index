@@ -3,7 +3,7 @@ webpackJsonp(["home.module"],{
 /***/ "../../../../../views/app/components/baby-room/baby-room.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section>\n  <div class=\"imgBox\">\n\n  </div>\n  <div class=\"babyRoom\">\n    <div class=\"nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" >\n          <a (click)=\"getList($event,item);\" #navStyle>\n            <span>{{item.babyNavName}}</span>\n            <span class=\"span\">20</span>\n          </a>\n        </li>\n      </ul>\n    </div>\n\n     <!-- 内容 -->\n    <div class=\"babyRoomContent\">\n      <!-- 容器 -->\n\n      <div #container id=\"container\"> \n        <!-- 承载单个图片 -->\n        <div class=\"box\" *ngFor=\"let item of viewList\" #boxList >\n          <!-- 设置图片边框效果 -->\n          <div class=\"box_img\">\n            <!-- 加载图片 -->\n            <img [src]=\"item.url\" alt=\"\">\n          </div>\n        </div>\n      </div>\n\n      <!-- <ul>\n        <li *ngFor=\"let v of viewList\" style=\"padding:10px 10px 10px 10px;text-align:center;\">\n          <P>{{v.title}}</P>\n        </li>\n      </ul>  -->\n\n\n    </div>\n    \n\n    <div class=\"addBtn\">\n      <span>点我点我！</span>\n        <svg class=\"icon\" aria-hidden=\"true\" (click)=\"hideAddClick()\">\n            <use xlink:href=\"#wang-meiguoduichang\"></use>\n        </svg>\n    </div>\n\n    <!-- 内容 -->\n    <div class=\"babyRoomAddNewWord\" #addNewWordDiv [@display]=\"currentDisplay\">\n      <div class=\"addNewWord\">\n          <svg class=\"icon hideIcon\" aria-hidden=\"true\" (click)=\"hideAddClick()\">\n              <use xlink:href=\"#wang-quxiao2\"></use>\n          </svg>\n        <!-- 头部 -->\n        <p class=\"addHeader\">来添一笔</p>\n        <!-- 标题 -->\n        <div class=\"addTitle\">\n          <span>标题</span>\n          <input placeholder=\"请填写标题\" type=\"text\" name=\"title\" [(ngModel)]=\"addSet.title\"/>\n        </div>\n        <!-- 标签 -->\n        <div class=\"addLabel\">\n          <span class=\"labelSpan\">选择标签</span>\n          <p>\n            <span class=\"span\" #addLabel *ngFor=\"let item of navList\" (click)=\"addClickLabel($event,item);\">\n              <a>{{item.babyNavName}}</a>\n            </span>\n            <span class=\"error\" #errorText [@errorText]=\"errorTextIndex\">\n              <svg class=\"icon errorIcon\" aria-hidden=\"true\">\n                <use xlink:href=\"#wang-cuowu1\"></use>\n              </svg>\n              <span>选择一个标签吧~</span>\n            </span>\n          </p>\n        </div>\n        <!-- 新增内容 -->\n        <div class=\"addContent\">\n          <span>内容</span>\n          <textarea name=\"content\" type='text' placeholder=\"想写什么些什么...\" [(ngModel)]=\"addSet.content\"></textarea>\n        </div>\n\n        <div class=\"upData\" [@display]=\"imgListDisplay\">\n          <div class=\"addImgListBox\">\n            <ul>\n              <li *ngFor=\"let img of imgList; let i = index\">\n                <span>\n                  <svg class=\"icon hideImg\" aria-hidden=\"true\" (click)=\"delImg(i)\">\n                    <use xlink:href=\"#wang-chacha\"></use>\n                  </svg>\n                </span>\n                <img [src]=\"img.base\">\n              </li>\n              <li style=\"border:1px dashed #ccc;\" *ngIf=\"addImgShow\">\n                <svg class=\"icon\" aria-hidden=\"true\">\n                  <use xlink:href=\"#wang-weibiaoti-zhuanhuan\"></use>\n                </svg>\n                <input type=\"file\" #newImg (change)=\"FileUploader(newImg, $event)\"/>\n              </li>\n            </ul>\n          </div>\n        </div>\n        <!-- 提交按钮 -->\n        <!-- <div class=\"addPics\">\n          <input type=\"file\" (change)=\"FileUploader($event)\" />\n        </div> -->\n        <div class=\"addPics\">\n          <span (click)=\"upDateImg();\"> 提交 </span>\n        </div>\n\n      </div>\n    </div>\n\n  </div>\n</section>\n"
+module.exports = "<section>\n  <div class=\"imgBox\">\n\n  </div>\n  <div class=\"babyRoom\">\n    <div class=\"nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" >\n          <a (click)=\"getList($event,item);\" #navStyle>\n            <span>{{item.babyNavName}}</span>\n            <span class=\"span\">20</span>\n          </a>\n        </li>\n      </ul>\n    </div>\n\n     <!-- 内容 -->\n    <div class=\"babyRoomContent\">\n      <!-- 容器 -->\n\n      <div #container id=\"container\"> \n        <!-- 承载单个图片 -->\n        <div class=\"box\" *ngFor=\"let item of viewList\" #boxList >\n          <!-- 设置图片边框效果 -->\n          <div class=\"box_img\">\n            <!-- 加载图片 -->\n            <img [src]=\"item.url[0]\" alt=\"\">\n          </div>\n        </div>\n      </div>\n\n      <!-- <ul>\n        <li *ngFor=\"let v of viewList\" style=\"padding:10px 10px 10px 10px;text-align:center;\">\n          <P>{{v.title}}</P>\n        </li>\n      </ul>  -->\n\n\n    </div>\n    \n\n    <div class=\"addBtn\">\n      <span>点我点我！</span>\n        <svg class=\"icon\" aria-hidden=\"true\" (click)=\"hideAddClick()\">\n            <use xlink:href=\"#wang-meiguoduichang\"></use>\n        </svg>\n    </div>\n\n    <!-- 内容 -->\n    <div class=\"babyRoomAddNewWord\" #addNewWordDiv [@display]=\"currentDisplay\">\n      <div class=\"addNewWord\">\n          <svg class=\"icon hideIcon\" aria-hidden=\"true\" (click)=\"hideAddClick()\">\n              <use xlink:href=\"#wang-quxiao2\"></use>\n          </svg>\n        <!-- 头部 -->\n        <p class=\"addHeader\">来添一笔</p>\n        <!-- 标题 -->\n        <div class=\"addTitle\">\n          <span>标题</span>\n          <input placeholder=\"请填写标题\" type=\"text\" name=\"title\" [(ngModel)]=\"addSet.title\"/>\n        </div>\n        <!-- 标签 -->\n        <div class=\"addLabel\">\n          <span class=\"labelSpan\">选择标签</span>\n          <p>\n            <span class=\"span\" #addLabel *ngFor=\"let item of navList\" (click)=\"addClickLabel($event,item);\">\n              <a>{{item.babyNavName}}</a>\n            </span>\n            <span class=\"error\" #errorText [@errorText]=\"errorTextIndex\">\n              <svg class=\"icon errorIcon\" aria-hidden=\"true\">\n                <use xlink:href=\"#wang-cuowu1\"></use>\n              </svg>\n              <span>选择一个标签吧~</span>\n            </span>\n          </p>\n        </div>\n        <!-- 新增内容 -->\n        <div class=\"addContent\">\n          <span>内容</span>\n          <textarea name=\"content\" type='text' placeholder=\"想写什么些什么...\" [(ngModel)]=\"addSet.content\"></textarea>\n        </div>\n\n        <div class=\"upData\" [@display]=\"imgListDisplay\">\n          <div class=\"addImgListBox\">\n            <ul>\n              <li *ngFor=\"let img of imgList; let i = index\">\n                <span>\n                  <svg class=\"icon hideImg\" aria-hidden=\"true\" (click)=\"delImg(i)\">\n                    <use xlink:href=\"#wang-chacha\"></use>\n                  </svg>\n                </span>\n                <img [src]=\"img.base\">\n              </li>\n              <li style=\"border:1px dashed #ccc;\" *ngIf=\"addImgShow\">\n                <svg class=\"icon\" aria-hidden=\"true\">\n                  <use xlink:href=\"#wang-weibiaoti-zhuanhuan\"></use>\n                </svg>\n                <input type=\"file\" #newImg (change)=\"FileUploader(newImg, $event)\"/>\n              </li>\n            </ul>\n          </div>\n        </div>\n        <div class=\"addPics\">\n          <span (click)=\"uploadFile();\"> 提交 </span>\n        </div>\n\n      </div>\n    </div>\n\n  </div>\n</section>\n"
 
 /***/ }),
 
@@ -33,8 +33,7 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BabyRoomComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_file_upload_file_upload_file_uploader_class__ = __webpack_require__("../../../../ng2-file-upload/file-upload/file-uploader.class.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_file_upload_file_upload_file_uploader_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_file_upload_file_upload_file_uploader_class__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -46,7 +45,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-// import { FileUploader } from 'ng2-file-upload';
 
 var BabyRoomComponent = (function () {
     function BabyRoomComponent(http, ele, renderer, cdr) {
@@ -54,20 +52,8 @@ var BabyRoomComponent = (function () {
         this.ele = ele;
         this.renderer = renderer;
         this.cdr = cdr;
-        // 新增一个文章什么的
-        this.addSet = {
-            title: '',
-            content: '',
-            label: ''
-        };
+        this.file = [];
         this.form = new FormData();
-        this.uploader = new __WEBPACK_IMPORTED_MODULE_2_ng2_file_upload_file_upload_file_uploader_class__["FileUploader"]({
-            url: 'http://localhost:4400/upDataFile/upDataFile',
-            method: 'get',
-            itemAlias: 'uploadedfile',
-            allowedFileType: ['image', 'video', 'audio'],
-            autoUpload: false
-        });
         // 瀑布流数组定义数组
         this.pullList = [];
         this.currentDisplay = 'none';
@@ -76,6 +62,13 @@ var BabyRoomComponent = (function () {
         this.addImgShow = true;
         this.file = [];
         this.imgList = [];
+        this.upDateURL = [];
+        this.addSet = {
+            title: '',
+            content: '',
+            label: '',
+            url: this.upDateURL
+        };
         // 请求页面数据
     }
     BabyRoomComponent.prototype.ngOnInit = function () {
@@ -92,69 +85,71 @@ var BabyRoomComponent = (function () {
             // var len = res.json().length;
             _this.navList = res.json().data;
             _this.viewList = res.json().message;
+            console.log(_this.viewList);
             _this.cdr.markForCheck();
             _this.cdr.detectChanges();
-            _this.pullListFunction();
+            // this.pullListFunction();
         });
     };
     // 获得图片数组
-    BabyRoomComponent.prototype.pullListFunction = function () {
-        var parent = this.containerDiv;
-        var content = this.boxDiv.toArray();
-        this.get_width(parent, content);
-    };
+    // pullListFunction() : void{
+    //   let parent = this.containerDiv;
+    //   let content = this.boxDiv.toArray();
+    //   this.get_width(parent, content)
+    // }
     // 获取图片宽度
-    BabyRoomComponent.prototype.get_width = function (parent, content) {
-        var img_width = content[1].nativeElement.offsetWidth;
-        var win_width = document.documentElement.clientWidth;
-        var num_width = Math.floor(win_width / img_width);
-        parent.nativeElement.style.cssText = "width:" + img_width * num_width + "px;margin:0 auto";
-        // this.min_image_locatin(num_width, content)
-        console.log(num_width);
-    };
+    // get_width(parent, content) : void{
+    //   let img_width = content[1].nativeElement.offsetWidth;
+    //   let win_width = document.documentElement.clientWidth;
+    //   let num_width = Math.floor(win_width / img_width);
+    //   parent.nativeElement.style.cssText = "width:" + img_width* num_width + "px;margin:0 auto";
+    //   // this.min_image_locatin(num_width, content)
+    //   // console.log(num_width)
+    // }
     // min_image_locatin
-    BabyRoomComponent.prototype.min_image_locatin = function (dec_width, content) {
-        var box_height_array = [], min_height, min_index;
-        for (var i = 0; i < content.length; i++) {
-            if (i < dec_width) {
-                box_height_array[i] = content[i].nativeElement.offsetHeight;
-            }
-            else {
-                min_height = Math.min.apply(null, box_height_array); //获取第一排图片中高度最小的图片
-                //函数获取高度最小的图片位置
-                // for (let h in box_height_array) {
-                //   console.log(box_height_array)
-                //   if (box_height_array[h] === min_height) { //循环所有数组的高度 让它等于最小图片的高度 返回i值
-                //     min_index = h;
-                //   }
-                // } 
-            }
-        }
-    };
+    // min_image_locatin(dec_width, content):void{
+    //   let box_height_array = [],min_height,min_index;
+    //   for(let i=0;i<content.length;i++){
+    //     if(i < dec_width){
+    //       box_height_array[i] = content[i].nativeElement.offsetHeight;
+    //     }else{
+    //       // min_height = Math.min.apply(null, box_height_array);  //获取第一排图片中高度最小的图片
+    //       //函数获取高度最小的图片位置
+    //       // for (let h in box_height_array) {
+    //       //   console.log(box_height_array)
+    //       //   if (box_height_array[h] === min_height) { //循环所有数组的高度 让它等于最小图片的高度 返回i值
+    //       //     min_index = h;
+    //       //   }
+    //       // } 
+    //     }
+    //   }
+    // }
     // 上传文件
     BabyRoomComponent.prototype.FileUploader = function (img, event) {
         var _this = this;
-        this.file.push({ "file": img.files[0] });
-        // for( let i=0;i<this.file.length;i++ ){
-        // this.form.append('file', this.file )
-        // }
-        // console.log(this.form)
         var reader = new FileReader;
         reader.readAsDataURL(img.files[0]);
-        var base;
-        reader.onload = function (e) {
+        var base, size, type, name;
+        reader.onload = function (value) {
+            size = img.files[0].name;
+            type = img.files[0].type;
+            name = img.files[0].name;
+            console.log(img.files[0]);
             base = this.result;
         };
         setTimeout(function () {
-            _this.file.push(base);
+            _this.file = {
+                'size': size,
+                'type': type,
+                'name': name,
+                'url': base
+            };
             _this.imgList.push({
                 base: base
             });
             _this.addImgBtn();
-            _this.toBlob(base);
-            console.log(_this.imgList);
+            _this.upDateImg(_this.file); //调用上传图片事件
         }, 500);
-        console.log(base);
     };
     // 新增文章点击标签改变样式
     BabyRoomComponent.prototype.addClickLabel = function (event, item) {
@@ -176,41 +171,75 @@ var BabyRoomComponent = (function () {
         }
         else {
             this.imgListDisplay = 'none';
+            var len = this.upDateURL.length;
+            if (len === 0) {
+                this.addSet = {
+                    title: '',
+                    content: '',
+                    label: '',
+                    url: this.upDateURL
+                };
+            }
+            else {
+                var text = '取消';
+                var key = '';
+                for (var i = 0; i < len; i++) {
+                    this.delImgHttp(this.upDateURL[i], text, key);
+                }
+            }
         }
     };
     // 明天改
     // 这里需要些两个请求，一个上传图片，一个上传数据
-    // file转Blob
-    BabyRoomComponent.prototype.toBlob = function (dataURL) {
-        // let mimeString =  dataURL.split(',')[0].split(':')[1].split(';')[0]; // 
-        var byteString = window.atob(dataURL.split(',')[1]); //base64 
-        var arrayBuffer = new ArrayBuffer(byteString.length); //
-        var intArray = new Uint8Array(arrayBuffer); //
-        for (var i = 0; i < byteString.length; i += 1) {
-            intArray[i] = byteString.charCodeAt(i);
+    // 数据序列化
+    BabyRoomComponent.prototype.toQueryString = function (obj) {
+        var result = [];
+        for (var key in obj) {
+            key = encodeURIComponent(key);
+            var values = obj[key];
+            if (values && values.constructor == Array) {
+                var queryValues = [];
+                for (var i = 0, len = values.length, value = void 0; i < len; i++) {
+                    value = values[i];
+                    queryValues.push(this.toQueryPair(key, value));
+                }
+                result = result.concat(queryValues);
+            }
+            else {
+                result.push(this.toQueryPair(key, values));
+            }
         }
-        // let blob = new Blob([intArray], { type:  mimeString }); //转成blob
-        this.form.append('file', new Blob([intArray], { type: 'image/jpg' }));
+        return result.join('&');
     };
-    // 上传图片
-    BabyRoomComponent.prototype.upDateImg = function () {
-        if (this.imgList.length > 0) {
-            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
-            var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
-            var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
-            body.set('data', JSON.stringify(this.imgList));
-            this.http.post('http://localhost:4400/upDataFile/upDateImg', body, options)
-                .subscribe(function (res) {
-                var data;
-                data = res.json().data;
-                console.log(data);
-            });
+    BabyRoomComponent.prototype.toQueryPair = function (key, value) {
+        if (typeof value == 'undefined') {
+            return key;
         }
+        return key + '=' + encodeURIComponent(value === null ? '' : String(value));
+    };
+    // 上传图片获取图片链接
+    BabyRoomComponent.prototype.upDateImg = function (file) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({
+                'Content-Type': 'application/x-www-form-urlencoded'
+            });
+            var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({
+                headers: headers
+            });
+            _this.http.post("http://localhost:4400/upDataFile/upDateImg", _this.toQueryString(file), options)
+                .map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                resolve(data), function (error) { reject(error); };
+                _this.upDateURL.push(data.imageUrl);
+                console.log(_this.upDateURL);
+            });
+        });
     };
     // 定义上传事件upDataFile,新增各类消息
     BabyRoomComponent.prototype.uploadFile = function () {
         var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'formdata' });
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
         var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
         if (this.addSet.label === "") {
@@ -219,24 +248,27 @@ var BabyRoomComponent = (function () {
         }
         var setData = JSON.stringify(this.addSet);
         body.set('data', setData);
-        body.set('file', JSON.stringify(this.form));
         console.log(body);
         this.http.post('http://localhost:4400/upDataFile/upDataFile', body, options)
             .subscribe(function (res) {
             _this.viewList = res.json().data;
-            // this.addSet = {
-            //   title : '',
-            //   content : '',
-            //   label : ''
-            // };
+            _this.imgList = [];
+            _this.upDateURL = [];
+            _this.addSet = {
+                title: '',
+                content: '',
+                label: '',
+                url: _this.upDateURL
+            };
+            _this.currentDisplay = 'none';
             console.log(_this.viewList);
         });
     };
     // 新增时点击删除图片
     BabyRoomComponent.prototype.delImg = function (key) {
-        this.imgList.splice(key, 1);
-        this.addImgBtn();
-        console.log(key);
+        var text = '删除单个';
+        var url = this.upDateURL[key];
+        this.delImgHttp(url, text, key);
     };
     // 判断添加图片按钮是否存在
     BabyRoomComponent.prototype.addImgBtn = function () {
@@ -294,8 +326,51 @@ var BabyRoomComponent = (function () {
         else if (this.currentDisplay === 'block') {
             this.currentDisplay = 'none';
             this.errorTextIndex = 'hide';
-            this.imgList = [];
+            var len = this.upDateURL.length;
+            if (len === 0) {
+                this.addSet = {
+                    title: '',
+                    content: '',
+                    label: '',
+                    url: this.upDateURL
+                };
+            }
+            else {
+                var text = '取消';
+                var key = '';
+                for (var i = 0; i < len; i++) {
+                    this.delImgHttp(this.upDateURL[i], text, key);
+                }
+            }
         }
+    };
+    // 调用删除图片接口
+    BabyRoomComponent.prototype.delImgHttp = function (url, text, key) {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
+        var delImg = url;
+        body.set('url', delImg);
+        this.http.post("http://localhost:4400/upDataFile/delImg", body, options)
+            .subscribe(function (res) {
+            if (text === "删除单个") {
+                var lala = res.json();
+                _this.imgList.splice(key, 1);
+                _this.upDateURL.splice(key, 1);
+                _this.addImgBtn();
+            }
+            else if (text === "取消") {
+                _this.imgList = [];
+                _this.upDateURL = [];
+                _this.addSet = {
+                    title: '',
+                    content: '',
+                    label: '',
+                    url: _this.upDateURL
+                };
+            }
+        });
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChildren"])('addLabel'),
@@ -427,7 +502,7 @@ var ChatroomComponent = (function () {
 /***/ "../../../../../views/app/components/demo-room/demo-room.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"section\">\n  demo房间\n</section>"
+module.exports = "<section class=\"section\">\n  <div style=\"width:400px;height:400px;border:1px solid #ccc;padding:10px;margin-top:10px;\">\n    <img style=\"width: auto;height:auto;max-width:100%;max-height:100%;\" [src]=\"src\"/>\n  </div>\n  <div>\n    <span>{{viewList}}</span>\n  </div>\n\n  <input type=\"text\" #input [ngModel]='src' (ngModelChange)=\"change(input)\" style=\"width:800px;height:30px;padding-left:10px;margin-top:10px;\" placeholder=\"请输入URL地址\">\n  <button (click)=\"click();\">提交</button>\n\n\n  <div style=\"width:400px;height:400px;border:1px solid #ccc;padding:10px;margin-top:10px;\">\n      <img style=\"width: auto;height:auto;max-width:100%;max-height:100%;\" [src]=\"src2\"/>\n    </div>\n    <input type=\"file\" #newImg (change)=\"FileUploader(newImg, $event)\" style=\"width:800px;height:30px;padding-left:10px;margin-top:10px;\" placeholder=\"请输入URL地址\">\n    <!-- <button (click)=\"click();\">提交</button> -->\n</section>\n"
 
 /***/ }),
 
@@ -455,6 +530,7 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DemoRoomComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -465,10 +541,78 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var DemoRoomComponent = (function () {
-    function DemoRoomComponent() {
+    function DemoRoomComponent(http) {
+        this.http = http;
+        this.Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+        this.src = '';
+        this.src2 = '';
+        this.list = [];
+        var objExp = new RegExp(this.Expression);
+        this.form = new FormData();
+        if (objExp.test(this.src)) {
+            console.log(true);
+        }
+        else {
+            console.log(false);
+        }
     }
     DemoRoomComponent.prototype.ngOnInit = function () {
+    };
+    DemoRoomComponent.prototype.change = function (input) {
+        this.src = input.value;
+        console.log(input.value);
+    };
+    DemoRoomComponent.prototype.click = function () {
+        var _this = this;
+        console.log(this.src);
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
+        this.list.push(this.src);
+        var index = {
+            format: 'url',
+            images: this.list
+        };
+        var lala = JSON.stringify(index);
+        body.set('name', lala);
+        console.log(lala);
+        console.log(typeof lala);
+        this.http.post("http://192.168.123.22:10000/api/img1", index)
+            .subscribe(function (res) {
+            _this.viewList = res.json();
+            console.log(res);
+            console.log(_this.viewList);
+        });
+    };
+    // 上传文件
+    DemoRoomComponent.prototype.FileUploader = function (img, event) {
+        var _this = this;
+        var reader = new FileReader;
+        reader.readAsDataURL(img.files[0]);
+        var base, size, type, name;
+        reader.onload = function (value) {
+            size = img.files[0].name;
+            type = img.files[0].type;
+            name = img.files[0].name;
+            console.log(img.files[0]);
+            base = this.result;
+        };
+        setTimeout(function () {
+            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'formdata' });
+            var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+            var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
+            _this.src2 = base;
+            _this.form = new FormData();
+            _this.form.append('image', img.files);
+            _this.http.get("http://192.168.123.22:10000/api/img2", _this.form).
+                map(function (res) { return res.json(); })
+                .subscribe(function (res) {
+                _this.viewList = res.json();
+                console.log(_this.viewList);
+            });
+        }, 500);
     };
     DemoRoomComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -476,7 +620,7 @@ var DemoRoomComponent = (function () {
             template: __webpack_require__("../../../../../views/app/components/demo-room/demo-room.component.html"),
             styles: [__webpack_require__("../../../../../views/app/components/demo-room/demo-room.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
     ], DemoRoomComponent);
     return DemoRoomComponent;
 }());
@@ -1225,6 +1369,21 @@ module.exports = __webpack_require__.p + "dream-ac86f7bf01.ac86f7bf012170ce5cf5.
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "work-27dedf7593.27dedf759391839672de.gif";
+
+/***/ }),
+
+/***/ "../../../../rxjs/_esm5/add/operator/map.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__operator_map__ = __webpack_require__("../../../../rxjs/_esm5/operator/map.js");
+/** PURE_IMPORTS_START .._.._Observable,.._.._operator_map PURE_IMPORTS_END */
+
+
+__WEBPACK_IMPORTED_MODULE_0__Observable__["a" /* Observable */].prototype.map = __WEBPACK_IMPORTED_MODULE_1__operator_map__["a" /* map */];
+//# sourceMappingURL=map.js.map 
+
 
 /***/ })
 

@@ -1291,7 +1291,7 @@ var HomeRoutes = [
 /***/ "../../../../../views/app/components/message-room/message-room.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"messageContent\">\n  <figure #messageBG class=\"messageBG\"></figure>\n  <div class=\"content\">\n    <div class=\"addMessage\">\n      <div class=\"message\">\n        <h3>Hi，你好 ~</h3>\n        <div class=\"text\">\n          <div class=\"left\">\n            <div class=\"img\">\n              <img src=\"../../../assets/images/touxiang.png\" alt=\"\">\n            </div>\n            <p (click)='alertShowHide()'>雁过留名</p>\n          </div>\n          <div class=\"right\">\n            <div class=\"div\">\n              <textarea placeholder=\"嗨，很高兴认识你~\"></textarea>\n            </div>\n            <div class=\"expression\">\n              <div class=\"biaoqing col-md-6\"></div>\n              <div class=\"send col-md-6\">\n                <span>发送</span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"allMessage\">\n      index\n    </div>\n  </div>\n</div>\n<div class=\"fullDiv\" #fullDiv [@alert]=\"fullDisplay\" (mousewheel)=\"mousewheel($event)\">\n  <div class=\"full\" (click)='alertShowHide()'></div>\n  <div class=\"alert\" #alert>\n    qqq\n  </div>\n</div>\n"
+module.exports = "<div class=\"messageContent\">\n  <figure #messageBG class=\"messageBG\"></figure>\n  <div class=\"content\">\n    <div class=\"addMessage\">\n      <div class=\"message\">\n        <h3>Hi，你好 ~</h3>\n        <div class=\"text\">\n          <div class=\"left\">\n            <div class=\"img\">\n              <img [src]=\"img\" alt=\"\">\n            </div>\n            <p (click)='alertShowHide()'>{{messageName}}</p>\n          </div>\n          <div class=\"right\">\n            <div class=\"div\">\n              <textarea placeholder=\"嗨，很高兴认识你~\" #message (focus)=\"errorDisplay = 'none'\"></textarea>\n            </div>\n            <div class=\"expression\">\n              <div class=\"biaoqing col-md-6\">\n                <p class=\"error\" [@alert]=\"errorDisplay\">\n                  什么都没写，你想干嘛！\n                </p>\n              </div>\n              <div class=\"send col-md-6\">\n                <span (click)=\"sendMessage(message)\">发送</span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"allMessage\">\n      index\n    </div>\n  </div>\n</div>\n<div class=\"fullDiv\" #fullDiv [@alert]=\"fullDisplay\" (mousewheel)=\"mousewheel($event)\">\n  <div class=\"full\" (click)='alertShowHide()'></div>\n  <div class=\"alert\" #alert>\n    <div class=\"header\">雁过留名</div>\n    <div class=\"input input1\">\n      <span>昵称</span><input #name type=\"text\" placeholder=\"告诉我，你叫啥？\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input2\">\n      <span>邮箱</span><input #email type=\"text\" placeholder=\"邮箱地址（用于获取头像）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input3\">\n      <span>博客</span><input #blog type=\"text\" placeholder=\"你的博客地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"footer\">\n      <button (click)='alertShowHide()'>取消</button>\n      <button style=\"background:#1C97DF;\" (click)=\"save(name, email, blog)\">确定</button>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1304,7 +1304,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n.messageContent .messageBG {\n  position: fixed;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 10;\n  overflow: hidden;\n  background-image: url(" + escape(__webpack_require__("../../../../../views/assets/images/banner/11781.jpg")) + ");\n  background-repeat: no-repeat;\n  background-position-x: center;\n  background-position-y: center;\n  background-size: 100%;\n  transition: all 0.6s; }\n\n.messageContent .addMessage {\n  position: absolute;\n  top: 0;\n  z-index: 100;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.4); }\n  .messageContent .addMessage .message {\n    width: 800px;\n    height: auto;\n    padding: 50px 10px 10px 10px;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    margin-top: -110px;\n    margin-left: -400px;\n    text-align: center; }\n    .messageContent .addMessage .message h3 {\n      font-size: 32px;\n      font-family: \"Arial\",\"Microsoft YaHei\",\"\\9ED1\\4F53\",\"\\5B8B\\4F53\",sans-serif;\n      font-weight: 600;\n      margin-top: -40px;\n      color: #fff;\n      height: 40px;\n      line-height: 40px; }\n    .messageContent .addMessage .message .text {\n      margin-top: 40px;\n      width: 100%;\n      height: auto;\n      background: rgba(255, 255, 255, 0.8);\n      padding-left: 140px;\n      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); }\n      .messageContent .addMessage .message .text .left {\n        position: relative;\n        width: 140px;\n        height: 140px;\n        margin-left: -140px;\n        float: left; }\n        .messageContent .addMessage .message .text .left p {\n          margin-top: 20px;\n          cursor: pointer;\n          color: #333;\n          transition: all 0.3s;\n          font-size: 14px; }\n        .messageContent .addMessage .message .text .left p:hover {\n          color: #4A6EBC; }\n        .messageContent .addMessage .message .text .left .img {\n          border-radius: 100%;\n          width: 80px;\n          height: 80px;\n          background: #fff;\n          margin: 20px auto 0 auto; }\n          .messageContent .addMessage .message .text .left .img img {\n            width: auto;\n            height: auto;\n            max-width: 100%;\n            max-height: 100%; }\n      .messageContent .addMessage .message .text .right {\n        width: 100%;\n        height: auto;\n        padding: 20px 20px 0 10px; }\n        .messageContent .addMessage .message .text .right .div {\n          display: block;\n          width: 100%;\n          height: 100px;\n          border: 1px solid #ddd;\n          position: relative;\n          background: #fff; }\n        .messageContent .addMessage .message .text .right .div::before {\n          content: \"\";\n          position: absolute;\n          display: block;\n          width: 14px;\n          height: 14px;\n          top: 14px;\n          left: -8px;\n          border: 1px solid #ddd;\n          border-width: 0 0 1px 1px;\n          background-color: #fff;\n          -webkit-transform: rotate(45deg);\n          transform: rotate(45deg); }\n        .messageContent .addMessage .message .text .right textarea {\n          width: 100%;\n          height: 100%;\n          resize: none;\n          outline: none;\n          padding: 10px;\n          border: none;\n          font-size: 12px;\n          color: #ccc; }\n        .messageContent .addMessage .message .text .right .expression {\n          padding: 10px 0;\n          height: 44px; }\n          .messageContent .addMessage .message .text .right .expression .send {\n            text-align: right;\n            height: auto;\n            padding-bottom: 10px; }\n            .messageContent .addMessage .message .text .right .expression .send span {\n              font-size: 14px;\n              display: inline-block;\n              padding: 4px 10px;\n              background: #4A6EBC;\n              cursor: pointer;\n              color: #fff;\n              transition: all 0.4s; }\n            .messageContent .addMessage .message .text .right .expression .send span:hover {\n              color: red; }\n\n.messageContent .allMessage {\n  position: absolute;\n  top: 100%;\n  z-index: 100;\n  width: 100%;\n  min-height: 100%;\n  background: #fff; }\n\n.full {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.6);\n  z-index: 1000; }\n\n.alert {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 1001;\n  width: 200px;\n  height: 300px;\n  background: #fff;\n  transition: all 0.3s; }\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n.messageContent .messageBG {\n  position: fixed;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 10;\n  overflow: hidden;\n  background-image: url(" + escape(__webpack_require__("../../../../../views/assets/images/banner/11781.jpg")) + ");\n  background-repeat: no-repeat;\n  background-position-x: center;\n  background-position-y: center;\n  background-size: 100%;\n  transition: all 0.6s; }\n\n.messageContent .addMessage {\n  position: absolute;\n  top: 0;\n  z-index: 100;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.4); }\n  .messageContent .addMessage .message {\n    width: 800px;\n    height: auto;\n    padding: 50px 10px 10px 10px;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    margin-top: -110px;\n    margin-left: -400px;\n    text-align: center; }\n    .messageContent .addMessage .message h3 {\n      font-size: 32px;\n      font-family: \"Arial\",\"Microsoft YaHei\",\"\\9ED1\\4F53\",\"\\5B8B\\4F53\",sans-serif;\n      font-weight: 600;\n      margin-top: -40px;\n      color: #fff;\n      height: 40px;\n      line-height: 40px; }\n    .messageContent .addMessage .message .text {\n      margin-top: 40px;\n      width: 100%;\n      height: auto;\n      background: rgba(255, 255, 255, 0.8);\n      padding-left: 140px;\n      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); }\n      .messageContent .addMessage .message .text .left {\n        position: relative;\n        width: 140px;\n        height: 140px;\n        margin-left: -140px;\n        float: left; }\n        .messageContent .addMessage .message .text .left p {\n          margin-top: 20px;\n          cursor: pointer;\n          color: #333;\n          transition: all 0.3s;\n          font-size: 14px; }\n        .messageContent .addMessage .message .text .left p:hover {\n          color: #4A6EBC; }\n        .messageContent .addMessage .message .text .left .img {\n          border-radius: 100%;\n          width: 80px;\n          height: 80px;\n          background: #fff;\n          margin: 28px auto 0 auto; }\n          .messageContent .addMessage .message .text .left .img img {\n            width: auto;\n            height: auto;\n            max-width: 100%;\n            max-height: 100%; }\n      .messageContent .addMessage .message .text .right {\n        width: 100%;\n        height: auto;\n        padding: 20px 20px 0 10px; }\n        .messageContent .addMessage .message .text .right .div {\n          display: block;\n          width: 100%;\n          height: 100px;\n          border: 1px solid #ddd;\n          position: relative;\n          background: #fff; }\n        .messageContent .addMessage .message .text .right .div::before {\n          content: \"\";\n          position: absolute;\n          display: block;\n          width: 14px;\n          height: 14px;\n          top: 14px;\n          left: -8px;\n          border: 1px solid #ddd;\n          border-width: 0 0 1px 1px;\n          background-color: #fff;\n          -webkit-transform: rotate(45deg);\n          transform: rotate(45deg); }\n        .messageContent .addMessage .message .text .right textarea {\n          width: 100%;\n          height: 100%;\n          resize: none;\n          outline: none;\n          padding: 10px;\n          border: none;\n          font-size: 12px;\n          color: #ccc; }\n        .messageContent .addMessage .message .text .right .expression {\n          padding: 10px 0;\n          height: 44px; }\n          .messageContent .addMessage .message .text .right .expression .biaoqing {\n            text-align: left;\n            font-size: 12px;\n            color: #F6B603; }\n            .messageContent .addMessage .message .text .right .expression .biaoqing .icon {\n              font-size: 18px;\n              margin-right: 10px; }\n          .messageContent .addMessage .message .text .right .expression .send {\n            text-align: right;\n            height: auto;\n            padding-bottom: 10px; }\n            .messageContent .addMessage .message .text .right .expression .send span {\n              font-size: 14px;\n              display: inline-block;\n              padding: 4px 14px;\n              background: #1C97DF;\n              cursor: pointer;\n              color: #fff;\n              transition: all 0.4s; }\n            .messageContent .addMessage .message .text .right .expression .send span:hover {\n              background: #4A6EBC; }\n\n.messageContent .allMessage {\n  position: absolute;\n  top: 100%;\n  z-index: 100;\n  width: 100%;\n  min-height: 100%;\n  background: #fff; }\n\n.full {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.6);\n  z-index: 1000; }\n\n.alert {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 1001;\n  width: 400px;\n  height: 260px;\n  background: #fff;\n  transition: all 0.3s;\n  padding-top: 50px;\n  box-shadow: rgba(0, 0, 0, 0.4); }\n  .alert .header {\n    height: 50px;\n    line-height: 50px;\n    margin-top: -50px;\n    text-align: center;\n    font-size: 16px;\n    font-weight: 600; }\n  .alert .input {\n    padding: 10px 10px 10px 70px; }\n    .alert .input span {\n      width: 60px;\n      margin-left: -60px;\n      display: inline-block;\n      font-size: 12px;\n      padding-right: 20px;\n      text-align: right; }\n    .alert .input input {\n      width: 100%;\n      font-size: 12px;\n      border-radius: 4px;\n      padding-left: 10px;\n      border: 1px solid #ccc;\n      height: 30px;\n      outline: none;\n      -webkit-appearance: none;\n      box-shadow: 0px 0 3px rgba(0, 0, 0, 0.2) inset; }\n    .alert .input input:focus {\n      border: 1px solid #1C97DF;\n      box-shadow: none; }\n  .alert .footer {\n    padding: 10px;\n    text-align: center; }\n    .alert .footer button {\n      font-size: 12px;\n      padding: 6px 18px;\n      border: none;\n      margin: 0 10px;\n      color: #fff;\n      border-radius: 4px; }\n", ""]);
 
 // exports
 
@@ -1320,6 +1320,8 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageRoomComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1329,43 +1331,55 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
 
 var MessageRoomComponent = (function () {
-    function MessageRoomComponent(ele) {
+    function MessageRoomComponent(ele, http, _renderer2, _document) {
         this.ele = ele;
+        this.http = http;
+        this._renderer2 = _renderer2;
+        this._document = _document;
         this.fullDisplay = 'none';
-        // setTimeout(() => {
-        //   this.changeBG()
-        // },100)
+        this.errorDisplay = 'none';
+        this.messageName = '雁过留名';
+        this.img = '../../../assets/images/touxiang.png';
     }
     MessageRoomComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
         setInterval(function () {
             _this.changeBG();
-        }, 8000);
+        }, 10000);
     };
     MessageRoomComponent.prototype.changeBG = function () {
         var imgArr = ['14254.jpg', '5510.jpg', '11781.jpg', '14529.jpg', '11212.jpg', '14414.jpg', '14248.jpg', 'apic2278.jpg'];
         this.currentImg = Math.floor(Math.random() * 8);
         this.messageBG.nativeElement.style.backgroundImage = "url(../../../assets/images/banner/" + imgArr[this.currentImg] + ")";
-        console.log(this.messageBG.nativeElement.style.backgroundImage);
     };
     MessageRoomComponent.prototype.ngOnInit = function () {
     };
     // 弹框显示影藏
     MessageRoomComponent.prototype.alertShowHide = function () {
+        this.errorDisplay = 'none';
         if (this.fullDisplay === 'none') {
             this.fullDisplay = 'block';
-            var screenWidth = document.documentElement.clientWidth;
-            var screenHeight = document.documentElement.clientHeight;
-            var top_1 = (screenHeight - 300) / 2;
-            var left = (screenWidth - 200) / 2;
-            this.alert.nativeElement.style.top = top_1 + 'px';
-            this.alert.nativeElement.style.left = left + 'px';
+            this.screen();
         }
         else if (this.fullDisplay === 'block') {
             this.fullDisplay = 'none';
         }
+    };
+    // 弹框出现判断位置
+    MessageRoomComponent.prototype.screen = function () {
+        var screenWidth = document.documentElement.clientWidth;
+        var screenHeight = document.documentElement.clientHeight;
+        var top = (screenHeight - 260) / 2;
+        var left = (screenWidth - 400) / 2;
+        this.alert.nativeElement.style.top = top + 'px';
+        this.alert.nativeElement.style.left = left + 'px';
     };
     // 鼠标滚动事件
     MessageRoomComponent.prototype.mousewheel = function (e) {
@@ -1373,10 +1387,89 @@ var MessageRoomComponent = (function () {
         var screenWidth = document.documentElement.clientWidth;
         var screenHeight = document.documentElement.clientHeight;
         var scrollTop = document.documentElement.scrollTop;
-        var top = (screenHeight - 300) / 2 + scrollTop;
-        var left = (screenWidth - 200) / 2;
+        var top = (screenHeight - 260) / 2 + scrollTop;
+        var left = (screenWidth - 400) / 2;
         this.alert.nativeElement.style.top = top + 'px';
         this.alert.nativeElement.style.left = left + 'px';
+    };
+    // 保存昵称
+    MessageRoomComponent.prototype.save = function (name, email, blog) {
+        var _this = this;
+        var emailRegEx = new RegExp(/^([a-zA-Z0-9._-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/);
+        if (name.value === '' || name.value === '昵称！昵称！要填！') {
+            name.style.border = '1px solid #F6B603';
+            name.style.color = '#F6B603';
+            name.value = "昵称！昵称！要填！";
+            return false;
+        }
+        if (email.value === '' || email.value === '大哥，邮箱地址！') {
+            email.style.border = '1px solid #F6B603';
+            email.style.color = '#F6B603';
+            email.value = "大哥，邮箱地址！";
+            return false;
+        }
+        else if (!emailRegEx.test(email.value)) {
+            email.style.border = '1px solid #F6B603';
+            email.style.color = '#F6B603';
+            email.value = "回来！地址错了！";
+            return false;
+        }
+        else {
+            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+            var options_1 = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+            var body_1 = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
+            var address_1;
+            body_1.set('name', name.value);
+            body_1.set('email', email.value);
+            body_1.set('blog', blog.value);
+            $.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js', function (_result) {
+                var remote_ip_info;
+                if (remote_ip_info.ret == '1') {
+                    if (remote_ip_info.province === remote_ip_info.city) {
+                        address_1 = remote_ip_info.city;
+                    }
+                    else {
+                        address_1 = remote_ip_info.province + '|' + remote_ip_info.city;
+                    }
+                    body_1.set('address', address_1);
+                }
+                else {
+                    address_1 = '';
+                    body_1.set('address', address_1);
+                }
+            });
+            console.log(body_1);
+            setTimeout(function () {
+                _this.http.post("http://localhost:4400/messageLib/getEmail", body_1, options_1)
+                    .subscribe(function (res) {
+                    var data = res.json();
+                    _this.messageName = data.data.name;
+                    _this.img = data.data.img;
+                    _this.fullDisplay = 'none';
+                });
+            }, 100);
+        }
+    };
+    // 表单验证失去焦点
+    MessageRoomComponent.prototype.inputStyleBlur = function (e) {
+        e.target.style.border = "1px solid #ccc";
+        e.target.style.color = '#333';
+    };
+    // 表单验证样式获取焦点
+    MessageRoomComponent.prototype.inputStyleFocus = function (e) {
+        e.target.style.border = "1px solid #1C97DF";
+        e.target.style.color = '#333';
+        e.target.value = '';
+    };
+    // 发送留言
+    MessageRoomComponent.prototype.sendMessage = function (message) {
+        if (message.value === '') {
+            this.errorDisplay = 'block';
+        }
+        else {
+            this.fullDisplay = 'block';
+            this.screen();
+        }
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('messageBG'),
@@ -1386,6 +1479,18 @@ var MessageRoomComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('alert'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], MessageRoomComponent.prototype, "alert", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('name'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], MessageRoomComponent.prototype, "inputName", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('email'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], MessageRoomComponent.prototype, "inputEmail", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('blog'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], MessageRoomComponent.prototype, "inputBlog", void 0);
     MessageRoomComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-message-room',
@@ -1406,7 +1511,8 @@ var MessageRoomComponent = (function () {
                 ])
             ]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]])
+        __param(3, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["b" /* DOCUMENT */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer2"], Object])
     ], MessageRoomComponent);
     return MessageRoomComponent;
 }());

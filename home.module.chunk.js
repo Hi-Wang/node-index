@@ -1291,7 +1291,7 @@ var HomeRoutes = [
 /***/ "../../../../../views/app/components/message-room/message-room.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"messageContent\">\n  <figure #messageBG class=\"messageBG\"></figure>\n  <div class=\"content\">\n    <div class=\"addMessage\">\n      <div class=\"message\">\n        <h3>Hi，你好 ~</h3>\n        <div class=\"text\">\n          <div class=\"left\">\n            <div class=\"img\">\n              <img [src]=\"img\" alt=\"\">\n            </div>\n            <p (click)='alertShowHide()'>{{messageName}}</p>\n          </div>\n          <div class=\"right\">\n            <div class=\"div\">\n              <textarea placeholder=\"嗨，很高兴认识你~\" #message (focus)=\"errorDisplay = 'none'\"></textarea>\n            </div>\n            <div class=\"expression\">\n              <div class=\"biaoqing col-md-6\">\n                <p class=\"error\" [@alert]=\"errorDisplay\">\n                  什么都没写，你想干嘛！\n                </p>\n              </div>\n              <div class=\"send col-md-6\">\n                <span (click)=\"sendMessage(message)\">发送</span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"allMessage\">\n      index\n    </div>\n  </div>\n</div>\n<div class=\"fullDiv\" #fullDiv [@alert]=\"fullDisplay\" (mousewheel)=\"mousewheel($event)\">\n  <div class=\"full\" (click)='alertShowHide()'></div>\n  <div class=\"alert\" #alert>\n    <div class=\"header\">雁过留名</div>\n    <div class=\"input input1\">\n      <span>昵称</span><input #name type=\"text\" placeholder=\"告诉我，你叫啥？\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input2\">\n      <span>邮箱</span><input #email type=\"text\" placeholder=\"邮箱地址（用于获取头像）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input3\">\n      <span>博客</span><input #blog type=\"text\" placeholder=\"你的博客地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"footer\">\n      <button (click)='alertShowHide()'>取消</button>\n      <button style=\"background:#1C97DF;\" (click)=\"save(name, email, blog)\">确定</button>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"messageContent\">\n  <figure #messageBG class=\"messageBG\"></figure>\n  <div class=\"content\">\n    <div class=\"addMessage\">\n      <div class=\"message\">\n        <h3>Hi，你好 ~</h3>\n        <div class=\"text\">\n          <div class=\"left\">\n            <div class=\"img\">\n              <img [src]=\"img\" alt=\"\">\n            </div>\n            <p (click)='alertShowHide()'>{{messageName}}</p>\n          </div>\n          <div class=\"right\">\n            <div class=\"div\">\n              <textarea placeholder=\"嗨，很高兴认识你~\" #message (focus)=\"errorDisplay = 'none'\"></textarea>\n            </div>\n            <div class=\"expression\">\n              <div class=\"biaoqing col-md-6\">\n                <p class=\"error\" [@alert]=\"errorDisplay\">\n                  什么都没写，你想干嘛！\n                </p>\n              </div>\n              <div class=\"send col-md-6\">\n                <span (click)=\"sendMessage(message)\">发送</span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <!-- 留言板列表开始 -->\n    <div class=\"allMessage\">\n      index\n    </div>\n    <!-- 留言板列表结束 -->\n  </div>\n</div>\n<div class=\"fullDiv\" #fullDiv [@alert]=\"fullDisplay\" (mousewheel)=\"mousewheel($event)\">\n  <div class=\"full\" (click)='alertShowHide()'></div>\n  <div class=\"alert\" #alert>\n    <div class=\"header\">雁过留名</div>\n    <div class=\"input input1\">\n      <span>昵称</span><input #name type=\"text\" placeholder=\"告诉我，你叫啥？\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input2\">\n      <span>邮箱</span><input #email type=\"text\" placeholder=\"邮箱地址（用于获取头像）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input3\">\n      <span>博客</span><input #blog type=\"text\" placeholder=\"你的博客地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"footer\">\n      <button (click)='alertShowHide()'>取消</button>\n      <button style=\"background:#1C97DF;\" (click)=\"save(name, email, blog)\">确定</button>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1361,6 +1361,13 @@ var MessageRoomComponent = (function () {
         this.messageBG.nativeElement.style.backgroundImage = "url(../../../assets/images/banner/" + imgArr[this.currentImg] + ")";
     };
     MessageRoomComponent.prototype.ngOnInit = function () {
+        //  刚进页面拿到数据
+        var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
+        this.http.post('http://localhost:4400/messageLib/getMessageList', body)
+            .subscribe(function (res) {
+            var data = res.json();
+            console.log(data);
+        });
     };
     // 弹框显示影藏
     MessageRoomComponent.prototype.alertShowHide = function () {
@@ -1459,9 +1466,15 @@ var MessageRoomComponent = (function () {
                 this.screen();
             }
             else {
+                this.setMessageData.message = message.value;
+                var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
                 console.log(this.setMessageData);
-                // this.http.post('http://localhost:4400/messageLib/saveMessage',)
-                console.log('可以请求了！');
+                body.set('data', JSON.stringify(this.setMessageData));
+                this.http.post('http://localhost:4400/messageLib/saveMessage', body)
+                    .subscribe(function (res) {
+                    var data = res.json();
+                    console.log(data);
+                });
             }
         }
     };

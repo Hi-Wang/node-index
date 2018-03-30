@@ -3,7 +3,7 @@ webpackJsonp(["home.module"],{
 /***/ "../../../../../views/app/components/alert-model/alert-model.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  alert-model works!\n</p>\n"
+module.exports = "<div class=\"alertModel\" [@display]=\"alertModelShow\">\n  <div class=\"alert_content\">\n    {{alertText}}\n  </div>\n</div>"
 
 /***/ }),
 
@@ -15,7 +15,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".alertModel {\n  position: absolute;\n  top: 10%;\n  width: 100%;\n  z-index: 20000;\n  text-align: center; }\n  .alertModel .alert_content {\n    display: inline-block;\n    padding: 20px 80px;\n    color: #1C97DF;\n    font-weight: 600;\n    text-align: center;\n    background: #fff;\n    border-radius: 4px;\n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }\n", ""]);
 
 // exports
 
@@ -43,14 +43,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AlertModelComponent = (function () {
     function AlertModelComponent() {
+        this.alertModelShow = 'none';
     }
     AlertModelComponent.prototype.ngOnInit = function () {
     };
+    AlertModelComponent.prototype.modelShow = function (value) {
+        this.alertText = value;
+        this.alertModelShow = 'block';
+    };
+    AlertModelComponent.prototype.modelHide = function () {
+        this.alertModelShow = 'none';
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], AlertModelComponent.prototype, "alertValue", void 0);
     AlertModelComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-alert-model',
             template: __webpack_require__("../../../../../views/app/components/alert-model/alert-model.component.html"),
-            styles: [__webpack_require__("../../../../../views/app/components/alert-model/alert-model.component.scss")]
+            styles: [__webpack_require__("../../../../../views/app/components/alert-model/alert-model.component.scss")],
+            animations: [
+                Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["trigger"])('display', [
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["state"])('none', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["style"])({
+                        'top': '-10%',
+                        'display': 'none'
+                    })),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["state"])('block', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["style"])({
+                        'top': '12%',
+                        'display': 'block'
+                    })),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["transition"])('block => none', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["animate"])('600ms cubic-bezier(0.4, 0, 0.2, 1)')),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["transition"])('none => block', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["animate"])('600ms cubic-bezier(0.4, 0, 0.2, 1)'))
+                ])
+            ]
         }),
         __metadata("design:paramtypes", [])
     ], AlertModelComponent);
@@ -712,7 +738,7 @@ var DemoRoomComponent = (function () {
 /***/ "../../../../../views/app/components/go-top/go-top.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  go-top works!\n</p>\n"
+module.exports = "<div class=\"top\" [@show]=\"goTop\" (click)='GoTop()' >\n  <svg class=\"icon\" aria-hidden=\"true\">\n    <use xlink:href=\"#wang-top\"></use>\n  </svg>\n</div>\n"
 
 /***/ }),
 
@@ -724,7 +750,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".top {\n  position: fixed;\n  z-index: 30000;\n  right: 20px;\n  bottom: 20px;\n  width: 60px;\n  height: 60px;\n  line-height: 60px;\n  text-align: center;\n  cursor: pointer; }\n  .top .icon {\n    font-size: 50px; }\n\n.top:hover {\n  -webkit-animation: myfirst 2s ease-in-out;\n          animation: myfirst 2s ease-in-out; }\n", ""]);
 
 // exports
 
@@ -752,14 +778,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var GoTopComponent = (function () {
     function GoTopComponent() {
+        this.goTop = 'none';
     }
     GoTopComponent.prototype.ngOnInit = function () {
+    };
+    GoTopComponent.prototype.goTopShow = function () {
+        this.goTop = 'block';
+    };
+    GoTopComponent.prototype.goTopHide = function () {
+        this.goTop = 'none';
+    };
+    // 回到顶层
+    GoTopComponent.prototype.GoTop = function () {
+        var timer = setInterval(function () {
+            var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var isSpeed = Math.floor(-osTop / 6);
+            document.documentElement.scrollTop = document.body.scrollTop = osTop + isSpeed;
+            if (osTop == 0) {
+                clearInterval(timer);
+            }
+        }, 30);
     };
     GoTopComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-go-top',
             template: __webpack_require__("../../../../../views/app/components/go-top/go-top.component.html"),
-            styles: [__webpack_require__("../../../../../views/app/components/go-top/go-top.component.scss")]
+            styles: [__webpack_require__("../../../../../views/app/components/go-top/go-top.component.scss")],
+            animations: [
+                Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["trigger"])('show', [
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["state"])('block', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["style"])({
+                        'display': 'block',
+                        'opacity': '1'
+                    })),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["state"])('none', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["style"])({
+                        'display': 'none',
+                        'opacity': '0'
+                    })),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["transition"])('block => none', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["animate"])('600ms cubic-bezier(0.4, 0, 0.2, 1)')),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["transition"])('none => block', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["animate"])('600ms cubic-bezier(0.4, 0, 0.2, 1)'))
+                ])
+            ]
         }),
         __metadata("design:paramtypes", [])
     ], GoTopComponent);
@@ -1240,7 +1298,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav, ul, nav, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\narticle, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {\n  display: block; }\n\nol, ul {\n  list-style: none;\n  margin: 0px;\n  padding: 0px;\n  font-size: 62.5%; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after, q:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.app {\n  background: #ccc;\n  position: absolute;\n  width: 100%;\n  height: 100%; }\n\nsection {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background: #fff; }\n\n.section {\n  padding-top: 55px; }\n\n.icon {\n  width: 1em;\n  height: 1em;\n  vertical-align: -0.15em;\n  fill: currentColor;\n  overflow: hidden; }\n\n::-webkit-scrollbar {\n  width: 0.1rem;\n  height: 0.1rem; }\n\n::-webkit-scrollbar-track {\n  background: #eee;\n  border: thin solid lightgray;\n  box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -moz-box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -webkit-box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -o-box-shadow: 2rem 0 2rem #f6f6f6 inset; }\n\n::-webkit-scrollbar-thumb {\n  background: #1E8BC3; }\n\nheader {\n  width: 100%;\n  height: 55px;\n  background: rgba(255, 255, 255, 0.6);\n  opacity: 1;\n  position: fixed;\n  z-index: 1000;\n  top: 0;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n  padding: 4px 0; }\n\n.github-corner:hover {\n  width: 70px;\n  height: 70px; }\n\nheader .col-md-2 {\n  text-align: center;\n  line-height: 55px; }\n\nheader .nav {\n  position: relative;\n  top: 0; }\n  header .nav ul li {\n    float: left;\n    font-size: 14px;\n    font-family: helvetica neue \",arial,sans-serif\";\n    margin: 0 10px;\n    text-align: center;\n    cursor: pointer; }\n    header .nav ul li a {\n      text-decoration: none;\n      color: #333; }\n\nheader .right {\n  padding-left: 20px;\n  padding-right: 6%;\n  line-height: 45px;\n  border-left: 1px solid #ccc; }\n  header .right ul li {\n    list-style: none;\n    font-size: 12px;\n    float: right;\n    padding: 0 10px;\n    margin: 0 10px;\n    display: line-block;\n    cursor: pointer;\n    background: red; }\n\n.set_4_button1 {\n  position: relative;\n  font-weight: 400;\n  text-align: center;\n  width: auto;\n  float: left;\n  padding: 0 16px;\n  line-height: 48px;\n  overflow: hidden;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  color: #333; }\n\n.set_4_button1.raised {\n  transition: all 0.1s; }\n\n.anim {\n  -webkit-transform: translateY(-50%) translateX(-50%);\n  transform: translateY(-50%) translateX(-50%);\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: -1;\n  border: none; }\n\n.anim:before {\n  position: relative;\n  content: '';\n  display: block;\n  margin-top: 100%; }\n\n.anim:after {\n  content: '';\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  border-radius: 50%; }\n\n.clickable .toggle:checked + .anim {\n  -webkit-animation: anim-in 0.75s;\n  animation: anim-in 0.75s; }\n\n.clickable .toggle:checked + .anim:after {\n  -webkit-animation: anim-in-pseudo 0.75s;\n  animation: anim-in-pseudo 0.75s; }\n\n.clickable .toggle:not(:checked) + .anim {\n  -webkit-animation: anim-out 0.75s;\n  animation: anim-out 0.75s; }\n\n.clickable .toggle:not(:checked) + .anim:after {\n  -webkit-animation: anim-out-pseudo 0.75s;\n  animation: anim-out-pseudo 0.75s; }\n\n.hoverable:hover > .anim {\n  -webkit-animation: anim-out 0.75s;\n  animation: anim-out 0.75s; }\n\n.hoverable:hover > .anim:after {\n  -webkit-animation: anim-out-pseudo 0.75s;\n  animation: anim-out-pseudo 0.75s; }\n\n@-webkit-keyframes anim-in {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@keyframes anim-in {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@-webkit-keyframes anim-in-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@keyframes anim-in-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@-webkit-keyframes anim-out {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@keyframes anim-out {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@-webkit-keyframes anim-out-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@keyframes anim-out-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n", ""]);
+exports.push([module.i, "html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav, ul, nav, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\narticle, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {\n  display: block; }\n\nol, ul {\n  list-style: none;\n  margin: 0px;\n  padding: 0px;\n  font-size: 62.5%; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after, q:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.app {\n  background: #ccc;\n  position: absolute;\n  width: 100%;\n  height: 100%; }\n\nsection {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background: #fff; }\n\n.section {\n  padding-top: 55px; }\n\n.icon {\n  width: 1em;\n  height: 1em;\n  vertical-align: -0.15em;\n  fill: currentColor;\n  overflow: hidden; }\n\n@-webkit-keyframes myfirst {\n  0% {\n    transition: all 0.8s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  25% {\n    transition: all 0.6s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  50% {\n    transition: all 0.4s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  75% {\n    transition: all 0.2s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  100% {\n    transition: all 0.1s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); } }\n\n@keyframes myfirst {\n  0% {\n    transition: all 0.8s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  25% {\n    transition: all 0.6s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  50% {\n    transition: all 0.4s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  75% {\n    transition: all 0.2s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  100% {\n    transition: all 0.1s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); } }\n\n::-webkit-scrollbar {\n  width: 0.1rem;\n  height: 0.1rem; }\n\n::-webkit-scrollbar-track {\n  background: #eee;\n  border: thin solid lightgray;\n  box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -moz-box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -webkit-box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -o-box-shadow: 2rem 0 2rem #f6f6f6 inset; }\n\n::-webkit-scrollbar-thumb {\n  background: #1E8BC3; }\n\nheader {\n  width: 100%;\n  height: 55px;\n  background: rgba(255, 255, 255, 0.6);\n  opacity: 1;\n  position: fixed;\n  z-index: 1000;\n  top: 0;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n  padding: 4px 0; }\n\n.github-corner:hover {\n  width: 70px;\n  height: 70px; }\n\nheader .col-md-2 {\n  text-align: center;\n  line-height: 55px; }\n\nheader .nav {\n  position: relative;\n  top: 0; }\n  header .nav ul li {\n    float: left;\n    font-size: 14px;\n    font-family: helvetica neue \",arial,sans-serif\";\n    margin: 0 10px;\n    text-align: center;\n    cursor: pointer; }\n    header .nav ul li a {\n      text-decoration: none;\n      color: #333; }\n\nheader .right {\n  padding-left: 20px;\n  padding-right: 6%;\n  line-height: 45px;\n  border-left: 1px solid #ccc; }\n  header .right ul li {\n    list-style: none;\n    font-size: 12px;\n    float: right;\n    padding: 0 10px;\n    margin: 0 10px;\n    display: line-block;\n    cursor: pointer;\n    background: red; }\n\n.set_4_button1 {\n  position: relative;\n  font-weight: 400;\n  text-align: center;\n  width: auto;\n  float: left;\n  padding: 0 16px;\n  line-height: 48px;\n  overflow: hidden;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  color: #333; }\n\n.set_4_button1.raised {\n  transition: all 0.1s; }\n\n.anim {\n  -webkit-transform: translateY(-50%) translateX(-50%);\n  transform: translateY(-50%) translateX(-50%);\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: -1;\n  border: none; }\n\n.anim:before {\n  position: relative;\n  content: '';\n  display: block;\n  margin-top: 100%; }\n\n.anim:after {\n  content: '';\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  border-radius: 50%; }\n\n.clickable .toggle:checked + .anim {\n  -webkit-animation: anim-in 0.75s;\n  animation: anim-in 0.75s; }\n\n.clickable .toggle:checked + .anim:after {\n  -webkit-animation: anim-in-pseudo 0.75s;\n  animation: anim-in-pseudo 0.75s; }\n\n.clickable .toggle:not(:checked) + .anim {\n  -webkit-animation: anim-out 0.75s;\n  animation: anim-out 0.75s; }\n\n.clickable .toggle:not(:checked) + .anim:after {\n  -webkit-animation: anim-out-pseudo 0.75s;\n  animation: anim-out-pseudo 0.75s; }\n\n.hoverable:hover > .anim {\n  -webkit-animation: anim-out 0.75s;\n  animation: anim-out 0.75s; }\n\n.hoverable:hover > .anim:after {\n  -webkit-animation: anim-out-pseudo 0.75s;\n  animation: anim-out-pseudo 0.75s; }\n\n@-webkit-keyframes anim-in {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@keyframes anim-in {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@-webkit-keyframes anim-in-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@keyframes anim-in-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@-webkit-keyframes anim-out {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@keyframes anim-out {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@-webkit-keyframes anim-out-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@keyframes anim-out-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n", ""]);
 
 // exports
 
@@ -1420,7 +1478,7 @@ var HomeRoutes = [
 /***/ "../../../../../views/app/components/message-room/message-room.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"messageContent\">\n  <figure #messageBG class=\"messageBG\"></figure>\n  <div class=\"content\">\n    <div class=\"addMessage\">\n      <div class=\"message\">\n        <h3>Hi，你好 ~</h3>\n        <div class=\"text\">\n          <div class=\"left\">\n            <div class=\"img\">\n              <img [src]=\"img\" alt=\"\">\n            </div>\n            <p (click)='alertShowHide()'>{{messageName}}</p>\n          </div>\n          <div class=\"right\">\n            <div class=\"div\">\n              <textarea placeholder=\"嗨，很高兴认识你~\" #message (focus)=\"errorDisplay = 'none'\"></textarea>\n            </div>\n            <div class=\"expression\">\n              <div class=\"biaoqing col-md-6\">\n                <p class=\"error\" [@alert]=\"errorDisplay\">\n                  什么都没写，你想干嘛！\n                </p>\n              </div>\n              <div class=\"send col-md-6\">\n                <span (click)=\"sendMessage(message)\">发送</span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <!-- 留言板列表开始 -->\n    <div class=\"allMessage\">\n      <div class=\"messageList\">\n        <div class=\"list\" *ngFor=\"let message of messageList; let i = index\">\n          <!-- 第一行头像 -->\n          <div class=\"person\">\n            <div class=\"img\">\n              <img [src]=\"message.img\">\n            </div>\n            <div class=\"text\">\n              <p>{{message.name}}</p>\n              <span class=\"blog\" *ngIf=\"message.blogShow\"><a [href]=\"message.blog\" target=\"view_window\" [title]=\"message.blog\">Blog</a></span>\n              <span class=\"github\" *ngIf=\"message.githubShow\"><a [href]=\"message.github\" target=\"view_window\" [title]=\"message.github\">Github</a></span>\n            </div>\n            <div class=\"foor\">\n              <span>{{message.foorIndex}} 楼</span> \n              &nbsp;| &nbsp;\n              <span style=\"color:#1C97DF;cursor: pointer;\">回复</span>\n            </div>\n          </div>\n          <!-- 第二行留言内容 -->\n          <div class=\"messageView\">\n            <p>{{message.message}}</p>\n          </div>\n          <!-- 第三行时间等 -->\n          <div class=\"timeAddress\">\n            <svg class=\"icon\" aria-hidden=\"true\">\n              <use xlink:href=\"#wang-zuobiao-copy\"></use>\n            </svg>\n            <p>\n              <span>{{message.address}}</span>&nbsp;&nbsp;\n              <span>{{message.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>\n            </p>\n          </div>\n        </div>\n        <div class=\"list\">\n          <app-alert-model></app-alert-model>\n        </div>\n        <div class=\"list\">\n          <app-go-top></app-go-top>\n        </div>\n      </div>\n    </div>\n    <!-- 留言板列表结束 -->\n  </div>\n</div>\n<div class=\"fullDiv\" #fullDiv [@alert]=\"fullDisplay\" (mousewheel)=\"mousewheel($event)\">\n  <div class=\"full\" (click)='alertShowHide()'></div>\n  <div class=\"alert\" #alert>\n    <div class=\"header\">雁过留名</div>\n    <div class=\"input input1\">\n      <span>昵称</span><input #name type=\"text\" placeholder=\"告诉我，你叫啥？\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input2\">\n      <span>邮箱</span><input #email type=\"text\" placeholder=\"邮箱地址（用于获取头像）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input3\">\n      <span>博客</span><input #blog type=\"text\" placeholder=\"你的博客地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input3\">\n      <span>Github</span><input #Github type=\"text\" placeholder=\"你的Github地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"footer\">\n      <button (click)='alertShowHide()'>取消</button>\n      <button style=\"background:#1C97DF;\" (click)=\"save(name, email, blog, Github)\">确定</button>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!-- 外链组件开始 -->\n<app-alert-model alertValue='{{alertValue}}'></app-alert-model>\n<app-go-top></app-go-top>\n<!-- 外联组件结束 -->\n<div class=\"messageContent\" (mousewheel)=\"windowScreen()\">\n  <figure #messageBG class=\"messageBG\"></figure>\n  <div class=\"content\">\n    <div class=\"addMessage\" #addMessage>\n      <div class=\"message\">\n        <h3>Hi，你好 ~</h3>\n        <div class=\"text\">\n          <div class=\"left\">\n            <div class=\"img\">\n              <img [src]=\"img\" alt=\"\">\n            </div>\n            <p (click)='alertShowHide()'>{{messageName}}</p>\n          </div>\n          <div class=\"right\">\n            <div class=\"div\">\n              <textarea placeholder=\"嗨，很高兴认识你~\" #message (focus)=\"errorDisplay = 'none'\"></textarea>\n            </div>\n            <div class=\"expression\">\n              <div class=\"biaoqing col-md-6\">\n                <p class=\"error\" [@alert]=\"errorDisplay\">\n                  什么都没写，你想干嘛！\n                </p>\n              </div>\n              <div class=\"send col-md-6\">\n                <span (click)=\"sendMessage(message)\">发送</span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <!-- 留言板列表开始 -->\n    <div class=\"allMessage\">\n      <div class=\"messageList\">\n        <div class=\"list\" *ngFor=\"let message of messageList; let i = index\">\n          <!-- 第一行头像 -->\n          <div class=\"person\">\n            <div class=\"img\">\n              <img [src]=\"message.img\">\n            </div>\n            <div class=\"text\">\n              <p>{{message.name}}</p>\n              <span class=\"blog\" *ngIf=\"message.blogShow\"><a [href]=\"message.blog\" target=\"view_window\" [title]=\"message.blog\">Blog</a></span>\n              <span class=\"github\" *ngIf=\"message.githubShow\"><a [href]=\"message.github\" target=\"view_window\" [title]=\"message.github\">Github</a></span>\n            </div>\n            <div class=\"foor\">\n              <span>{{message.foorIndex}} 楼</span> \n              &nbsp;| &nbsp;\n              <span style=\"color:#1C97DF;cursor: pointer;\">回复</span>\n            </div>\n          </div>\n          <!-- 第二行留言内容 -->\n          <div class=\"messageView\">\n            <p>{{message.message}}</p>\n          </div>\n          <!-- 第三行时间等 -->\n          <div class=\"timeAddress\">\n            <svg class=\"icon\" aria-hidden=\"true\">\n              <use xlink:href=\"#wang-zuobiao-copy\"></use>\n            </svg>\n            <p>\n              <span>{{message.address}}</span>&nbsp;&nbsp;\n              <span>{{message.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>\n            </p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <!-- 留言板列表结束 -->\n  </div>\n</div>\n<div class=\"fullDiv\" #fullDiv [@alert]=\"fullDisplay\" (mousewheel)=\"mousewheel($event)\">\n  <div class=\"full\" (click)='alertShowHide()'></div>\n  <div class=\"alert\" #alert>\n    <div class=\"header\">雁过留名</div>\n    <div class=\"input input1\">\n      <span>昵称</span><input #name type=\"text\" placeholder=\"告诉我，你叫啥？\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input2\">\n      <span>邮箱</span><input #email type=\"text\" placeholder=\"邮箱地址（用于获取头像）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input3\">\n      <span>博客</span><input #blog type=\"text\" placeholder=\"你的博客地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input3\">\n      <span>Github</span><input #Github type=\"text\" placeholder=\"你的Github地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"footer\">\n      <button (click)='alertShowHide()'>取消</button>\n      <button style=\"background:#1C97DF;\" (click)=\"save(name, email, blog, Github)\">确定</button>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -1451,6 +1509,8 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__alert_model_alert_model_component__ = __webpack_require__("../../../../../views/app/components/alert-model/alert-model.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__go_top_go_top_component__ = __webpack_require__("../../../../../views/app/components/go-top/go-top.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1466,6 +1526,8 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 
 
+
+
 var MessageRoomComponent = (function () {
     function MessageRoomComponent(ele, http, _renderer2, _document) {
         this.ele = ele;
@@ -1477,12 +1539,19 @@ var MessageRoomComponent = (function () {
         this.messageName = '雁过留名';
         this.img = '../../../assets/images/touxiang.png';
         this.setMessageData = '';
+        this.alertValue = "";
     }
     MessageRoomComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
         setInterval(function () {
             _this.changeBG();
         }, 10000);
+    };
+    MessageRoomComponent.prototype.ngDoCheck = function () {
+        var screenHeight = document.documentElement.scrollTop || document.body.scrollTop;
+        if (screenHeight < 300) {
+            this.topChild.goTopHide();
+        }
     };
     MessageRoomComponent.prototype.changeBG = function () {
         var imgArr = ['14254.jpg', '5510.jpg', '11781.jpg', '14529.jpg', '11212.jpg', '14414.jpg', '14248.jpg', 'apic2278.jpg'];
@@ -1530,6 +1599,18 @@ var MessageRoomComponent = (function () {
         var left = (screenWidth - 400) / 2;
         this.alert.nativeElement.style.top = top + 'px';
         this.alert.nativeElement.style.left = left + 'px';
+    };
+    // 监听页面滚动出现回到顶层
+    MessageRoomComponent.prototype.windowScreen = function () {
+        var screenHeight = document.documentElement.scrollTop || document.body.scrollTop;
+        var clientHeight = document.documentElement.clientHeight || document.body.clientHeight - 200;
+        if (screenHeight > clientHeight) {
+            this.topChild.goTopShow();
+            // alert(screenHeight)
+        }
+        else {
+            this.topChild.goTopHide();
+        }
     };
     // 保存昵称
     MessageRoomComponent.prototype.save = function (name, email, blog, Github) {
@@ -1622,9 +1703,20 @@ var MessageRoomComponent = (function () {
                 body.set('data', JSON.stringify(this.setMessageData));
                 this.http.post('http://localhost:4400/messageLib/saveMessage', body)
                     .subscribe(function (res) {
+                    _this.imputMessage.nativeElement.value = '';
                     var data = res.json();
+                    var height = _this.addMessageDiv.nativeElement.style.height;
+                    console.log(height);
                     _this.messageList = data.data;
                     _this.BlogGithubShow(_this.messageList);
+                    _this.alertValue = "提交成功啦~";
+                    _this.child.modelShow(_this.alertValue);
+                    setTimeout(function () {
+                        _this.child.modelHide();
+                        $('html, body').animate({
+                            scrollTop: 500
+                        }, 800);
+                    }, 2000);
                 });
             }
         }
@@ -1664,6 +1756,10 @@ var MessageRoomComponent = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], MessageRoomComponent.prototype, "alert", void 0);
     __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('addMessage'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], MessageRoomComponent.prototype, "addMessageDiv", void 0);
+    __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('name'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], MessageRoomComponent.prototype, "inputName", void 0);
@@ -1675,6 +1771,18 @@ var MessageRoomComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('blog'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], MessageRoomComponent.prototype, "inputBlog", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('message'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], MessageRoomComponent.prototype, "imputMessage", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_3__alert_model_alert_model_component__["a" /* AlertModelComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__alert_model_alert_model_component__["a" /* AlertModelComponent */])
+    ], MessageRoomComponent.prototype, "child", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_4__go_top_go_top_component__["a" /* GoTopComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4__go_top_go_top_component__["a" /* GoTopComponent */])
+    ], MessageRoomComponent.prototype, "topChild", void 0);
     MessageRoomComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-message-room',

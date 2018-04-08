@@ -6,7 +6,6 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="Access-Control-Allow-Origin" content="*" />
   <meta name=”viewport” content=”width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes” />
   <meta name=”viewport” content=”width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no” />
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
@@ -30,10 +29,8 @@
   <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
   <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
-  <!-- <script src="aliyun-sdk.min.js"></script> -->
-  <!-- <script src="vod-sdk-upload-1.0.6.min.js"></script> -->
   <script src="//at.alicdn.com/t/font_590572_jy348kpmgarwwmi.js"></script>
-  <script src="//at.alicdn.com/t/font_590572_ulofcajnhcjo47vi.js"></script>
+  <script src="//at.alicdn.com/t/font_590572_n6kdfpmmp19hehfr.js"></script>
 
 </head>
 <body>
@@ -62,24 +59,6 @@
                 $('body').removeClass('loading');
             }
         });
-    });
-</script>
-<script type="text/javascript">
-    $.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js',function(_result){
-        var address;
-        if(remote_ip_info.ret=='1'){
-            if(remote_ip_info.province === remote_ip_info.city){
-                address = remote_ip_info.city
-            }else{
-                address = remote_ip_info.province + '|' + remote_ip_info.city
-            }
-            sessionStorage.setItem("address", address);
-            // alert('国家：'+remote_ip_info.county+'\n省：'+remote_ip_info.province+'\n市：'+remote_ip_info.city+'\n区：'+remote_ip_info.district+'\nISP：'+remote_ip_info.isp+'\n类型：'+remote_ip_info.type+'\n其他：'+remote_ip_info.desc);
-        }else{
-            address = '';
-            sessionStorage.setItem("address", address);
-            // alert('没有找到匹配的IP地址信息！');
-        }
     });
 </script>
 <!-- FlexSlider -->

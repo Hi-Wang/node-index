@@ -1489,7 +1489,7 @@ var MessageRoomComponent = (function () {
         }
     };
     MessageRoomComponent.prototype.changeBG = function () {
-        var imgArr = ['13548.jpg', '7090.jpg', '11512.jpg', '10539.jpg', '15704.jpg', '5710.jpg', '7823.jpg', '8296.jpg'];
+        var imgArr = ['13548_1.jpg', '7090_1.jpg', '11512_1.jpg', '10539_1.jpg', '15704_1.jpg', '5710_1.jpg', '7823_1.jpg', '8296_1.jpg'];
         this.currentImg = Math.floor(Math.random() * 8);
         this.messageBG.nativeElement.style.backgroundImage = "url(../../../assets/images/banner/" + imgArr[this.currentImg] + ")";
     };
@@ -1861,7 +1861,7 @@ module.exports = __webpack_require__.p + "ekg-2753759_960_720.b6bba2a0e69f1065fc
 /***/ "../../../../../views/assets/images/banner/10539.jpg":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "10539.bec9b8f3355a74bdfa96.jpg";
+module.exports = __webpack_require__.p + "10539.7b2815d3839babd0cda8.jpg";
 
 /***/ }),
 

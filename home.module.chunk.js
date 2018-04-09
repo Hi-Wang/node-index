@@ -3,7 +3,7 @@ webpackJsonp(["home.module"],{
 /***/ "../../../../../views/app/components/alert-model/alert-model.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  alert-model works!\n</p>\n"
+module.exports = "<div class=\"alertModel\" [@model]=\"alertModel\">\n  <p>{{alertValue}}</p>\n</div>\n"
 
 /***/ }),
 
@@ -15,7 +15,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".alertModel {\n  position: fixed;\n  z-index: 20000;\n  width: 100%;\n  padding: 20px 40%;\n  text-align: center; }\n  .alertModel p {\n    padding: 20px 80px;\n    border-radius: 4px;\n    background: #fff;\n    color: #4A6EBC;\n    font-size: 14px;\n    font-weight: 600; }\n", ""]);
 
 // exports
 
@@ -43,18 +43,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AlertModelComponent = (function () {
     function AlertModelComponent() {
+        this.alertValue = '';
+        this.alertModel = "hide";
     }
     AlertModelComponent.prototype.ngOnInit = function () {
     };
     AlertModelComponent.prototype.modelShow = function (alertValue) {
+        this.alertValue = alertValue;
+        this.alertModel = "show";
     };
     AlertModelComponent.prototype.modelHide = function () {
+        this.alertModel = "hide";
     };
     AlertModelComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-alert-model',
             template: __webpack_require__("../../../../../views/app/components/alert-model/alert-model.component.html"),
-            styles: [__webpack_require__("../../../../../views/app/components/alert-model/alert-model.component.scss")]
+            styles: [__webpack_require__("../../../../../views/app/components/alert-model/alert-model.component.scss")],
+            animations: [
+                Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["trigger"])('model', [
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["state"])('show', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["style"])({
+                        'display': 'block',
+                        'top': '10%'
+                    })),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["state"])('hide', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["style"])({
+                        'display': 'none',
+                        'top': '-10%'
+                    })),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["transition"])('show => hide', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["animate"])('1000ms cubic-bezier(0.4, 0, 0.2, 1)')),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["transition"])('hide => show', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["animate"])('800ms cubic-bezier(0.4, 0, 0.2, 1)'))
+                ])
+            ]
         }),
         __metadata("design:paramtypes", [])
     ], AlertModelComponent);
@@ -691,7 +710,7 @@ var DemoRoomComponent = (function () {
 /***/ "../../../../../views/app/components/go-top/go-top.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  go-top works!\n</p>\n"
+module.exports = "<div class=\"goTop\" (click)=\"goTopFunction()\" [@goTop]='goTop'>\n    <a>\n      <svg class=\"icon\" aria-hidden=\"true\">\n        <use xlink:href=\"#wang-top\"></use>\n      </svg>\n    </a>\n</div>"
 
 /***/ }),
 
@@ -703,7 +722,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".goTop {\n  position: fixed;\n  bottom: 40px;\n  z-index: 20000;\n  cursor: pointer; }\n  .goTop .icon {\n    font-size: 40px; }\n\n.goTop:hover {\n  -webkit-animation: myfirst 2s ease;\n          animation: myfirst 2s ease; }\n", ""]);
 
 // exports
 
@@ -731,20 +750,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var GoTopComponent = (function () {
     function GoTopComponent() {
+        this.goTop = 'hide';
     }
     GoTopComponent.prototype.ngOnInit = function () {
     };
     GoTopComponent.prototype.goTopHide = function () {
-        console.log('hide');
+        this.goTop = 'hide';
     };
     GoTopComponent.prototype.goTopShow = function () {
-        console.log('show');
+        this.goTop = 'show';
+    };
+    // 回到顶层
+    GoTopComponent.prototype.goTopFunction = function () {
+        $('html, body').animate({
+            scrollTop: "0px"
+        }, 1000);
     };
     GoTopComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-go-top',
             template: __webpack_require__("../../../../../views/app/components/go-top/go-top.component.html"),
-            styles: [__webpack_require__("../../../../../views/app/components/go-top/go-top.component.scss")]
+            styles: [__webpack_require__("../../../../../views/app/components/go-top/go-top.component.scss")],
+            animations: [
+                Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["trigger"])('goTop', [
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["state"])('show', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["style"])({
+                        'display': 'block',
+                        'right': '20px'
+                    })),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["state"])('hide', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["style"])({
+                        'display': 'none',
+                        'right': '-40px'
+                    })),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["transition"])('show => hide', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["animate"])('800ms cubic-bezier(0.4, 0, 0.2, 1)')),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["transition"])('hide => show', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["animate"])('800ms cubic-bezier(0.4, 0, 0.2, 1)')),
+                ])
+            ]
         }),
         __metadata("design:paramtypes", [])
     ], GoTopComponent);
@@ -1225,7 +1265,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav, ul, nav, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\narticle, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {\n  display: block; }\n\nol, ul {\n  list-style: none;\n  margin: 0px;\n  padding: 0px;\n  font-size: 62.5%; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after, q:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.app {\n  background: #ccc;\n  position: absolute;\n  width: 100%;\n  height: 100%; }\n\nsection {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background: #fff; }\n\n.section {\n  padding-top: 55px; }\n\n.icon {\n  width: 1em;\n  height: 1em;\n  vertical-align: -0.15em;\n  fill: currentColor;\n  overflow: hidden; }\n\n::-webkit-scrollbar {\n  width: 0.1rem;\n  height: 0.1rem; }\n\n::-webkit-scrollbar-track {\n  background: #eee;\n  border: thin solid lightgray;\n  box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -moz-box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -webkit-box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -o-box-shadow: 2rem 0 2rem #f6f6f6 inset; }\n\n::-webkit-scrollbar-thumb {\n  background: #1E8BC3; }\n\nheader {\n  width: 100%;\n  height: 55px;\n  background: rgba(255, 255, 255, 0.6);\n  opacity: 1;\n  position: fixed;\n  z-index: 1000;\n  top: 0;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n  padding: 4px 0; }\n\n.github-corner:hover {\n  width: 70px;\n  height: 70px; }\n\nheader .col-md-2 {\n  text-align: center;\n  line-height: 55px; }\n\nheader .nav {\n  position: relative;\n  top: 0; }\n  header .nav ul li {\n    float: left;\n    font-size: 14px;\n    font-family: helvetica neue \",arial,sans-serif\";\n    margin: 0 10px;\n    text-align: center;\n    cursor: pointer; }\n    header .nav ul li a {\n      text-decoration: none;\n      color: #333; }\n\nheader .right {\n  padding-left: 20px;\n  padding-right: 6%;\n  line-height: 45px;\n  border-left: 1px solid #ccc; }\n  header .right ul li {\n    list-style: none;\n    font-size: 12px;\n    float: right;\n    padding: 0 10px;\n    margin: 0 10px;\n    display: line-block;\n    cursor: pointer;\n    background: red; }\n\n.set_4_button1 {\n  position: relative;\n  font-weight: 400;\n  text-align: center;\n  width: auto;\n  float: left;\n  padding: 0 16px;\n  line-height: 48px;\n  overflow: hidden;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  color: #333; }\n\n.set_4_button1.raised {\n  transition: all 0.1s; }\n\n.anim {\n  -webkit-transform: translateY(-50%) translateX(-50%);\n  transform: translateY(-50%) translateX(-50%);\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: -1;\n  border: none; }\n\n.anim:before {\n  position: relative;\n  content: '';\n  display: block;\n  margin-top: 100%; }\n\n.anim:after {\n  content: '';\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  border-radius: 50%; }\n\n.clickable .toggle:checked + .anim {\n  -webkit-animation: anim-in 0.75s;\n  animation: anim-in 0.75s; }\n\n.clickable .toggle:checked + .anim:after {\n  -webkit-animation: anim-in-pseudo 0.75s;\n  animation: anim-in-pseudo 0.75s; }\n\n.clickable .toggle:not(:checked) + .anim {\n  -webkit-animation: anim-out 0.75s;\n  animation: anim-out 0.75s; }\n\n.clickable .toggle:not(:checked) + .anim:after {\n  -webkit-animation: anim-out-pseudo 0.75s;\n  animation: anim-out-pseudo 0.75s; }\n\n.hoverable:hover > .anim {\n  -webkit-animation: anim-out 0.75s;\n  animation: anim-out 0.75s; }\n\n.hoverable:hover > .anim:after {\n  -webkit-animation: anim-out-pseudo 0.75s;\n  animation: anim-out-pseudo 0.75s; }\n\n@-webkit-keyframes anim-in {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@keyframes anim-in {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@-webkit-keyframes anim-in-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@keyframes anim-in-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@-webkit-keyframes anim-out {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@keyframes anim-out {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@-webkit-keyframes anim-out-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@keyframes anim-out-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n", ""]);
+exports.push([module.i, "html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav, ul, nav, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\narticle, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {\n  display: block; }\n\nol, ul {\n  list-style: none;\n  margin: 0px;\n  padding: 0px;\n  font-size: 62.5%; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after, q:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.clearfix {\n  *zoom: 1; }\n\n.clearfix:after {\n  content: '';\n  display: table;\n  clear: both; }\n\n.app {\n  background: #ccc;\n  position: absolute;\n  width: 100%;\n  height: 100%; }\n\nsection {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background: #fff; }\n\n.section {\n  padding-top: 55px; }\n\n.icon {\n  width: 1em;\n  height: 1em;\n  vertical-align: -0.15em;\n  fill: currentColor;\n  overflow: hidden; }\n\n@-webkit-keyframes myfirst {\n  0% {\n    transition: all 0.8s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  25% {\n    transition: all 0.6s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  50% {\n    transition: all 0.4s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  75% {\n    transition: all 0.2s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  100% {\n    transition: all 0.1s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); } }\n\n@keyframes myfirst {\n  0% {\n    transition: all 0.8s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  25% {\n    transition: all 0.6s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  50% {\n    transition: all 0.4s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  75% {\n    transition: all 0.2s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  100% {\n    transition: all 0.1s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); } }\n\n::-webkit-scrollbar {\n  width: 0.1rem;\n  height: 0.1rem; }\n\n::-webkit-scrollbar-track {\n  background: #eee;\n  border: thin solid lightgray;\n  box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -moz-box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -webkit-box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -o-box-shadow: 2rem 0 2rem #f6f6f6 inset; }\n\n::-webkit-scrollbar-thumb {\n  background: #1E8BC3; }\n\nheader {\n  width: 100%;\n  height: 55px;\n  background: rgba(255, 255, 255, 0.6);\n  opacity: 1;\n  position: fixed;\n  z-index: 1000;\n  top: 0;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n  padding: 4px 0; }\n\n.github-corner:hover {\n  width: 70px;\n  height: 70px; }\n\nheader .col-md-2 {\n  text-align: center;\n  line-height: 55px; }\n\nheader .nav {\n  position: relative;\n  top: 0; }\n  header .nav ul li {\n    float: left;\n    font-size: 14px;\n    font-family: helvetica neue \",arial,sans-serif\";\n    margin: 0 10px;\n    text-align: center;\n    cursor: pointer; }\n    header .nav ul li a {\n      text-decoration: none;\n      color: #333; }\n\nheader .right {\n  padding-left: 20px;\n  padding-right: 6%;\n  line-height: 45px;\n  border-left: 1px solid #ccc; }\n  header .right ul li {\n    list-style: none;\n    font-size: 12px;\n    float: right;\n    padding: 0 10px;\n    margin: 0 10px;\n    display: line-block;\n    cursor: pointer;\n    background: red; }\n\n.set_4_button1 {\n  position: relative;\n  font-weight: 400;\n  text-align: center;\n  width: auto;\n  float: left;\n  padding: 0 16px;\n  line-height: 48px;\n  overflow: hidden;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  color: #333; }\n\n.set_4_button1.raised {\n  transition: all 0.1s; }\n\n.anim {\n  -webkit-transform: translateY(-50%) translateX(-50%);\n  transform: translateY(-50%) translateX(-50%);\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: -1;\n  border: none; }\n\n.anim:before {\n  position: relative;\n  content: '';\n  display: block;\n  margin-top: 100%; }\n\n.anim:after {\n  content: '';\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  border-radius: 50%; }\n\n.clickable .toggle:checked + .anim {\n  -webkit-animation: anim-in 0.75s;\n  animation: anim-in 0.75s; }\n\n.clickable .toggle:checked + .anim:after {\n  -webkit-animation: anim-in-pseudo 0.75s;\n  animation: anim-in-pseudo 0.75s; }\n\n.clickable .toggle:not(:checked) + .anim {\n  -webkit-animation: anim-out 0.75s;\n  animation: anim-out 0.75s; }\n\n.clickable .toggle:not(:checked) + .anim:after {\n  -webkit-animation: anim-out-pseudo 0.75s;\n  animation: anim-out-pseudo 0.75s; }\n\n.hoverable:hover > .anim {\n  -webkit-animation: anim-out 0.75s;\n  animation: anim-out 0.75s; }\n\n.hoverable:hover > .anim:after {\n  -webkit-animation: anim-out-pseudo 0.75s;\n  animation: anim-out-pseudo 0.75s; }\n\n@-webkit-keyframes anim-in {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@keyframes anim-in {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@-webkit-keyframes anim-in-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@keyframes anim-in-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@-webkit-keyframes anim-out {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@keyframes anim-out {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@-webkit-keyframes anim-out-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@keyframes anim-out-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n", ""]);
 
 // exports
 
@@ -1405,7 +1445,7 @@ var HomeRoutes = [
 /***/ "../../../../../views/app/components/message-room/message-room.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- 外链组件开始 -->\n<app-alert-model alertValue='{{alertValue}}'></app-alert-model>\n<app-go-top></app-go-top>\n<!-- 外联组件结束 -->\n<div class=\"messageContent\" (mousewheel)=\"windowScreen()\">\n  <figure #messageBG class=\"messageBG\"></figure>\n  <div class=\"content\" #messageContent>\n    <div class=\"addMessage\" #addMessage>\n      <div class=\"message\">\n        <h3>Hi，你好 ~</h3>\n        <div class=\"text\">\n          <div class=\"left\">\n            <div class=\"img\">\n              <img [src]=\"img\" alt=\"\">\n            </div>\n            <p (click)='alertShowHide()'>{{messageName}}</p>\n          </div>\n          <div class=\"right\">\n            <div class=\"div\">\n              <textarea placeholder=\"嗨，很高兴认识你~\" #message (focus)=\"errorDisplay = 'none'\" (keydown)=\"keyDown($event, message)\"></textarea>\n            </div>\n            <div class=\"expression\">\n              <div class=\"biaoqing col-md-6\">\n                <p class=\"error\" [@alert]=\"errorDisplay\">\n                  什么都没写，你想干嘛！\n                </p>\n              </div>\n              <div class=\"send col-md-6\">\n                <span (click)=\"sendMessage(message)\">发送</span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <!-- 留言板列表开始 -->\n    <div class=\"allMessage\">\n      <div class=\"messageList\" #list>\n        <div class=\"list\" *ngFor=\"let message of messageList; let i = index\">\n          <!-- 第一行头像开始 -->\n          <div class=\"person\">\n            <div class=\"img\">\n              <img [src]=\"message.img\">\n            </div>\n            <div class=\"text\">\n              <p>{{message.name}}</p>\n              <span class=\"blog\" *ngIf=\"message.blogShow\"><a [href]=\"message.blog\" target=\"view_window\" [title]=\"message.blog\">Blog</a></span>\n              <span class=\"github\" *ngIf=\"message.githubShow\"><a [href]=\"message.github\" target=\"view_window\" [title]=\"message.github\">Github</a></span>\n            </div>\n            <div class=\"foor\">\n              <span>{{message.foorIndex}} 楼</span> \n              &nbsp;| &nbsp;\n              <span style=\"color:#1C97DF;cursor: pointer;\" (click)=\"Reply(message)\">回复</span>\n            </div>\n          </div>\n           <!-- 第一行头像结束 -->\n\n          <!-- 第二行留言内容开始 -->\n          <div class=\"messageView\">\n            <p>{{message.message}}</p>\n          </div>\n           <!-- 第二行留言内容结束 -->\n\n          <!-- 第三行时间等开始 -->\n          <div class=\"timeAddress\">\n            <svg class=\"icon\" aria-hidden=\"true\">\n              <use xlink:href=\"#wang-zuobiao-copy\"></use>\n            </svg>\n            <p>\n              <span>{{message.address}}</span>&nbsp;&nbsp;\n              <span>{{message.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>\n            </p>\n          </div>\n          <!-- 第三行时间等结束 -->\n\n          <!-- 第四行新增评论开始 -->\n          <div class=\"addReply\" #addReply [@alert]=\"message.ReplyShow\" >\n            <div class=\"img\">\n              <img [src]=\"img\" alt=\"\">\n            </div>\n            <p (click)='replyAlertShowHide()'>{{messageName}}</p>\n            <div class=\"replyDiv\">\n                <textarea [placeholder]=\"message.replyPlaceholder\" #replyMessage (focus)=\"replyErrorDisplay = 'none'\"></textarea>\n            </div>\n            <div class=\"sendReply\">\n              <span class=\"error\" [@alert]=\"replyErrorDisplay\">什么都没写，你想干嘛！</span>\n              <span class=\"quxiao\" (click)=\"ReplyHide(message)\">取消</span>\n              <span class=\"send\" (click)=\"sendReplyMessage(replyMessage)\">发送</span>\n            </div>\n          </div>\n          <!-- 第四行新增评论结束 -->\n\n        </div>\n\n        <!-- 加载按钮 -->\n        <div class=\"list more\" *ngIf=\"!stopList\" (click)=\"moreMessageListAjax()\" >\n          加载更多\n        </div>\n        <!-- 加载到底部了 -->\n        <div class=\"list footer clearfix\" *ngIf=\"stopList\">\n          <span class=\"left\"></span>\n          <span class=\"centent\">大哥，已经到底部啦~</span>\n          <span class=\"right\"></span>\n        </div>\n      </div>\n    </div>\n    <!-- 留言板列表结束 -->\n  </div>\n</div>\n<div class=\"fullDiv\" #fullDiv [@alert]=\"fullDisplay\" (mousewheel)=\"mousewheel($event)\">\n  <div class=\"full\" (click)='alertShowHide()'></div>\n  <div class=\"alert\" #alert>\n    <div class=\"header\">雁过留名</div>\n    <div class=\"input input1\">\n      <span>昵称</span><input #name type=\"text\" placeholder=\"告诉我，你叫啥？\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input2\">\n      <span>邮箱</span><input #email type=\"text\" placeholder=\"邮箱地址（用于获取头像）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input3\">\n      <span>博客</span><input #blog type=\"text\" placeholder=\"你的博客地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input3\">\n      <span>Github</span><input #Github type=\"text\" placeholder=\"你的Github地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"footer\">\n      <button (click)='alertShowHide()'>取消</button>\n      <button style=\"background:#1C97DF;\" (click)=\"save(name, email, blog, Github)\">确定</button>\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<!-- 外链组件开始 -->\n<app-alert-model alertValue='{{alertValue}}'></app-alert-model>\n<app-go-top></app-go-top>\n<!-- 外联组件结束 -->\n<div class=\"messageContent\" (mousewheel)=\"windowScreen()\">\n  <figure #messageBG class=\"messageBG\"></figure>\n  <div class=\"content\" #messageContent>\n    <div class=\"addMessage\" #addMessage>\n      <div class=\"message\">\n        <h3>Hi，你好 ~</h3>\n        <div class=\"text\">\n          <div class=\"left\">\n            <div class=\"img\">\n              <img [src]=\"img\" alt=\"\">\n            </div>\n            <p (click)='alertShowHide()'>{{messageName}}</p>\n          </div>\n          <div class=\"right\">\n            <div class=\"div\">\n              <textarea placeholder=\"嗨，很高兴认识你~\" #message (focus)=\"errorDisplay = 'none'\" (keydown)=\"keyDown($event, message)\"></textarea>\n            </div>\n            <div class=\"expression\">\n              <div class=\"biaoqing col-md-6\">\n                <p class=\"error\" [@alert]=\"errorDisplay\">\n                  什么都没写，你想干嘛！\n                </p>\n              </div>\n              <div class=\"send col-md-6\">\n                <span (click)=\"sendMessage(message)\">发送</span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <!-- 留言板列表开始 -->\n    <div class=\"allMessage\">\n      <div class=\"messageList\" #list>\n        <div class=\"list\" *ngFor=\"let message of messageList; let i = index\">\n          <!-- 第一行头像开始 -->\n          <div class=\"person\">\n            <div class=\"img\">\n              <img [src]=\"message.img\">\n            </div>\n            <div class=\"text\">\n              <p>{{message.name}}</p>\n              <span class=\"blog\" *ngIf=\"message.blogShow\"><a [href]=\"message.blog\" target=\"view_window\" [title]=\"message.blog\">Blog</a></span>\n              <span class=\"github\" *ngIf=\"message.githubShow\"><a [href]=\"message.github\" target=\"view_window\" [title]=\"message.github\">Github</a></span>\n            </div>\n            <div class=\"foor\">\n              <span>{{message.foorIndex}} 楼</span> \n              &nbsp;| &nbsp;\n              <span style=\"color:#1C97DF;cursor: pointer;\" (click)=\"Reply(message)\">回复</span>\n            </div>\n          </div>\n           <!-- 第一行头像结束 -->\n\n          <!-- 第二行留言内容开始 -->\n          <div class=\"messageView\">\n            <p>{{message.message}}</p>\n          </div>\n           <!-- 第二行留言内容结束 -->\n\n          <!-- 第三行时间等开始 -->\n          <div class=\"timeAddress\">\n            <svg class=\"icon\" aria-hidden=\"true\">\n              <use xlink:href=\"#wang-zuobiao-copy\"></use>\n            </svg>\n            <p>\n              <span>{{message.address}}</span>&nbsp;&nbsp;\n              <span>{{message.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>\n            </p>\n          </div>\n          <!-- 第三行时间等结束 -->\n\n          <!-- 第四行新增评论开始 -->\n          <div class=\"addReply\" #addReply [@alert]=\"message.ReplyShow\" >\n            <div class=\"img\">\n              <img [src]=\"img\" alt=\"\">\n            </div>\n            <p (click)='replyAlertShowHide()'>{{messageName}}</p>\n            <div class=\"replyDiv\">\n                <textarea [placeholder]=\"message.replyPlaceholder\" #replyMessage (focus)=\"replyErrorDisplay = 'none'\"  (keydown)=\"replyKeyDown($event,message, replyMessage)\"></textarea>\n            </div>\n            <div class=\"sendReply\">\n              <span class=\"error\" [@alert]=\"replyErrorDisplay\">什么都没写，你想干嘛！</span>\n              <span class=\"quxiao\" (click)=\"ReplyHide(message)\">取消</span>\n              <span class=\"send\" (click)=\"sendReplyMessage(message, replyMessage)\">发送</span>\n            </div>\n          </div>\n          <!-- 第四行新增评论结束 -->\n\n        </div>\n\n        <!-- 加载按钮 -->\n        <div class=\"list more\" *ngIf=\"!stopList\" (click)=\"moreMessageListAjax()\" >\n          加载更多\n        </div>\n        <!-- 加载到底部了 -->\n        <div class=\"list footer clearfix\" *ngIf=\"stopList\">\n          <span class=\"left\"></span>\n          <span class=\"centent\">大哥，已经到底部啦~</span>\n          <span class=\"right\"></span>\n        </div>\n      </div>\n    </div>\n    <!-- 留言板列表结束 -->\n  </div>\n</div>\n<div class=\"fullDiv\" #fullDiv [@alert]=\"fullDisplay\" (mousewheel)=\"mousewheel($event)\">\n  <div class=\"full\" (click)='alertShowHide()'></div>\n  <div class=\"alert\" #alert>\n    <div class=\"header\">雁过留名</div>\n    <div class=\"input input1\">\n      <span>昵称</span><input #name type=\"text\" placeholder=\"告诉我，你叫啥？\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input2\">\n      <span>邮箱</span><input #email type=\"text\" placeholder=\"邮箱地址（用于获取头像）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input3\">\n      <span>博客</span><input #blog type=\"text\" placeholder=\"你的博客地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"input input3\">\n      <span>Github</span><input #Github type=\"text\" placeholder=\"你的Github地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n    </div>\n    <div class=\"footer\">\n      <button (click)='alertShowHide()'>取消</button>\n      <button style=\"background:#1C97DF;\" (click)=\"save(name, email, blog, Github)\">确定</button>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -1470,7 +1510,7 @@ var MessageRoomComponent = (function () {
         this.errorDisplay = 'none';
         this.replyErrorDisplay = 'none';
         this.messageName = '雁过留名';
-        this.img = '../../../assets/images/touxiang.png';
+        this.img = '../../../assets/images/message/touxiang.png';
         this.setMessageData = '';
         this.replyPlaceholder = '';
         this.alertValue = "";
@@ -1521,7 +1561,6 @@ var MessageRoomComponent = (function () {
                 }
                 else {
                     _this.messageList = _this.messageList.concat(data.data);
-                    console.log(index);
                 }
                 _this.BlogGithubShow(_this.messageList);
                 _this.sendAjax = true;
@@ -1566,7 +1605,7 @@ var MessageRoomComponent = (function () {
         this.alert.nativeElement.style.left = left + 'px';
     };
     // 鼠标滚动事件
-    MessageRoomComponent.prototype.mousewheel = function (e) {
+    MessageRoomComponent.prototype.mousewheel = function () {
         var screenWidth = document.documentElement.clientWidth;
         var screenHeight = document.documentElement.clientHeight;
         var scrollTop = document.documentElement.scrollTop;
@@ -1596,6 +1635,7 @@ var MessageRoomComponent = (function () {
     // 无限加载请求
     MessageRoomComponent.prototype.moreMessageListAjax = function () {
         var index = this.messageList.length / 10 + 1;
+        console.log(index);
         this.getMessageList(index);
     };
     // 保存昵称
@@ -1678,7 +1718,14 @@ var MessageRoomComponent = (function () {
             event.preventDefault();
             this.sendMessage(message);
         }
-        console.log(keyCode);
+    };
+    // 发送留言键盘监听
+    MessageRoomComponent.prototype.replyKeyDown = function (event, message, replyMessage) {
+        var keyCode = event.keyCode;
+        if (keyCode === 13) {
+            event.preventDefault();
+            this.sendReplyMessage(message, replyMessage);
+        }
     };
     // 发送留言
     MessageRoomComponent.prototype.sendMessage = function (message) {
@@ -1694,14 +1741,19 @@ var MessageRoomComponent = (function () {
             else {
                 this.setMessageData.message = message.value;
                 var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
-                console.log(this.setMessageData);
                 body.set('data', JSON.stringify(this.setMessageData));
                 this.http.post('http://localhost:4400/messageLib/saveMessage', body)
                     .subscribe(function (res) {
                     _this.imputMessage.nativeElement.value = '';
                     var data = res.json();
+                    console.log(data);
+                    if (data.message === "加载中") {
+                        _this.stopList = false;
+                    }
+                    else if (data.message === '加载完成') {
+                        _this.stopList = true;
+                    }
                     var height = _this.addMessageDiv.nativeElement.style.height;
-                    console.log(height);
                     _this.messageList = data.data;
                     _this.BlogGithubShow(_this.messageList);
                     _this.alertValue = "提交成功啦~";
@@ -1711,7 +1763,7 @@ var MessageRoomComponent = (function () {
                         $('html, body').animate({
                             scrollTop: 500
                         }, 800);
-                    }, 2000);
+                    }, 1500);
                 });
             }
         }
@@ -1745,9 +1797,11 @@ var MessageRoomComponent = (function () {
     // 取消回复留言
     MessageRoomComponent.prototype.ReplyHide = function (message) {
         message.ReplyShow = 'none';
+        this.replyErrorDisplay = 'none';
     };
     // 回复留言
     MessageRoomComponent.prototype.Reply = function (message) {
+        this.replyErrorDisplay = 'none';
         for (var i = 0; i < this.messageList.length; i++) {
             if (message._id === this.messageList[i]._id) {
                 this.messageList[i].ReplyShow = "block";
@@ -1758,14 +1812,29 @@ var MessageRoomComponent = (function () {
         }
     };
     // 发送回复留言
-    MessageRoomComponent.prototype.sendReplyMessage = function (replyMessage) {
+    MessageRoomComponent.prototype.sendReplyMessage = function (message, replyMessage) {
         if (replyMessage.value === '') {
             this.replyErrorDisplay = 'inline-block';
         }
         else {
             this.replyErrorDisplay = 'none';
+            if (this.setMessageData === '') {
+                this.fullDisplay = 'block';
+                this.mousewheel();
+            }
+            else {
+                var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
+                this.setMessageData.id = message._id;
+                this.setMessageData.message = replyMessage.value;
+                body.set('data', JSON.stringify(this.setMessageData));
+                this.http.post('http://localhost:4400/messageLib/saveReplyMessage', body)
+                    .subscribe(function (res) {
+                    var data = res.json();
+                    console.log(data);
+                });
+                console.log(this.setMessageData);
+            }
         }
-        console.log(replyMessage);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('messageBG'),

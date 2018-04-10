@@ -6,20 +6,18 @@ webpackJsonp(["main"],{
 var map = {
 	"./components/home/home.module": [
 		"../../../../../views/app/components/home/home.module.ts",
-		"home.module",
-		"common"
+		"home.module"
 	],
 	"./components/login/login.module": [
 		"../../../../../views/app/components/login/login.module.ts",
-		"login.module",
-		"common"
+		"login.module"
 	]
 };
 function webpackAsyncContext(req) {
 	var ids = map[req];
 	if(!ids)
 		return Promise.reject(new Error("Cannot find module '" + req + "'."));
-	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+	return __webpack_require__.e(ids[1]).then(function() {
 		return __webpack_require__(ids[0]);
 	});
 };

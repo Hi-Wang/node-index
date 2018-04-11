@@ -587,7 +587,7 @@ var BabyRoomComponent = (function () {
 /***/ "../../../../../views/app/components/chatroom/chatroom.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"section\">\n  聊天室\n</section>"
+module.exports = "<section class=\"section\">\n  聊天室\n  <div>\n      <a style=\"cursor:pointer;\" [routerLink]=\"[{ outlets: { popup: ['loginModel'] } }]\">出现弹出框</a>\n  </div>\n</section>"
 
 /***/ }),
 
@@ -1406,6 +1406,8 @@ var HomeModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__baby_room_baby_room_component__ = __webpack_require__("../../../../../views/app/components/baby-room/baby-room.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__demo_room_demo_room_component__ = __webpack_require__("../../../../../views/app/components/demo-room/demo-room.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__message_room_message_room_component__ = __webpack_require__("../../../../../views/app/components/message-room/message-room.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_model_login_model_component__ = __webpack_require__("../../../../../views/app/components/login-model/login-model.component.ts");
+
 
 
 
@@ -1424,6 +1426,7 @@ var HomeRoutes = [
             {
                 path: 'chatRoom',
                 component: __WEBPACK_IMPORTED_MODULE_1__chatroom_chatroom_component__["a" /* ChatroomComponent */]
+                // outlet: 'popup'
             },
             {
                 path: 'share',
@@ -1436,6 +1439,11 @@ var HomeRoutes = [
             {
                 path: 'messageRoom',
                 component: __WEBPACK_IMPORTED_MODULE_5__message_room_message_room_component__["a" /* MessageRoomComponent */]
+            },
+            {
+                path: 'loginModel',
+                component: __WEBPACK_IMPORTED_MODULE_6__login_model_login_model_component__["a" /* LoginModelComponent */],
+                outlet: 'popup'
             }
         ]
     }
@@ -1447,7 +1455,7 @@ var HomeRoutes = [
 /***/ "../../../../../views/app/components/login-model/login-model.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  login-model works!\n</p>\n"
+module.exports = "<div class=\"loginModel\">\n    <h3>Contact Crisis Center</h3>\n    <!-- <div *ngIf=\"details\">\n      {{ details }}\n    </div> -->\n    <div>\n      <div>\n        <label>Message: </label>\n      </div>\n      <div>\n        <textarea [(ngModel)]=\"message\" rows=\"10\" cols=\"35\" [disabled]=\"sending\"></textarea>\n      </div>\n    </div>\n    <p *ngIf=\"!sending\">\n      <button (click)=\"send()\">Send</button>\n      <button (click)=\"cancel()\">Cancel</button>\n    </p>\n</div>\n\n"
 
 /***/ }),
 
@@ -1475,6 +1483,7 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginModelComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1485,9 +1494,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var LoginModelComponent = (function () {
-    function LoginModelComponent() {
+    function LoginModelComponent(router) {
+        this.router = router;
+        this.sending = false;
     }
+    LoginModelComponent.prototype.send = function () {
+        var _this = this;
+        this.message = '测试';
+        this.sending = true;
+        this.details = 'Sending Message...';
+        setTimeout(function () {
+            _this.sending = false;
+            _this.closePopup();
+        }, 1000);
+    };
+    LoginModelComponent.prototype.cancel = function () {
+        this.closePopup();
+    };
+    LoginModelComponent.prototype.closePopup = function () {
+        this.router.navigate([{ outlest: { popup: null } }]);
+    };
     LoginModelComponent.prototype.ngOnInit = function () {
     };
     LoginModelComponent = __decorate([
@@ -1496,7 +1524,7 @@ var LoginModelComponent = (function () {
             template: __webpack_require__("../../../../../views/app/components/login-model/login-model.component.html"),
             styles: [__webpack_require__("../../../../../views/app/components/login-model/login-model.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]])
     ], LoginModelComponent);
     return LoginModelComponent;
 }());

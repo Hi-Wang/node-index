@@ -1331,13 +1331,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ngx_echarts__ = __webpack_require__("../../../../ngx-echarts/ngx-echarts.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_routes__ = __webpack_require__("../../../../../views/app/components/home/home.routes.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_component__ = __webpack_require__("../../../../../views/app/components/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__chatroom_chatroom_component__ = __webpack_require__("../../../../../views/app/components/chatroom/chatroom.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_index_home_index_component__ = __webpack_require__("../../../../../views/app/components/home-index/home-index.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__baby_room_baby_room_component__ = __webpack_require__("../../../../../views/app/components/baby-room/baby-room.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__demo_room_demo_room_component__ = __webpack_require__("../../../../../views/app/components/demo-room/demo-room.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__message_room_message_room_component__ = __webpack_require__("../../../../../views/app/components/message-room/message-room.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__alert_model_alert_model_component__ = __webpack_require__("../../../../../views/app/components/alert-model/alert-model.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__go_top_go_top_component__ = __webpack_require__("../../../../../views/app/components/go-top/go-top.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_model_login_model_component__ = __webpack_require__("../../../../../views/app/components/login-model/login-model.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__chatroom_chatroom_component__ = __webpack_require__("../../../../../views/app/components/chatroom/chatroom.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__home_index_home_index_component__ = __webpack_require__("../../../../../views/app/components/home-index/home-index.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__baby_room_baby_room_component__ = __webpack_require__("../../../../../views/app/components/baby-room/baby-room.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__demo_room_demo_room_component__ = __webpack_require__("../../../../../views/app/components/demo-room/demo-room.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__message_room_message_room_component__ = __webpack_require__("../../../../../views/app/components/message-room/message-room.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__alert_model_alert_model_component__ = __webpack_require__("../../../../../views/app/components/alert-model/alert-model.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__go_top_go_top_component__ = __webpack_require__("../../../../../views/app/components/go-top/go-top.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1351,6 +1352,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+// 出口路由
 
 
 
@@ -1372,14 +1375,15 @@ var HomeModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* RouterModule */].forChild(__WEBPACK_IMPORTED_MODULE_6__home_routes__["a" /* HomeRoutes */])
             ],
             declarations: [
+                __WEBPACK_IMPORTED_MODULE_8__login_model_login_model_component__["a" /* LoginModelComponent */],
                 __WEBPACK_IMPORTED_MODULE_7__home_component__["a" /* HomeComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__chatroom_chatroom_component__["a" /* ChatroomComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__home_index_home_index_component__["a" /* HomeIndexComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__baby_room_baby_room_component__["a" /* BabyRoomComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__demo_room_demo_room_component__["a" /* DemoRoomComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__message_room_message_room_component__["a" /* MessageRoomComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__alert_model_alert_model_component__["a" /* AlertModelComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__go_top_go_top_component__["a" /* GoTopComponent */]
+                __WEBPACK_IMPORTED_MODULE_9__chatroom_chatroom_component__["a" /* ChatroomComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__home_index_home_index_component__["a" /* HomeIndexComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__baby_room_baby_room_component__["a" /* BabyRoomComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__demo_room_demo_room_component__["a" /* DemoRoomComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__message_room_message_room_component__["a" /* MessageRoomComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__alert_model_alert_model_component__["a" /* AlertModelComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__go_top_go_top_component__["a" /* GoTopComponent */]
             ],
             schemas: [__WEBPACK_IMPORTED_MODULE_0__angular_core__["CUSTOM_ELEMENTS_SCHEMA"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NO_ERRORS_SCHEMA"]]
         })
@@ -1436,6 +1440,67 @@ var HomeRoutes = [
         ]
     }
 ];
+
+
+/***/ }),
+
+/***/ "../../../../../views/app/components/login-model/login-model.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  login-model works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../views/app/components/login-model/login-model.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../views/app/components/login-model/login-model.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginModelComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LoginModelComponent = (function () {
+    function LoginModelComponent() {
+    }
+    LoginModelComponent.prototype.ngOnInit = function () {
+    };
+    LoginModelComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-login-model',
+            template: __webpack_require__("../../../../../views/app/components/login-model/login-model.component.html"),
+            styles: [__webpack_require__("../../../../../views/app/components/login-model/login-model.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], LoginModelComponent);
+    return LoginModelComponent;
+}());
+
 
 
 /***/ }),

@@ -587,7 +587,7 @@ var BabyRoomComponent = (function () {
 /***/ "../../../../../views/app/components/chatroom/chatroom.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"section\">\n  聊天室\n  <div>\n      <a style=\"cursor:pointer;\" [routerLink]=\"[{ outlets: { popup: ['loginModel'] } }]\">出现弹出框</a>\n  </div>\n</section>"
+module.exports = "<section class=\"section\">\n  聊天室\n  <div>\n      <a style=\"cursor:pointer;\" [routerLink]=\"[{ outlets:{loginModel:['loginModel']}}]\">出现弹出框</a>\n  </div>\n</section>\n\n<router-outlet name=\"loginModel\"></router-outlet>"
 
 /***/ }),
 
@@ -615,6 +615,7 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatroomComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -625,8 +626,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var ChatroomComponent = (function () {
-    function ChatroomComponent() {
+    function ChatroomComponent(router) {
+        this.router = router;
+        // this.router.navigate(['chatRoom']);
     }
     ChatroomComponent.prototype.ngOnInit = function () {
     };
@@ -636,7 +640,7 @@ var ChatroomComponent = (function () {
             template: __webpack_require__("../../../../../views/app/components/chatroom/chatroom.component.html"),
             styles: [__webpack_require__("../../../../../views/app/components/chatroom/chatroom.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], ChatroomComponent);
     return ChatroomComponent;
 }());
@@ -648,7 +652,7 @@ var ChatroomComponent = (function () {
 /***/ "../../../../../views/app/components/demo-room/demo-room.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"section\">\n  demo房间\n</section>"
+module.exports = "<section class=\"section\">\n  demo房间\n  <div>\n      <a style=\"cursor:pointer;\" [routerLink]=\"[{ outlets:{loginModel:['loginModel']}}]\">出现弹出框</a>\n  </div>\n</section>\n\n<router-outlet name=\"loginModel\"></router-outlet>"
 
 /***/ }),
 
@@ -797,7 +801,7 @@ var GoTopComponent = (function () {
 /***/ "../../../../../views/app/components/home-index/home-index.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section>\n    <div class=\"swiper-container swiper-container-H\">\n        <div class=\"swiper-wrapper\">\n            <div class=\"swiper-slide swiper-slide-H\">\n                <div class=\"swiper-container swiper-container-W\">\n                    <div class=\"swiper-wrapper\">\n                      <div class=\"swiper-slide swiper-slide-W\">\n                        <figure>\n                          <img src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/myBanner-1.jpg\"/>\n                          <figcaption>\n                            <p>\n                              标题\n                            </p>\n                          </figcaption>\n                        </figure>\n                      </div>\n                      <div class=\"swiper-slide swiper-slide-W\">\n                          <figure>\n                              <img src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/pexels-photo-1.jpg\"/>\n                              <figcaption>\n                                <p>第一张</p>\n                              </figcaption>\n                            </figure>\n                      </div>\n                    </div>\n                    <!-- Add Pagination -->\n                    <div class=\"swiper-pagination swiper-pagination-W\"></div>\n                    <!-- Add Arrows -->\n                    <div class=\"swiper-button-next\"></div>\n                    <div class=\"swiper-button-prev\"></div>\n                  </div>\n            </div>\n            <div class=\"swiper-slide swiper-slide-H swiper-slide-2\">\n              <video autoplay loop>\n                <!-- <source src=\"../../../assets/images/MP4/A7Q0yVfBh3bC1514200220.mp4\"> -->\n                <source src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/3.mp4\">\n              </video>\n              <div class=\"contentSvg\">\n                  <p class=\"svg\">\n                      <svg width=\"379\" height=\"126\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <defs>\n                         <filter id=\"svg_5_blur\">\n                          <feGaussianBlur stdDeviation=\"0\"/>\n                         </filter>\n                        </defs>\n                        <g>\n                         <title>background</title>\n                         <rect x=\"-1\" y=\"-1\" width=\"381\" height=\"128\" id=\"canvas_background\" fill=\"none\"/>\n                         <g id=\"canvasGrid\" display=\"none\">\n                          <rect id=\"svg_1\" width=\"100%\" height=\"100%\" x=\"0\" y=\"0\" stroke-width=\"0\" fill=\"url(#gridpattern)\"/>\n                         </g>\n                        </g>\n                        <g>\n                         <title>Layer 1</title>\n                         <path fill=\"none\" stroke=\"#000\" stroke-width=\"1.5\" opacity=\"0.5\" d=\"m112.00038,182.85674\" id=\"svg_3\"/>\n                         <text fill=\"#000000\" stroke-width=\"0\" stroke-opacity=\"null\" fill-opacity=\"null\" x=\"84.136887\" y=\"99\" id=\"svg_4\" font-size=\"24\" font-family=\"Helvetica, Arial, sans-serif\" text-anchor=\"start\" xml:space=\"preserve\" font-weight=\"bold\" transform=\"matrix(2.833715677261353,0,0,3.3841624259948726,-220.21978307515383,-367.9087255299091) \" stroke=\"#000\">WHO AM I</text>\n                         <text fill=\"#ffffff\" x=\"34.276665\" y=\"111.874252\" id=\"svg_5\" font-size=\"24\" font-family=\"Helvetica, Arial, sans-serif\" text-anchor=\"start\" xml:space=\"preserve\" transform=\"matrix(2.644888162612915,0,0,2.5999633693130995,-52.73922671377659,-206.01982694024906) \" stroke=\"#999999\" filter=\"url(#svg_5_blur)\" font-weight=\"normal\">WHO AM I</text>\n                        </g>\n                       </svg>\n                  </p>\n                  <div class=\"contentText\">\n                    <div class=\"col-md-4 box_1\">\n                      <div class=\"img\"></div>\n                      <p> 小汪，常用名汪耀华。</p>\n                      <p> 1994年，诞生于地球-中国-安徽。</p>\n                      <p>90后，天蝎女，性格温和，软萌，偶尔汉子起来也是很可以的。ヽ(￣▽￣)ﾉ</p>\n                    </div>\n                    <div class=\"col-md-4 box_2\">\n                      <div class=\"img\"></div>\n                      <p>前端开发小白一枚。</p>\n                      <p>初来乍到，看见什么都觉得很好玩，各种功能要怎么实现，戴上耳机，能在电脑前坐很久很久。。。</p>\n                      <p>初级技能，HTML(5)，CSS(3)，AngularJs，Angular2，NODE，MONGODB。</p>\n                    </div>\n                    <div class=\"col-md-4 box_3\">\n                      <div class=\"img\"></div>\n                      <p>对未来。。</p>\n                      <p>想去很多很多地方，</p>\n                      <p>想养一只喵星人或者汪星人，跟我一起敲代码、看电视、晒太阳。。</p>\n                    </div>\n                  </div>\n              </div>\n            </div>\n            <div class=\"swiper-slide swiper-slide-H swiper-slide-3\">\n              <div class=\"imgDiv\">\n                <div class=\"startImg\">\n                    <img class=\"img1\" src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/1%20143.JPG\">\n                    <img class=\"img2\" src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/1%20139.JPG\">\n                </div>\n                \n              </div>\n            </div>\n            <div class=\"swiper-slide swiper-slide-H swiper-slide-4\">\n                <!-- Height 4 -->\n              <div class=\"echarts\" echarts [options]='echartOption'></div>\n            </div>\n            <div class=\"swiper-slide swiper-slide-H\">Height 5</div>\n            <div class=\"swiper-slide swiper-slide-H swiper-slide-6\">\n              <div class=\"background\">\n                <div class=\"content\">\n                  <div class=\"timeBox\">\n                    <div class=\"headerText\">\n                        <svg width=\"246.00000000000003\" height=\"49.99999999999999\" xmlns=\"http://www.w3.org/2000/svg\">\n                          <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->\n                          <defs>\n                           <filter id=\"svg_1_blur\">\n                            <feGaussianBlur stdDeviation=\"1.9\" in=\"SourceGraphic\"/>\n                           </filter>\n                           <filter id=\"svg_2_blur\">\n                            <feGaussianBlur stdDeviation=\"0\" in=\"SourceGraphic\"/>\n                           </filter>\n                          </defs>\n                          <g>\n                           <title>background</title>\n                           <rect fill=\"none\" id=\"canvas_background\" height=\"52\" width=\"248\" y=\"-1\" x=\"-1\"/>\n                           <g display=\"none\" overflow=\"visible\" y=\"0\" x=\"0\" height=\"100%\" width=\"100%\" id=\"canvasGrid\">\n                            <rect fill=\"url(#gridpattern)\" stroke-width=\"0\" y=\"0\" x=\"0\" height=\"100%\" width=\"100%\"/>\n                           </g>\n                          </g>\n                          <g>\n                           <title>Layer 1</title>\n                           <text filter=\"url(#svg_1_blur)\" font-weight=\"bold\" stroke=\"#b2b2b2\" transform=\"matrix(0.9429299235343933,0,0,1,6.876944214105606,0) \" xml:space=\"preserve\" text-anchor=\"start\" font-family=\"'Trebuchet MS', Gadget, sans-serif\" font-size=\"44\" id=\"svg_1\" y=\"40.646023\" x=\"18.380167\" stroke-width=\"2\" fill=\"none\">RUN  TIME</text>\n                           <text filter=\"url(#svg_2_blur)\" font-weight=\"bold\" stroke=\"#b2b2b2\" transform=\"matrix(0.9429299235343933,0,0,1,6.876944214105606,0) \" xml:space=\"preserve\" text-anchor=\"start\" font-family=\"'Trebuchet MS', Gadget, sans-serif\" font-size=\"44\" id=\"svg_2\" y=\"40.646023\" x=\"14.301265\" stroke-width=\"2\" fill=\"none\">RUN  TIME</text>\n                          </g>\n                         </svg>\n                    </div>\n                    <div class=\"timeShow\">\n                      <span class=\"leftLine span\"></span>\n                      <p class=\"time\">\n                          <input [(ngModel)]=\"dayDiff\" #ctrl=\"ngModel\" required style=\"display:none\">\n                        <!-- <input class=\"num\" [(ngModel)]=\"dayDiff\" name=\"dayDiff\"/>天 -->\n                        <!-- <span *ngFor=\"let num of index\" [(ngModel)]=\"index\">\n                          <span class=\"num\">{{num.value}}</span>\n                          <span>{{num.name}}</span>\n                        </span> -->\n                        <span>{{dayDiff}}</span>天\n                        <span class=\"num\">{{hours}}</span>小时\n                        <span class=\"num\">{{minutes}}</span>分钟\n                        <span class=\"num\">{{seconds}}</span>秒\n                      </p>\n                      <span class=\"rightLine span\"></span>\n                      <div class=\"bottom col-md-12\">\n                        <p>开始于&nbsp;2018-3-20 15:20:00</p>\n                      </div>\n                    </div>\n                    \n                  </div>\n                </div>\n              </div>\n              <div class='footer clearfix'>\n                <div class=\"left\">Contact me</div>\n                <div class=\"right\">\n                  <ul>\n                    <li>\n                      <span>Github</span>\n                      <a href=\"https://github.com/Hi-Wang\" target=\"view_window\">\n                        <svg class=\"icon\" aria-hidden=\"true\">\n                          <use xlink:href=\"#wang-github\"></use>\n                        </svg>\n                      </a>\n                    </li>\n                    <li>\n                      <span #WeChat>WeChat</span>\n                      <a (click)=\"QQWeChatClick(WeChat);\">\n                        <svg class=\"icon\" aria-hidden=\"true\">\n                          <use xlink:href=\"#wang-weixin\"></use>\n                        </svg>\n                      </a>\n                    </li>\n                    <li>\n                      <span #QQ>QQ</span>\n                      <a (click)=\"QQWeChatClick(QQ);\">\n                        <svg class=\"icon\" aria-hidden=\"true\">\n                          <use xlink:href=\"#wang-qq1\"></use>\n                        </svg>\n                      </a>\n                    </li>\n                    <li>\n                      <span>微博</span>\n                      <a href=\"https://weibo.com/u/3820543963?refer_flag=1001030101_&is_hot=1\" target=\"view_window\">\n                        <svg class=\"icon\" aria-hidden=\"true\">\n                          <use xlink:href=\"#wang-weibo\"></use>\n                        </svg>\n                      </a>\n                    </li>\n                    <li>\n                      <span #yun>网易云</span>\n                      <a (click)=\"QQWeChatClick(yun);\">\n                        <svg class=\"icon\" aria-hidden=\"true\">\n                          <use xlink:href=\"#wang-551488821353490553221\"></use>\n                        </svg>\n                      </a>\n                    </li>\n                  </ul>\n                </div>\n              </div>\n            </div>\n        </div>\n        <!-- Add Pagination -->\n    </div>\n</section>\n\n<!-- QQWeChat -->\n<div class=\"full\"  [@display]=\"fullDisplay\">\n  <span #hide style=\"display:none;\">取消</span>\n  <div class=\"fullImgDiv\">\n      <div class=\"iconDiv\" (click)=\"QQWeChatClick(hide);\">\n          <svg class=\"icon\" aria-hidden=\"true\">\n            <use xlink:href=\"#wang-quxiao\"></use>\n          </svg>\n        </div>\n    <img [src]=\"fullSrc\">\n  </div>\n</div>\n"
+module.exports = "<section>\n    <div class=\"swiper-container swiper-container-H\">\n        <div class=\"swiper-wrapper\">\n            <div class=\"swiper-slide swiper-slide-H\">\n                <div class=\"swiper-container swiper-container-W\">\n                    <div class=\"swiper-wrapper\">\n                      <div class=\"swiper-slide swiper-slide-W\">\n                        <figure>\n                          <img src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/myBanner-1.jpg\"/>\n                          <figcaption>\n                            <a>\n                              标题\n                            </a>\n                          </figcaption>\n                        </figure>\n                      </div>\n                      <div class=\"swiper-slide swiper-slide-W\">\n                          <figure>\n                              <img src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/pexels-photo-1.jpg\"/>\n                              <figcaption>\n                                <p>第一张</p>\n                              </figcaption>\n                            </figure>\n                      </div>\n                    </div>\n                    <!-- Add Pagination -->\n                    <div class=\"swiper-pagination swiper-pagination-W\"></div>\n                    <!-- Add Arrows -->\n                    <div class=\"swiper-button-next\"></div>\n                    <div class=\"swiper-button-prev\"></div>\n                  </div>\n            </div>\n            <div class=\"swiper-slide swiper-slide-H swiper-slide-2\">\n              <video autoplay loop>\n                <!-- <source src=\"../../../assets/images/MP4/A7Q0yVfBh3bC1514200220.mp4\"> -->\n                <source src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/3.mp4\">\n              </video>\n              <div class=\"contentSvg\">\n                  <p class=\"svg\">\n                      <svg width=\"379\" height=\"126\" xmlns=\"http://www.w3.org/2000/svg\">\n                        <defs>\n                         <filter id=\"svg_5_blur\">\n                          <feGaussianBlur stdDeviation=\"0\"/>\n                         </filter>\n                        </defs>\n                        <g>\n                         <title>background</title>\n                         <rect x=\"-1\" y=\"-1\" width=\"381\" height=\"128\" id=\"canvas_background\" fill=\"none\"/>\n                         <g id=\"canvasGrid\" display=\"none\">\n                          <rect id=\"svg_1\" width=\"100%\" height=\"100%\" x=\"0\" y=\"0\" stroke-width=\"0\" fill=\"url(#gridpattern)\"/>\n                         </g>\n                        </g>\n                        <g>\n                         <title>Layer 1</title>\n                         <path fill=\"none\" stroke=\"#000\" stroke-width=\"1.5\" opacity=\"0.5\" d=\"m112.00038,182.85674\" id=\"svg_3\"/>\n                         <text fill=\"#000000\" stroke-width=\"0\" stroke-opacity=\"null\" fill-opacity=\"null\" x=\"84.136887\" y=\"99\" id=\"svg_4\" font-size=\"24\" font-family=\"Helvetica, Arial, sans-serif\" text-anchor=\"start\" xml:space=\"preserve\" font-weight=\"bold\" transform=\"matrix(2.833715677261353,0,0,3.3841624259948726,-220.21978307515383,-367.9087255299091) \" stroke=\"#000\">WHO AM I</text>\n                         <text fill=\"#ffffff\" x=\"34.276665\" y=\"111.874252\" id=\"svg_5\" font-size=\"24\" font-family=\"Helvetica, Arial, sans-serif\" text-anchor=\"start\" xml:space=\"preserve\" transform=\"matrix(2.644888162612915,0,0,2.5999633693130995,-52.73922671377659,-206.01982694024906) \" stroke=\"#999999\" filter=\"url(#svg_5_blur)\" font-weight=\"normal\">WHO AM I</text>\n                        </g>\n                       </svg>\n                  </p>\n                  <div class=\"contentText\">\n                    <div class=\"col-md-4 box_1\">\n                      <div class=\"img\"></div>\n                      <p> 小汪，常用名汪耀华。</p>\n                      <p> 1994年，诞生于地球-中国-安徽。</p>\n                      <p>90后，天蝎女，性格温和，软萌，偶尔汉子起来也是很可以的。ヽ(￣▽￣)ﾉ</p>\n                    </div>\n                    <div class=\"col-md-4 box_2\">\n                      <div class=\"img\"></div>\n                      <p>前端开发小白一枚。</p>\n                      <p>初来乍到，看见什么都觉得很好玩，各种功能要怎么实现，戴上耳机，能在电脑前坐很久很久。。。</p>\n                      <p>初级技能，HTML(5)，CSS(3)，AngularJs，Angular2，NODE，MONGODB。</p>\n                    </div>\n                    <div class=\"col-md-4 box_3\">\n                      <div class=\"img\"></div>\n                      <p>对未来。。</p>\n                      <p>想去很多很多地方，</p>\n                      <p>想养一只喵星人或者汪星人，跟我一起敲代码、看电视、晒太阳。。</p>\n                    </div>\n                  </div>\n              </div>\n            </div>\n            <div class=\"swiper-slide swiper-slide-H swiper-slide-3\">\n              <div class=\"imgDiv\">\n                <div class=\"startImg\">\n                    <img class=\"img1\" src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/1%20143.JPG\">\n                    <img class=\"img2\" src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/1%20139.JPG\">\n                </div>\n                \n              </div>\n            </div>\n            <div class=\"swiper-slide swiper-slide-H swiper-slide-4\">\n                <!-- Height 4 -->\n              <div class=\"echarts\" echarts [options]='echartOption'></div>\n            </div>\n            <div class=\"swiper-slide swiper-slide-H\">Height 5</div>\n            <div class=\"swiper-slide swiper-slide-H swiper-slide-6\">\n              <div class=\"background\">\n                <div class=\"content\">\n                  <div class=\"timeBox\">\n                    <div class=\"headerText\">\n                        <svg width=\"246.00000000000003\" height=\"49.99999999999999\" xmlns=\"http://www.w3.org/2000/svg\">\n                          <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->\n                          <defs>\n                           <filter id=\"svg_1_blur\">\n                            <feGaussianBlur stdDeviation=\"1.9\" in=\"SourceGraphic\"/>\n                           </filter>\n                           <filter id=\"svg_2_blur\">\n                            <feGaussianBlur stdDeviation=\"0\" in=\"SourceGraphic\"/>\n                           </filter>\n                          </defs>\n                          <g>\n                           <title>background</title>\n                           <rect fill=\"none\" id=\"canvas_background\" height=\"52\" width=\"248\" y=\"-1\" x=\"-1\"/>\n                           <g display=\"none\" overflow=\"visible\" y=\"0\" x=\"0\" height=\"100%\" width=\"100%\" id=\"canvasGrid\">\n                            <rect fill=\"url(#gridpattern)\" stroke-width=\"0\" y=\"0\" x=\"0\" height=\"100%\" width=\"100%\"/>\n                           </g>\n                          </g>\n                          <g>\n                           <title>Layer 1</title>\n                           <text filter=\"url(#svg_1_blur)\" font-weight=\"bold\" stroke=\"#b2b2b2\" transform=\"matrix(0.9429299235343933,0,0,1,6.876944214105606,0) \" xml:space=\"preserve\" text-anchor=\"start\" font-family=\"'Trebuchet MS', Gadget, sans-serif\" font-size=\"44\" id=\"svg_1\" y=\"40.646023\" x=\"18.380167\" stroke-width=\"2\" fill=\"none\">RUN  TIME</text>\n                           <text filter=\"url(#svg_2_blur)\" font-weight=\"bold\" stroke=\"#b2b2b2\" transform=\"matrix(0.9429299235343933,0,0,1,6.876944214105606,0) \" xml:space=\"preserve\" text-anchor=\"start\" font-family=\"'Trebuchet MS', Gadget, sans-serif\" font-size=\"44\" id=\"svg_2\" y=\"40.646023\" x=\"14.301265\" stroke-width=\"2\" fill=\"none\">RUN  TIME</text>\n                          </g>\n                         </svg>\n                    </div>\n                    <div class=\"timeShow\">\n                      <span class=\"leftLine span\"></span>\n                      <p class=\"time\">\n                          <input [(ngModel)]=\"dayDiff\" #ctrl=\"ngModel\" required style=\"display:none\">\n                        <!-- <input class=\"num\" [(ngModel)]=\"dayDiff\" name=\"dayDiff\"/>天 -->\n                        <!-- <span *ngFor=\"let num of index\" [(ngModel)]=\"index\">\n                          <span class=\"num\">{{num.value}}</span>\n                          <span>{{num.name}}</span>\n                        </span> -->\n                        <span>{{dayDiff}}</span>天\n                        <span class=\"num\">{{hours}}</span>小时\n                        <span class=\"num\">{{minutes}}</span>分钟\n                        <span class=\"num\">{{seconds}}</span>秒\n                      </p>\n                      <span class=\"rightLine span\"></span>\n                      <div class=\"bottom col-md-12\">\n                        <p>开始于&nbsp;2018-3-20 15:20:00</p>\n                      </div>\n                    </div>\n                    \n                  </div>\n                </div>\n              </div>\n              <div class='footer clearfix'>\n                <div class=\"left\">Contact me</div>\n                <div class=\"right\">\n                  <ul>\n                    <li>\n                      <span>Github</span>\n                      <a href=\"https://github.com/Hi-Wang\" target=\"view_window\">\n                        <svg class=\"icon\" aria-hidden=\"true\">\n                          <use xlink:href=\"#wang-github\"></use>\n                        </svg>\n                      </a>\n                    </li>\n                    <li>\n                      <span #WeChat>WeChat</span>\n                      <a (click)=\"QQWeChatClick(WeChat);\">\n                        <svg class=\"icon\" aria-hidden=\"true\">\n                          <use xlink:href=\"#wang-weixin\"></use>\n                        </svg>\n                      </a>\n                    </li>\n                    <li>\n                      <span #QQ>QQ</span>\n                      <a (click)=\"QQWeChatClick(QQ);\">\n                        <svg class=\"icon\" aria-hidden=\"true\">\n                          <use xlink:href=\"#wang-qq1\"></use>\n                        </svg>\n                      </a>\n                    </li>\n                    <li>\n                      <span>微博</span>\n                      <a href=\"https://weibo.com/u/3820543963?refer_flag=1001030101_&is_hot=1\" target=\"view_window\">\n                        <svg class=\"icon\" aria-hidden=\"true\">\n                          <use xlink:href=\"#wang-weibo\"></use>\n                        </svg>\n                      </a>\n                    </li>\n                    <li>\n                      <span #yun>网易云</span>\n                      <a (click)=\"QQWeChatClick(yun);\">\n                        <svg class=\"icon\" aria-hidden=\"true\">\n                          <use xlink:href=\"#wang-551488821353490553221\"></use>\n                        </svg>\n                      </a>\n                    </li>\n                  </ul>\n                </div>\n              </div>\n            </div>\n        </div>\n        <!-- Add Pagination -->\n    </div>\n</section>\n\n<!-- QQWeChat -->\n<div class=\"full\"  [@display]=\"fullDisplay\">\n  <span #hide style=\"display:none;\">取消</span>\n  <div class=\"fullImgDiv\">\n      <div class=\"iconDiv\" (click)=\"QQWeChatClick(hide);\">\n          <svg class=\"icon\" aria-hidden=\"true\">\n            <use xlink:href=\"#wang-quxiao\"></use>\n          </svg>\n        </div>\n    <img [src]=\"fullSrc\">\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -825,6 +829,7 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeIndexComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -835,9 +840,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HomeIndexComponent = (function () {
-    function HomeIndexComponent(cdr) {
+    function HomeIndexComponent(cdr, router) {
         this.cdr = cdr;
+        this.router = router;
         // 时间差数据结束
         this.index = [];
         this.res = [];
@@ -1239,7 +1246,7 @@ var HomeIndexComponent = (function () {
             ]
             // changeDetection:ChangeDetectionStrategy.OnPush
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], HomeIndexComponent);
     return HomeIndexComponent;
 }());
@@ -1251,7 +1258,7 @@ var HomeIndexComponent = (function () {
 /***/ "../../../../../views/app/components/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app\">\n  <header>     \n    <div class=\"col-md-2\">\n      <img src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/logo.fw.png\">\n    </div>\n    <div class=\"col-md-5 nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" [routerLink]='item.url'>\n          <div class=\"set_4_button1 raised hoverable\">\n            <div class=\"anim\"></div>\n            <span>{{item.name}}</span>\n          </div>\n        </li>\n      </ul>\n    </div>\n    <div class=\"col-md-5 right\">\n      <!-- <ul>\n        <li>1111\n          <i></i>\n        </li>\n        <li>222</li>\n        <li>333</li>\n      </ul> -->\n    </div>\n    <a href=\"https://github.com/Hi-Wang/node-index\" class=\"github-corner\" aria-label=\"View Source Code on Github\">\n      <svg width=\"55\" height=\"55\" viewBox=\"0 0 250 250\" style=\"fill:#BA68C8; color:#fff; position: fixed; top: 0; border: 0; right: 0; transform: scale(1, 1);\" aria-hidden=\"true\">\n        <path d=\"M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z\"></path>\n        <path d=\"M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2\" fill=\"currentColor\" style=\"transform-origin: 130px 106px;\" class=\"octo-arm\"></path>\n        <path d=\"M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z\" fill=\"currentColor\" class=\"octo-body\"></path>\n      </svg>\n    </a>\n  </header>\n\n  <!--router-->\n  <router-outlet class=\"section\"></router-outlet>\n  <router-outlet name=\"loginModel\"></router-outlet>\n</div>\n\n<!--<!doctype html>-->\n<!--<html lang=\"en\">-->\n<!--<head>-->\n  <!--<meta charset=\"utf-8\">-->\n  <!--<title>Hi</title>-->\n  <!--<base href=\"/\">-->\n\n  <!--&lt;!&ndash;<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">&ndash;&gt;-->\n\n  <!--&lt;!&ndash;<link rel=\"stylesheet\" href=\"https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />&ndash;&gt;-->\n  <!--&lt;!&ndash;<meta name=\"keywords\" content=\"Velvety Sign In Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements\" />&ndash;&gt;-->\n  <!--&lt;!&ndash;<link rel=\"stylesheet\" href=\"../../../assets/css/flexslider.css\" type=\"text/css\" media=\"screen\" /> &lt;!&ndash; Flexslider-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"../../../assets/css/font-awesome.css\" rel=\"stylesheet\">&lt;!&ndash; Font-awesome-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"../../../assets/css/style.css\" rel='stylesheet' type='text/css'/>&lt;!&ndash; Stylesheet-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"//fonts.googleapis.com/css?family=Righteous\" rel=\"stylesheet\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"//fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700\" rel=\"stylesheet\">&ndash;&gt;-->\n\n  <!--&lt;!&ndash;<script type=\"application/x-javascript\"> addEventListener(\"load\", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>&ndash;&gt;-->\n  <!--<script src=\"https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js\"></script>-->\n  <!--&lt;!&ndash;<script src=\"https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js\"></script>&ndash;&gt;-->\n  <!--&lt;!&ndash;<script src=\"https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js\"></script>&ndash;&gt;-->\n\n<!--</head>-->\n<!--<body>-->\n\n<!--<div class=\"all\">-->\n  <!--<nav class=\"clearfix\">-->\n    <!--<div class='logo'>-->\n      <!--<span class=\"imgSpan\">-->\n        <!--<img src=\"../../assets/images/logo.fw.png\">-->\n      <!--</span>-->\n      <!--<span class=\"textSpan\">Hi, 小汪</span>-->\n\n    <!--</div>-->\n    <!--<ul class=\"clearfix\">-->\n      <!--<li [routerLink]=\"['home']\" routerLinkActive='active'><a>首页</a></li>-->\n      <!--<li [routerLink]=\"['about']\"><a>关于我</a></li>-->\n      <!--<li [routerLink]=\"['contact']\"><a>作品展示</a></li>-->\n      <!--<li [routerLink]=\"['http']\"><a>HTTP</a></li>-->\n      <!--<li [routerLink]=\"['callme']\"><a>给我留言</a></li>-->\n      <!--<li [routerLink]=\"['contacts']\"><a>重定向</a></li>-->\n    <!--</ul>-->\n  <!--</nav>-->\n\n  <!--<div>-->\n    <!--&lt;!&ndash;<router-outlet></router-outlet>&ndash;&gt;-->\n  <!--</div>-->\n\n<!--</div>-->\n\n\n<!--</body>-->\n<!--</html>-->\n"
+module.exports = "<div class=\"app\">\n  <header>     \n    <div class=\"col-md-2\">\n      <img src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/logo.fw.png\">\n    </div>\n    <div class=\"col-md-5 nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" [routerLink]='[item.url]'>\n          <div class=\"set_4_button1 raised hoverable\">\n            <div class=\"anim\"></div>\n            <span>{{item.name}}</span>\n          </div>\n        </li>\n      </ul>\n    </div>\n    <div class=\"col-md-5 right\">\n      <!-- <ul>\n        <li>1111\n          <i></i>\n        </li>\n        <li>222</li>\n        <li>333</li>\n      </ul> -->\n    </div>\n    <a href=\"https://github.com/Hi-Wang/node-index\" class=\"github-corner\" aria-label=\"View Source Code on Github\">\n      <svg width=\"55\" height=\"55\" viewBox=\"0 0 250 250\" style=\"fill:#BA68C8; color:#fff; position: fixed; top: 0; border: 0; right: 0; transform: scale(1, 1);\" aria-hidden=\"true\">\n        <path d=\"M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z\"></path>\n        <path d=\"M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2\" fill=\"currentColor\" style=\"transform-origin: 130px 106px;\" class=\"octo-arm\"></path>\n        <path d=\"M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z\" fill=\"currentColor\" class=\"octo-body\"></path>\n      </svg>\n    </a>\n  </header>\n\n  <!--router-->\n  <router-outlet class=\"section\"></router-outlet>\n  <router-outlet name=\"loginModel\"></router-outlet>\n</div>\n\n<!--<!doctype html>-->\n<!--<html lang=\"en\">-->\n<!--<head>-->\n  <!--<meta charset=\"utf-8\">-->\n  <!--<title>Hi</title>-->\n  <!--<base href=\"/\">-->\n\n  <!--&lt;!&ndash;<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">&ndash;&gt;-->\n\n  <!--&lt;!&ndash;<link rel=\"stylesheet\" href=\"https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />&ndash;&gt;-->\n  <!--&lt;!&ndash;<meta name=\"keywords\" content=\"Velvety Sign In Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements\" />&ndash;&gt;-->\n  <!--&lt;!&ndash;<link rel=\"stylesheet\" href=\"../../../assets/css/flexslider.css\" type=\"text/css\" media=\"screen\" /> &lt;!&ndash; Flexslider-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"../../../assets/css/font-awesome.css\" rel=\"stylesheet\">&lt;!&ndash; Font-awesome-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"../../../assets/css/style.css\" rel='stylesheet' type='text/css'/>&lt;!&ndash; Stylesheet-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"//fonts.googleapis.com/css?family=Righteous\" rel=\"stylesheet\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"//fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700\" rel=\"stylesheet\">&ndash;&gt;-->\n\n  <!--&lt;!&ndash;<script type=\"application/x-javascript\"> addEventListener(\"load\", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>&ndash;&gt;-->\n  <!--<script src=\"https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js\"></script>-->\n  <!--&lt;!&ndash;<script src=\"https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js\"></script>&ndash;&gt;-->\n  <!--&lt;!&ndash;<script src=\"https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js\"></script>&ndash;&gt;-->\n\n<!--</head>-->\n<!--<body>-->\n\n<!--<div class=\"all\">-->\n  <!--<nav class=\"clearfix\">-->\n    <!--<div class='logo'>-->\n      <!--<span class=\"imgSpan\">-->\n        <!--<img src=\"../../assets/images/logo.fw.png\">-->\n      <!--</span>-->\n      <!--<span class=\"textSpan\">Hi, 小汪</span>-->\n\n    <!--</div>-->\n    <!--<ul class=\"clearfix\">-->\n      <!--<li [routerLink]=\"['home']\" routerLinkActive='active'><a>首页</a></li>-->\n      <!--<li [routerLink]=\"['about']\"><a>关于我</a></li>-->\n      <!--<li [routerLink]=\"['contact']\"><a>作品展示</a></li>-->\n      <!--<li [routerLink]=\"['http']\"><a>HTTP</a></li>-->\n      <!--<li [routerLink]=\"['callme']\"><a>给我留言</a></li>-->\n      <!--<li [routerLink]=\"['contacts']\"><a>重定向</a></li>-->\n    <!--</ul>-->\n  <!--</nav>-->\n\n  <!--<div>-->\n    <!--&lt;!&ndash;<router-outlet></router-outlet>&ndash;&gt;-->\n  <!--</div>-->\n\n<!--</div>-->\n\n\n<!--</body>-->\n<!--</html>-->\n"
 
 /***/ }),
 
@@ -1296,7 +1303,7 @@ var HomeComponent = (function () {
             { 'name': '书影音', 'url': 'share' },
             { 'name': '实验室', 'url': 'demoRoom' },
             { 'name': '聊天室', 'url': 'chatRoom' },
-            { 'name': '留言', 'url': 'messageRoom' },
+            { 'name': '留言', 'url': 'messageRoom' }
         ];
     }
     HomeComponent.prototype.ngOnInit = function () {
@@ -1372,7 +1379,7 @@ var HomeModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ng2_file_upload__["FileUploadModule"],
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_5_ngx_echarts__["a" /* NgxEchartsModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* RouterModule */].forChild(__WEBPACK_IMPORTED_MODULE_6__home_routes__["a" /* HomeRoutes */])
+                __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* RouterModule */].forChild(__WEBPACK_IMPORTED_MODULE_6__home_routes__["a" /* HomeRoutes */])
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_8__login_model_login_model_component__["a" /* LoginModelComponent */],
@@ -1425,8 +1432,14 @@ var HomeRoutes = [
             },
             {
                 path: 'chatRoom',
-                component: __WEBPACK_IMPORTED_MODULE_1__chatroom_chatroom_component__["a" /* ChatroomComponent */]
-                // outlet: 'popup'
+                component: __WEBPACK_IMPORTED_MODULE_1__chatroom_chatroom_component__["a" /* ChatroomComponent */],
+                children: [
+                    {
+                        path: 'loginModel',
+                        component: __WEBPACK_IMPORTED_MODULE_6__login_model_login_model_component__["a" /* LoginModelComponent */],
+                        outlet: 'loginModel'
+                    }
+                ]
             },
             {
                 path: 'share',
@@ -1434,16 +1447,18 @@ var HomeRoutes = [
             },
             {
                 path: 'demoRoom',
-                component: __WEBPACK_IMPORTED_MODULE_4__demo_room_demo_room_component__["a" /* DemoRoomComponent */]
+                component: __WEBPACK_IMPORTED_MODULE_4__demo_room_demo_room_component__["a" /* DemoRoomComponent */],
+                children: [
+                    {
+                        path: 'loginModel',
+                        component: __WEBPACK_IMPORTED_MODULE_6__login_model_login_model_component__["a" /* LoginModelComponent */],
+                        outlet: 'loginModel'
+                    }
+                ]
             },
             {
                 path: 'messageRoom',
                 component: __WEBPACK_IMPORTED_MODULE_5__message_room_message_room_component__["a" /* MessageRoomComponent */]
-            },
-            {
-                path: 'loginModel',
-                component: __WEBPACK_IMPORTED_MODULE_6__login_model_login_model_component__["a" /* LoginModelComponent */],
-                outlet: 'popup'
             }
         ]
     }
@@ -1455,7 +1470,7 @@ var HomeRoutes = [
 /***/ "../../../../../views/app/components/login-model/login-model.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"loginModel\">\n    <h3>Contact Crisis Center</h3>\n    <!-- <div *ngIf=\"details\">\n      {{ details }}\n    </div> -->\n    <div>\n      <div>\n        <label>Message: </label>\n      </div>\n      <div>\n        <textarea [(ngModel)]=\"message\" rows=\"10\" cols=\"35\" [disabled]=\"sending\"></textarea>\n      </div>\n    </div>\n    <p *ngIf=\"!sending\">\n      <button (click)=\"send()\">Send</button>\n      <button (click)=\"cancel()\">Cancel</button>\n    </p>\n</div>\n\n"
+module.exports = "<div class=\"loginModel\">\n    <div class=\"fullDiv\" #fullDiv [@alert]=\"fullDisplay\" (mousewheel)=\"mousewheel($event)\">\n        <div class=\"full\" (click)='alertShowHide()'></div>\n        <div class=\"alert\" #alert>\n          <div class=\"header\">雁过留名</div>\n          <div class=\"input input1\">\n            <span>昵称</span><input #name type=\"text\" placeholder=\"告诉我，你叫啥？\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n          </div>\n          <div class=\"input input2\">\n            <span>邮箱</span><input #email type=\"text\" placeholder=\"邮箱地址（用于获取头像）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n          </div>\n          <div class=\"input input3\">\n            <span>博客</span><input #blog type=\"text\" placeholder=\"你的博客地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n          </div>\n          <div class=\"input input3\">\n            <span>Github</span><input #Github type=\"text\" placeholder=\"你的Github地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n          </div>\n          <div class=\"footer\">\n            <button (click)='alertShowHide()'>取消</button>\n            <button style=\"background:#1C97DF;\" (click)=\"save(name, email, blog, Github)\">确定</button>\n          </div>\n        </div>\n      </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -1467,7 +1482,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".loginModel .full {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.6);\n  z-index: 1000; }\n\n.loginModel .alert {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 1001;\n  width: 400px;\n  height: 300px;\n  background: #fff;\n  transition: all 0.3s;\n  padding-top: 50px;\n  box-shadow: rgba(0, 0, 0, 0.4); }\n  .loginModel .alert .header {\n    height: 50px;\n    line-height: 50px;\n    margin-top: -50px;\n    text-align: center;\n    font-size: 16px;\n    font-weight: 600; }\n  .loginModel .alert .input {\n    padding: 10px 10px 10px 70px; }\n    .loginModel .alert .input span {\n      width: 60px;\n      margin-left: -60px;\n      display: inline-block;\n      font-size: 12px;\n      padding-right: 20px;\n      text-align: right; }\n    .loginModel .alert .input input {\n      width: 100%;\n      font-size: 12px;\n      border-radius: 4px;\n      padding-left: 10px;\n      border: 1px solid #ccc;\n      height: 30px;\n      outline: none;\n      -webkit-appearance: none;\n      box-shadow: 0px 0 3px rgba(0, 0, 0, 0.2) inset; }\n    .loginModel .alert .input input:focus {\n      border: 1px solid #1C97DF;\n      box-shadow: none; }\n  .loginModel .alert .footer {\n    padding: 10px;\n    text-align: center; }\n    .loginModel .alert .footer button {\n      font-size: 12px;\n      padding: 6px 18px;\n      border: none;\n      margin: 0 10px;\n      color: #fff;\n      border-radius: 4px; }\n", ""]);
 
 // exports
 
@@ -1483,7 +1498,8 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginModelComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1495,11 +1511,63 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var LoginModelComponent = (function () {
-    function LoginModelComponent(router) {
+    function LoginModelComponent(router, actRouter, ele, http) {
         this.router = router;
+        this.actRouter = actRouter;
+        this.ele = ele;
+        this.http = http;
         this.sending = false;
+        this.parentPath = actRouter.parent;
+        this.fullDisplay = 'block';
+        this.errorDisplay = 'none';
+        this.setMessageData = '';
+        this.messageName = '';
+        this.data = '';
+        this.img = "../../../assets/images/message/touxiang.png";
     }
+    // 鼠标滚动事件
+    LoginModelComponent.prototype.mousewheel = function () {
+        var screenWidth = document.documentElement.clientWidth;
+        var screenHeight = document.documentElement.clientHeight;
+        var scrollTop = document.documentElement.scrollTop;
+        var top = (screenHeight - 300) / 2 + scrollTop;
+        var left = (screenWidth - 400) / 2;
+        this.alert.nativeElement.style.top = top + 'px';
+        this.alert.nativeElement.style.left = left + 'px';
+    };
+    // 弹框出现判断位置
+    LoginModelComponent.prototype.screen = function () {
+        var screenWidth = document.documentElement.clientWidth;
+        var screenHeight = document.documentElement.clientHeight;
+        var top = (screenHeight - 300) / 2;
+        var left = (screenWidth - 400) / 2;
+        this.alert.nativeElement.style.top = top + 'px';
+        this.alert.nativeElement.style.left = left + 'px';
+    };
+    // 表单验证失去焦点
+    LoginModelComponent.prototype.inputStyleBlur = function (e) {
+        e.target.style.border = "1px solid #ccc";
+        e.target.style.color = '#333';
+    };
+    // 表单验证样式获取焦点
+    LoginModelComponent.prototype.inputStyleFocus = function (e) {
+        e.target.style.border = "1px solid #1C97DF";
+        e.target.style.color = '#333';
+        e.target.value = '';
+    };
+    // 弹框显示影藏
+    LoginModelComponent.prototype.alertShowHide = function () {
+        this.errorDisplay = 'none';
+        if (this.fullDisplay === 'none') {
+            this.fullDisplay = 'block';
+            this.screen();
+        }
+        else if (this.fullDisplay === 'block') {
+            this.fullDisplay = 'none';
+        }
+    };
     LoginModelComponent.prototype.send = function () {
         var _this = this;
         this.message = '测试';
@@ -1514,17 +1582,110 @@ var LoginModelComponent = (function () {
         this.closePopup();
     };
     LoginModelComponent.prototype.closePopup = function () {
-        this.router.navigate([{ outlest: { popup: null } }]);
+        this.router.navigate([
+            [{ outlest: { loginModel: null } }],
+            this.parentPath.url.value[0].path
+        ]);
     };
     LoginModelComponent.prototype.ngOnInit = function () {
     };
+    // 保存昵称
+    LoginModelComponent.prototype.save = function (name, email, blog, Github) {
+        var _this = this;
+        var emailRegEx = new RegExp(/^([a-zA-Z0-9._-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/);
+        var GithubRegEx = new RegExp(/^((http(s)?:\/\/)?)+[github.com]+(\/[a-zA-Z0-9_-]+)+$/);
+        var BlogRegEx = new RegExp(/^(?=^.{3,255}$)[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+$/);
+        //  验证昵称
+        if (name.value === '' || name.value === '昵称！昵称！要填！') {
+            name.style.border = '1px solid #F6B603';
+            name.style.color = '#F6B603';
+            name.value = "昵称！昵称！要填！";
+            return false;
+        }
+        // 验证博客地址
+        if (blog.value !== '' && !BlogRegEx.test(blog.value) || blog.value !== '' && blog.value === '这地址访问不到啊~') {
+            blog.style.border = '1px solid #F6B603';
+            blog.style.color = '#F6B603';
+            blog.value = "这地址访问不到啊~";
+            return false;
+        }
+        // 验证Github
+        if (Github.value !== '' && !GithubRegEx.test(Github.value) || Github.value !== '' && Github.value === '回来！地址错了！') {
+            Github.style.border = '1px solid #F6B603';
+            Github.style.color = '#F6B603';
+            Github.value = "回来！地址错了！";
+            return false;
+        }
+        // 验证邮箱
+        if (email.value === '' || email.value === '大哥，邮箱地址！') {
+            email.style.border = '1px solid #F6B603';
+            email.style.color = '#F6B603';
+            email.value = "大哥，邮箱地址！";
+            return false;
+        }
+        else if (!emailRegEx.test(email.value)) {
+            email.style.border = '1px solid #F6B603';
+            email.style.color = '#F6B603';
+            email.value = "回来！地址错了！";
+            return false;
+        }
+        else {
+            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+            var options_1 = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+            var body_1 = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
+            var address = sessionStorage.getItem('address');
+            body_1.set('name', name.value);
+            body_1.set('email', email.value);
+            body_1.set('blog', blog.value);
+            body_1.set('address', address);
+            body_1.set('github', Github.value);
+            setTimeout(function () {
+                _this.http.post("http://localhost:4400/messageLib/getEmail", body_1, options_1)
+                    .subscribe(function (res) {
+                    var data = res.json();
+                    _this.setMessageData = data.data;
+                    _this.messageName = data.data.name;
+                    _this.img = data.data.img;
+                    _this.fullDisplay = 'none';
+                });
+            }, 100);
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('alert'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], LoginModelComponent.prototype, "alert", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('addMessage'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], LoginModelComponent.prototype, "addMessageDiv", void 0);
     LoginModelComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-login-model',
             template: __webpack_require__("../../../../../views/app/components/login-model/login-model.component.html"),
-            styles: [__webpack_require__("../../../../../views/app/components/login-model/login-model.component.scss")]
+            styles: [__webpack_require__("../../../../../views/app/components/login-model/login-model.component.scss")],
+            animations: [
+                Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["trigger"])('alert', [
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["state"])('block', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["style"])({
+                        'display': 'block',
+                        'opacity': '1'
+                    })),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["state"])('inline-block', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["style"])({
+                        'display': 'inline-block',
+                        'opacity': '1'
+                    })),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["state"])('none', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["style"])({
+                        'display': 'none',
+                        'opacity': '0'
+                    })),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["transition"])('block => none', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["animate"])('600ms cubic-bezier(0.4, 0, 0.2, 1)')),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["transition"])('none => block', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["animate"])('600ms cubic-bezier(0.4, 0, 0.2, 1)')),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["transition"])('inline-block => none', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["animate"])('600ms cubic-bezier(0.4, 0, 0.2, 1)')),
+                    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["transition"])('none => inline-block', Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["animate"])('600ms cubic-bezier(0.4, 0, 0.2, 1)')),
+                ])
+            ]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
     ], LoginModelComponent);
     return LoginModelComponent;
 }());

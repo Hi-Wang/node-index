@@ -151,12 +151,12 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_7__angular_router__["b" /* RouterModule */],
+                __WEBPACK_IMPORTED_MODULE_7__angular_router__["c" /* RouterModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_common__["CommonModule"],
                 __WEBPACK_IMPORTED_MODULE_5_ng2_file_upload__["FileUploadModule"],
                 __WEBPACK_IMPORTED_MODULE_8__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
                 __WEBPACK_IMPORTED_MODULE_9_ngx_echarts__["a" /* NgxEchartsModule */],
-                __WEBPACK_IMPORTED_MODULE_7__angular_router__["b" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_11__app_routes__["a" /* AppRoutes */])
+                __WEBPACK_IMPORTED_MODULE_7__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_11__app_routes__["a" /* AppRoutes */])
                 // ReactiveFormsModule,
             ],
             providers: [

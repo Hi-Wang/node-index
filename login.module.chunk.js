@@ -140,7 +140,7 @@ var LoginComponent = (function () {
             template: __webpack_require__("../../../../../views/app/components/login/login.component.html"),
             styles: [__webpack_require__("../../../../../views/app/components/login/login.component.scss")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -181,7 +181,7 @@ var LoginModule = (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
                 __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__login_routes__["a" /* LoginRoutes */])
+                __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__login_routes__["a" /* LoginRoutes */])
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_5__login_component__["a" /* LoginComponent */]

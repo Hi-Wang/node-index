@@ -139,6 +139,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+// import { HomeComponent } from './components/home/home.component';
+// import { LoginModelComponent } from './components/login-model/login-model.component';
 var AppModule = (function () {
     function AppModule() {
     }
@@ -179,6 +181,8 @@ Object(__WEBPACK_IMPORTED_MODULE_3__angular_platform_browser_dynamic__["a" /* pl
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutes; });
+// import { HomeComponent } from './components/home/home.component';
+// import { LoginModelComponent } from './components/login-model/login-model.component';
 var AppRoutes = [
     {
         path: '',
@@ -191,8 +195,20 @@ var AppRoutes = [
     },
     {
         path: 'home',
+        // component: HomeComponent
         loadChildren: './components/home/home.module#HomeModule'
+        // children: HomeRoutes
+        // children:[{
+        //     path: 'loginModel',
+        //     component: LoginModelComponent,
+        //     outlet: 'loginModel' 
+        // }]
     }
+    // {
+    //     path: 'loginModel',
+    //     loadChildren: './components/login-model/login-model.module#LoginModelModule',
+    //     outlet: 'loginModel' 
+    // }
 ];
 
 

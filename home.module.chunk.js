@@ -616,6 +616,7 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatroomComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_passValueService_pass_value_service__ = __webpack_require__("../../../../../views/app/services/passValueService/pass-value.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -627,12 +628,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+// 输入服务
+
 var ChatroomComponent = (function () {
-    function ChatroomComponent(router) {
+    function ChatroomComponent(router, valueService) {
         this.router = router;
+        this.valueService = valueService;
+        this.setValue = '传入数据';
         // this.router.navigate(['chatRoom']);
     }
     ChatroomComponent.prototype.ngOnInit = function () {
+        this.setPassValue();
+        this.getPassValue();
+    };
+    ChatroomComponent.prototype.getPassValue = function () {
+        this.getValue = this.valueService.getPassValue();
+        console.log(this.getValue);
+    };
+    ChatroomComponent.prototype.setPassValue = function () {
+        this.valueService.setPassValue(this.setValue);
     };
     ChatroomComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -640,7 +654,7 @@ var ChatroomComponent = (function () {
             template: __webpack_require__("../../../../../views/app/components/chatroom/chatroom.component.html"),
             styles: [__webpack_require__("../../../../../views/app/components/chatroom/chatroom.component.scss")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__services_passValueService_pass_value_service__["a" /* PassValueService */]])
     ], ChatroomComponent);
     return ChatroomComponent;
 }());
@@ -680,6 +694,7 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DemoRoomComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_passValueService_pass_value_service__ = __webpack_require__("../../../../../views/app/services/passValueService/pass-value.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -690,10 +705,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+// 载入数据服务
+
 var DemoRoomComponent = (function () {
-    function DemoRoomComponent() {
+    function DemoRoomComponent(valueService) {
+        this.valueService = valueService;
     }
     DemoRoomComponent.prototype.ngOnInit = function () {
+        this.getPassValue();
+    };
+    DemoRoomComponent.prototype.getPassValue = function () {
+        this.getValue = this.valueService.getPassValue();
+        console.log(this.getValue);
     };
     DemoRoomComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -701,7 +724,7 @@ var DemoRoomComponent = (function () {
             template: __webpack_require__("../../../../../views/app/components/demo-room/demo-room.component.html"),
             styles: [__webpack_require__("../../../../../views/app/components/demo-room/demo-room.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_passValueService_pass_value_service__["a" /* PassValueService */]])
     ], DemoRoomComponent);
     return DemoRoomComponent;
 }());
@@ -1258,7 +1281,7 @@ var HomeIndexComponent = (function () {
 /***/ "../../../../../views/app/components/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app\">\n  <header>     \n    <div class=\"col-md-2\">\n      <img src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/logo.fw.png\">\n    </div>\n    <div class=\"col-md-5 nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" [routerLink]='[item.url]'>\n          <div class=\"set_4_button1 raised hoverable\">\n            <div class=\"anim\"></div>\n            <span>{{item.name}}</span>\n          </div>\n        </li>\n      </ul>\n    </div>\n    <div class=\"col-md-5 right\">\n      <!-- <ul>\n        <li>1111\n          <i></i>\n        </li>\n        <li>222</li>\n        <li>333</li>\n      </ul> -->\n    </div>\n    <a href=\"https://github.com/Hi-Wang/node-index\" class=\"github-corner\" aria-label=\"View Source Code on Github\">\n      <svg width=\"55\" height=\"55\" viewBox=\"0 0 250 250\" style=\"fill:#BA68C8; color:#fff; position: fixed; top: 0; border: 0; right: 0; transform: scale(1, 1);\" aria-hidden=\"true\">\n        <path d=\"M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z\"></path>\n        <path d=\"M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2\" fill=\"currentColor\" style=\"transform-origin: 130px 106px;\" class=\"octo-arm\"></path>\n        <path d=\"M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z\" fill=\"currentColor\" class=\"octo-body\"></path>\n      </svg>\n    </a>\n  </header>\n\n  <!--router-->\n  <router-outlet class=\"section\"></router-outlet>\n  <router-outlet name=\"loginModel\"></router-outlet>\n</div>\n\n<!--<!doctype html>-->\n<!--<html lang=\"en\">-->\n<!--<head>-->\n  <!--<meta charset=\"utf-8\">-->\n  <!--<title>Hi</title>-->\n  <!--<base href=\"/\">-->\n\n  <!--&lt;!&ndash;<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">&ndash;&gt;-->\n\n  <!--&lt;!&ndash;<link rel=\"stylesheet\" href=\"https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />&ndash;&gt;-->\n  <!--&lt;!&ndash;<meta name=\"keywords\" content=\"Velvety Sign In Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements\" />&ndash;&gt;-->\n  <!--&lt;!&ndash;<link rel=\"stylesheet\" href=\"../../../assets/css/flexslider.css\" type=\"text/css\" media=\"screen\" /> &lt;!&ndash; Flexslider-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"../../../assets/css/font-awesome.css\" rel=\"stylesheet\">&lt;!&ndash; Font-awesome-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"../../../assets/css/style.css\" rel='stylesheet' type='text/css'/>&lt;!&ndash; Stylesheet-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"//fonts.googleapis.com/css?family=Righteous\" rel=\"stylesheet\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"//fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700\" rel=\"stylesheet\">&ndash;&gt;-->\n\n  <!--&lt;!&ndash;<script type=\"application/x-javascript\"> addEventListener(\"load\", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>&ndash;&gt;-->\n  <!--<script src=\"https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js\"></script>-->\n  <!--&lt;!&ndash;<script src=\"https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js\"></script>&ndash;&gt;-->\n  <!--&lt;!&ndash;<script src=\"https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js\"></script>&ndash;&gt;-->\n\n<!--</head>-->\n<!--<body>-->\n\n<!--<div class=\"all\">-->\n  <!--<nav class=\"clearfix\">-->\n    <!--<div class='logo'>-->\n      <!--<span class=\"imgSpan\">-->\n        <!--<img src=\"../../assets/images/logo.fw.png\">-->\n      <!--</span>-->\n      <!--<span class=\"textSpan\">Hi, 小汪</span>-->\n\n    <!--</div>-->\n    <!--<ul class=\"clearfix\">-->\n      <!--<li [routerLink]=\"['home']\" routerLinkActive='active'><a>首页</a></li>-->\n      <!--<li [routerLink]=\"['about']\"><a>关于我</a></li>-->\n      <!--<li [routerLink]=\"['contact']\"><a>作品展示</a></li>-->\n      <!--<li [routerLink]=\"['http']\"><a>HTTP</a></li>-->\n      <!--<li [routerLink]=\"['callme']\"><a>给我留言</a></li>-->\n      <!--<li [routerLink]=\"['contacts']\"><a>重定向</a></li>-->\n    <!--</ul>-->\n  <!--</nav>-->\n\n  <!--<div>-->\n    <!--&lt;!&ndash;<router-outlet></router-outlet>&ndash;&gt;-->\n  <!--</div>-->\n\n<!--</div>-->\n\n\n<!--</body>-->\n<!--</html>-->\n"
+module.exports = "<div class=\"app\">\n  <header>     \n    <div class=\"col-md-2\">\n      <img src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/logo.fw.png\">\n    </div>\n    <div class=\"col-md-5 nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" [routerLink]='[item.url]'>\n          <div class=\"set_4_button1 raised hoverable\">\n            <div class=\"anim\"></div>\n            <span>{{item.name}}</span>\n          </div>\n        </li>\n      </ul>\n    </div>\n    <div class=\"col-md-5 right\">\n      <ul>\n        <li class=\"userName\" style=\"padding-left:0;margin-left:0;\" (click)=\"loginModel()\">\n          <a>{{user.name}}</a>\n        </li>\n        <li (click)=\"loginModel()\">\n          <div class=\"img\">\n              <img [src]=\"user.img\">\n          </div>\n        </li>\n      </ul>\n    </div>\n    <a href=\"https://github.com/Hi-Wang/node-index\" class=\"github-corner\" aria-label=\"View Source Code on Github\">\n      <svg width=\"55\" height=\"55\" viewBox=\"0 0 250 250\" style=\"fill:#BA68C8; color:#fff; position: fixed; top: 0; border: 0; right: 0; transform: scale(1, 1);\" aria-hidden=\"true\">\n        <path d=\"M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z\"></path>\n        <path d=\"M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2\" fill=\"currentColor\" style=\"transform-origin: 130px 106px;\" class=\"octo-arm\"></path>\n        <path d=\"M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z\" fill=\"currentColor\" class=\"octo-body\"></path>\n      </svg>\n    </a>\n  </header>\n\n  <!--router-->\n  <router-outlet class=\"section\"></router-outlet>\n  <router-outlet name=\"loginModel\"></router-outlet>\n</div>\n\n<!--<!doctype html>-->\n<!--<html lang=\"en\">-->\n<!--<head>-->\n  <!--<meta charset=\"utf-8\">-->\n  <!--<title>Hi</title>-->\n  <!--<base href=\"/\">-->\n\n  <!--&lt;!&ndash;<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">&ndash;&gt;-->\n\n  <!--&lt;!&ndash;<link rel=\"stylesheet\" href=\"https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />&ndash;&gt;-->\n  <!--&lt;!&ndash;<meta name=\"keywords\" content=\"Velvety Sign In Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements\" />&ndash;&gt;-->\n  <!--&lt;!&ndash;<link rel=\"stylesheet\" href=\"../../../assets/css/flexslider.css\" type=\"text/css\" media=\"screen\" /> &lt;!&ndash; Flexslider-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"../../../assets/css/font-awesome.css\" rel=\"stylesheet\">&lt;!&ndash; Font-awesome-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"../../../assets/css/style.css\" rel='stylesheet' type='text/css'/>&lt;!&ndash; Stylesheet-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"//fonts.googleapis.com/css?family=Righteous\" rel=\"stylesheet\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"//fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700\" rel=\"stylesheet\">&ndash;&gt;-->\n\n  <!--&lt;!&ndash;<script type=\"application/x-javascript\"> addEventListener(\"load\", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>&ndash;&gt;-->\n  <!--<script src=\"https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js\"></script>-->\n  <!--&lt;!&ndash;<script src=\"https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js\"></script>&ndash;&gt;-->\n  <!--&lt;!&ndash;<script src=\"https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js\"></script>&ndash;&gt;-->\n\n<!--</head>-->\n<!--<body>-->\n\n<!--<div class=\"all\">-->\n  <!--<nav class=\"clearfix\">-->\n    <!--<div class='logo'>-->\n      <!--<span class=\"imgSpan\">-->\n        <!--<img src=\"../../assets/images/logo.fw.png\">-->\n      <!--</span>-->\n      <!--<span class=\"textSpan\">Hi, 小汪</span>-->\n\n    <!--</div>-->\n    <!--<ul class=\"clearfix\">-->\n      <!--<li [routerLink]=\"['home']\" routerLinkActive='active'><a>首页</a></li>-->\n      <!--<li [routerLink]=\"['about']\"><a>关于我</a></li>-->\n      <!--<li [routerLink]=\"['contact']\"><a>作品展示</a></li>-->\n      <!--<li [routerLink]=\"['http']\"><a>HTTP</a></li>-->\n      <!--<li [routerLink]=\"['callme']\"><a>给我留言</a></li>-->\n      <!--<li [routerLink]=\"['contacts']\"><a>重定向</a></li>-->\n    <!--</ul>-->\n  <!--</nav>-->\n\n  <!--<div>-->\n    <!--&lt;!&ndash;<router-outlet></router-outlet>&ndash;&gt;-->\n  <!--</div>-->\n\n<!--</div>-->\n\n\n<!--</body>-->\n<!--</html>-->\n"
 
 /***/ }),
 
@@ -1270,7 +1293,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav, ul, nav, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\narticle, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {\n  display: block; }\n\nol, ul {\n  list-style: none;\n  margin: 0px;\n  padding: 0px;\n  font-size: 62.5%; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after, q:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.clearfix {\n  *zoom: 1; }\n\n.clearfix:after {\n  content: '';\n  display: table;\n  clear: both; }\n\n.app {\n  background: #ccc;\n  position: absolute;\n  width: 100%;\n  height: 100%; }\n\nsection {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background: #fff; }\n\n.section {\n  padding-top: 55px; }\n\n.icon {\n  width: 1em;\n  height: 1em;\n  vertical-align: -0.15em;\n  fill: currentColor;\n  overflow: hidden; }\n\n@-webkit-keyframes myfirst {\n  0% {\n    transition: all 0.8s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  25% {\n    transition: all 0.6s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  50% {\n    transition: all 0.4s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  75% {\n    transition: all 0.2s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  100% {\n    transition: all 0.1s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); } }\n\n@keyframes myfirst {\n  0% {\n    transition: all 0.8s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  25% {\n    transition: all 0.6s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  50% {\n    transition: all 0.4s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  75% {\n    transition: all 0.2s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  100% {\n    transition: all 0.1s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); } }\n\n::-webkit-scrollbar {\n  width: 0.1rem;\n  height: 0.1rem; }\n\n::-webkit-scrollbar-track {\n  background: #eee;\n  border: thin solid lightgray;\n  box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -moz-box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -webkit-box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -o-box-shadow: 2rem 0 2rem #f6f6f6 inset; }\n\n::-webkit-scrollbar-thumb {\n  background: #1E8BC3; }\n\nheader {\n  width: 100%;\n  height: 55px;\n  background: rgba(255, 255, 255, 0.6);\n  opacity: 1;\n  position: fixed;\n  z-index: 1000;\n  top: 0;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n  padding: 4px 0; }\n\n.github-corner:hover {\n  width: 70px;\n  height: 70px; }\n\nheader .col-md-2 {\n  text-align: center;\n  line-height: 55px; }\n\nheader .nav {\n  position: relative;\n  top: 0; }\n  header .nav ul li {\n    float: left;\n    font-size: 14px;\n    font-family: helvetica neue \",arial,sans-serif\";\n    margin: 0 10px;\n    text-align: center;\n    cursor: pointer; }\n    header .nav ul li a {\n      text-decoration: none;\n      color: #333; }\n\nheader .right {\n  padding-left: 20px;\n  padding-right: 6%;\n  line-height: 45px;\n  border-left: 1px solid #ccc; }\n  header .right ul li {\n    list-style: none;\n    font-size: 12px;\n    float: right;\n    padding: 0 10px;\n    margin: 0 10px;\n    display: line-block;\n    cursor: pointer;\n    background: red; }\n\n.set_4_button1 {\n  position: relative;\n  font-weight: 400;\n  text-align: center;\n  width: auto;\n  float: left;\n  padding: 0 16px;\n  line-height: 48px;\n  overflow: hidden;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  color: #333; }\n\n.set_4_button1.raised {\n  transition: all 0.1s; }\n\n.anim {\n  -webkit-transform: translateY(-50%) translateX(-50%);\n  transform: translateY(-50%) translateX(-50%);\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: -1;\n  border: none; }\n\n.anim:before {\n  position: relative;\n  content: '';\n  display: block;\n  margin-top: 100%; }\n\n.anim:after {\n  content: '';\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  border-radius: 50%; }\n\n.clickable .toggle:checked + .anim {\n  -webkit-animation: anim-in 0.75s;\n  animation: anim-in 0.75s; }\n\n.clickable .toggle:checked + .anim:after {\n  -webkit-animation: anim-in-pseudo 0.75s;\n  animation: anim-in-pseudo 0.75s; }\n\n.clickable .toggle:not(:checked) + .anim {\n  -webkit-animation: anim-out 0.75s;\n  animation: anim-out 0.75s; }\n\n.clickable .toggle:not(:checked) + .anim:after {\n  -webkit-animation: anim-out-pseudo 0.75s;\n  animation: anim-out-pseudo 0.75s; }\n\n.hoverable:hover > .anim {\n  -webkit-animation: anim-out 0.75s;\n  animation: anim-out 0.75s; }\n\n.hoverable:hover > .anim:after {\n  -webkit-animation: anim-out-pseudo 0.75s;\n  animation: anim-out-pseudo 0.75s; }\n\n@-webkit-keyframes anim-in {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@keyframes anim-in {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@-webkit-keyframes anim-in-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@keyframes anim-in-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@-webkit-keyframes anim-out {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@keyframes anim-out {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@-webkit-keyframes anim-out-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@keyframes anim-out-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n", ""]);
+exports.push([module.i, "html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav, ul, nav, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\narticle, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {\n  display: block; }\n\nol, ul {\n  list-style: none;\n  margin: 0px;\n  padding: 0px;\n  font-size: 62.5%; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after, q:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.clearfix {\n  *zoom: 1; }\n\n.clearfix:after {\n  content: '';\n  display: table;\n  clear: both; }\n\n.app {\n  background: #ccc;\n  position: absolute;\n  width: 100%;\n  height: 100%; }\n\nsection {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background: #fff; }\n\n.section {\n  padding-top: 55px; }\n\n.icon {\n  width: 1em;\n  height: 1em;\n  vertical-align: -0.15em;\n  fill: currentColor;\n  overflow: hidden; }\n\n@-webkit-keyframes myfirst {\n  0% {\n    transition: all 0.8s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  25% {\n    transition: all 0.6s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  50% {\n    transition: all 0.4s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  75% {\n    transition: all 0.2s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  100% {\n    transition: all 0.1s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); } }\n\n@keyframes myfirst {\n  0% {\n    transition: all 0.8s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  25% {\n    transition: all 0.6s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  50% {\n    transition: all 0.4s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); }\n  75% {\n    transition: all 0.2s;\n    -webkit-transform: translate(0px, 10px);\n            transform: translate(0px, 10px); }\n  100% {\n    transition: all 0.1s;\n    -webkit-transform: translate(0px, -10px);\n            transform: translate(0px, -10px); } }\n\n::-webkit-scrollbar {\n  width: 0.1rem;\n  height: 0.1rem; }\n\n::-webkit-scrollbar-track {\n  background: #eee;\n  border: thin solid lightgray;\n  box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -moz-box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -webkit-box-shadow: 2rem 0 2rem #f6f6f6 inset;\n  -o-box-shadow: 2rem 0 2rem #f6f6f6 inset; }\n\n::-webkit-scrollbar-thumb {\n  background: #1E8BC3; }\n\nheader {\n  width: 100%;\n  height: 55px;\n  background: rgba(255, 255, 255, 0.6);\n  opacity: 1;\n  position: fixed;\n  z-index: 1000;\n  top: 0;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n  padding: 4px 0; }\n\n.github-corner:hover {\n  width: 70px;\n  height: 70px; }\n\nheader .col-md-2 {\n  text-align: center;\n  line-height: 55px; }\n\nheader .nav {\n  position: relative;\n  top: 0; }\n  header .nav ul li {\n    float: left;\n    font-size: 14px;\n    font-family: helvetica neue \",arial,sans-serif\";\n    margin: 0 10px;\n    text-align: center;\n    cursor: pointer; }\n    header .nav ul li a {\n      text-decoration: none;\n      color: #333; }\n\nheader .right {\n  padding-left: 20px;\n  padding-right: 6%;\n  line-height: 45px;\n  border-left: 1px solid #ccc; }\n  header .right ul li {\n    list-style: none;\n    font-size: 12px;\n    float: right;\n    padding: 0 10px;\n    margin: 0 0 0 10px;\n    display: line-block;\n    cursor: pointer; }\n    header .right ul li .img {\n      width: 37px;\n      height: 37px;\n      background: #ccc;\n      border-radius: 100%;\n      margin-top: 4px; }\n      header .right ul li .img img {\n        width: auto;\n        height: auto;\n        max-width: 37px;\n        max-height: 37px; }\n  header .right .userName {\n    font-size: 14px;\n    font-weight: 600; }\n    header .right .userName a {\n      color: #333;\n      -webkit-text-decoration-line: none;\n              text-decoration-line: none;\n      transition: all 0.6s; }\n    header .right .userName a:hover {\n      color: #fff; }\n\n.set_4_button1 {\n  position: relative;\n  font-weight: 400;\n  text-align: center;\n  width: auto;\n  float: left;\n  padding: 0 16px;\n  line-height: 48px;\n  overflow: hidden;\n  position: relative;\n  z-index: 0;\n  cursor: pointer;\n  color: #333; }\n\n.set_4_button1.raised {\n  transition: all 0.1s; }\n\n.anim {\n  -webkit-transform: translateY(-50%) translateX(-50%);\n  transform: translateY(-50%) translateX(-50%);\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: -1;\n  border: none; }\n\n.anim:before {\n  position: relative;\n  content: '';\n  display: block;\n  margin-top: 100%; }\n\n.anim:after {\n  content: '';\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  border-radius: 50%; }\n\n.clickable .toggle:checked + .anim {\n  -webkit-animation: anim-in 0.75s;\n  animation: anim-in 0.75s; }\n\n.clickable .toggle:checked + .anim:after {\n  -webkit-animation: anim-in-pseudo 0.75s;\n  animation: anim-in-pseudo 0.75s; }\n\n.clickable .toggle:not(:checked) + .anim {\n  -webkit-animation: anim-out 0.75s;\n  animation: anim-out 0.75s; }\n\n.clickable .toggle:not(:checked) + .anim:after {\n  -webkit-animation: anim-out-pseudo 0.75s;\n  animation: anim-out-pseudo 0.75s; }\n\n.hoverable:hover > .anim {\n  -webkit-animation: anim-out 0.75s;\n  animation: anim-out 0.75s; }\n\n.hoverable:hover > .anim:after {\n  -webkit-animation: anim-out-pseudo 0.75s;\n  animation: anim-out-pseudo 0.75s; }\n\n@-webkit-keyframes anim-in {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@keyframes anim-in {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@-webkit-keyframes anim-in-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@keyframes anim-in-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@-webkit-keyframes anim-out {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@keyframes anim-out {\n  0% {\n    width: 0%; }\n  100% {\n    width: 100%; } }\n\n@-webkit-keyframes anim-out-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n\n@keyframes anim-out-pseudo {\n  0% {\n    background: rgba(0, 0, 0, 0.25); }\n  100% {\n    background: transparent; } }\n", ""]);
 
 // exports
 
@@ -1286,6 +1309,7 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1296,8 +1320,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HomeComponent = (function () {
-    function HomeComponent() {
+    function HomeComponent(router, actRouter) {
+        this.router = router;
+        this.actRouter = actRouter;
+        // this.Path = this.actRouter.children[0].routeConfig.path;
+        this.user = {
+            name: '游客一枚',
+            img: '../../../assets/images/message/touxiang.png'
+        };
         this.navList = [
             { 'name': '首页', 'url': '' },
             { 'name': '书影音', 'url': 'share' },
@@ -1308,13 +1340,20 @@ var HomeComponent = (function () {
     }
     HomeComponent.prototype.ngOnInit = function () {
     };
+    HomeComponent.prototype.loginModel = function () {
+        // this.router.navigate([
+        //   [{outlest: {loginModel: LoginModelComponent}}]
+        //   // this.Path
+        // ]);
+        // this.router.navigate([this.Path,{outlest: {loginModel: 'loginModel'}}])
+    };
     HomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-home',
             template: __webpack_require__("../../../../../views/app/components/home/home.component.html"),
             styles: [__webpack_require__("../../../../../views/app/components/home/home.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -1431,6 +1470,7 @@ var HomeRoutes = [
     {
         path: '',
         component: __WEBPACK_IMPORTED_MODULE_0__home_component__["a" /* HomeComponent */],
+        // outlet: 'loginModel',
         children: [
             {
                 path: '',
@@ -2244,6 +2284,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PassValueService = (function () {
     function PassValueService() {
     }
+    PassValueService.prototype.getPassValue = function () {
+        this.getValue = this.setValue;
+        return this.getValue;
+    };
+    PassValueService.prototype.setPassValue = function (value) {
+        this.setValue = value;
+    };
     PassValueService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [])

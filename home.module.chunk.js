@@ -1346,6 +1346,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__message_room_message_room_component__ = __webpack_require__("../../../../../views/app/components/message-room/message-room.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__alert_model_alert_model_component__ = __webpack_require__("../../../../../views/app/components/alert-model/alert-model.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__go_top_go_top_component__ = __webpack_require__("../../../../../views/app/components/go-top/go-top.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_passValueService_pass_value_service__ = __webpack_require__("../../../../../views/app/services/passValueService/pass-value.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1369,6 +1370,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+// 服务
+
 var HomeModule = (function () {
     function HomeModule() {
     }
@@ -1391,6 +1394,9 @@ var HomeModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_13__message_room_message_room_component__["a" /* MessageRoomComponent */],
                 __WEBPACK_IMPORTED_MODULE_14__alert_model_alert_model_component__["a" /* AlertModelComponent */],
                 __WEBPACK_IMPORTED_MODULE_15__go_top_go_top_component__["a" /* GoTopComponent */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_16__services_passValueService_pass_value_service__["a" /* PassValueService */]
             ],
             schemas: [__WEBPACK_IMPORTED_MODULE_0__angular_core__["CUSTOM_ELEMENTS_SCHEMA"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NO_ERRORS_SCHEMA"]]
         })
@@ -2213,6 +2219,36 @@ var MessageRoomComponent = (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer2"], Object])
     ], MessageRoomComponent);
     return MessageRoomComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../views/app/services/passValueService/pass-value.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PassValueService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PassValueService = (function () {
+    function PassValueService() {
+    }
+    PassValueService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [])
+    ], PassValueService);
+    return PassValueService;
 }());
 
 

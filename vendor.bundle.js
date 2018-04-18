@@ -7657,14 +7657,14 @@ module.exports = g;
 /* unused harmony export query */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return sequence; });
 /* unused harmony export stagger */
-/* unused harmony export state */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return style; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return state; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return style; });
 /* unused harmony export transition */
-/* unused harmony export trigger */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return trigger; });
 /* unused harmony export useAnimation */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return NoopAnimationPlayer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return AnimationGroupPlayer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return ɵPRE_STYLE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return AnimationGroupPlayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return ɵPRE_STYLE; });
 /**
  * @license Angular v5.2.0
  * (c) 2010-2018 Google, Inc. https://angular.io/
@@ -9352,7 +9352,7 @@ function optimizeGroupPlayer(players) {
         case 1:
             return players[0];
         default:
-            return new __WEBPACK_IMPORTED_MODULE_0__angular_animations__["g" /* ɵAnimationGroupPlayer */](players);
+            return new __WEBPACK_IMPORTED_MODULE_0__angular_animations__["i" /* ɵAnimationGroupPlayer */](players);
     }
 }
 /**
@@ -9381,7 +9381,7 @@ function normalizeKeyframes(driver, normalizer, element, keyframes, preStyles, p
             if (prop !== 'offset') {
                 normalizedProp = normalizer.normalizePropertyName(normalizedProp, errors);
                 switch (normalizedValue) {
-                    case __WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* ɵPRE_STYLE */]:
+                    case __WEBPACK_IMPORTED_MODULE_0__angular_animations__["j" /* ɵPRE_STYLE */]:
                         normalizedValue = preStyles[prop];
                         break;
                     case __WEBPACK_IMPORTED_MODULE_0__angular_animations__["a" /* AUTO_STYLE */]:
@@ -10311,7 +10311,7 @@ var AnimationAstBuilderVisitor = /** @class */ (function () {
         var /** @type {?} */ timingAst = constructTimingAst(metadata.timings, context.errors);
         context.currentAnimateTimings = timingAst;
         var /** @type {?} */ styleAst;
-        var /** @type {?} */ styleMetadata = metadata.styles ? metadata.styles : Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["f" /* style */])({});
+        var /** @type {?} */ styleMetadata = metadata.styles ? metadata.styles : Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["g" /* style */])({});
         if (styleMetadata.type == 5 /* Keyframes */) {
             styleAst = this.visitKeyframes(/** @type {?} */ (styleMetadata), context);
         }
@@ -10324,7 +10324,7 @@ var AnimationAstBuilderVisitor = /** @class */ (function () {
                 if (timingAst.easing) {
                     newStyleData['easing'] = timingAst.easing;
                 }
-                styleMetadata_1 = Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["f" /* style */])(newStyleData);
+                styleMetadata_1 = Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["g" /* style */])(newStyleData);
             }
             context.currentTime += timingAst.duration + timingAst.delay;
             var /** @type {?} */ _styleAst = this.visitStyle(styleMetadata_1, context);
@@ -11836,7 +11836,7 @@ var TimelineBuilder = /** @class */ (function () {
             var /** @type {?} */ finalKeyframe = copyStyles(keyframe, true);
             Object.keys(finalKeyframe).forEach(function (prop) {
                 var /** @type {?} */ value = finalKeyframe[prop];
-                if (value == __WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* ɵPRE_STYLE */]) {
+                if (value == __WEBPACK_IMPORTED_MODULE_0__angular_animations__["j" /* ɵPRE_STYLE */]) {
                     preStyleProps.add(prop);
                 }
                 else if (value == __WEBPACK_IMPORTED_MODULE_0__angular_animations__["a" /* AUTO_STYLE */]) {
@@ -13959,7 +13959,7 @@ var TransitionAnimationEngine = /** @class */ (function () {
         // PRE STAGE: fill the ! styles
         var /** @type {?} */ preStylesMap = new Map();
         enterNodeMap.forEach(function (nodes, root) {
-            cloakAndComputeStyles(preStylesMap, _this.driver, new Set(nodes), allPreStyleElements, __WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* ɵPRE_STYLE */]);
+            cloakAndComputeStyles(preStylesMap, _this.driver, new Set(nodes), allPreStyleElements, __WEBPACK_IMPORTED_MODULE_0__angular_animations__["j" /* ɵPRE_STYLE */]);
         });
         replaceNodes.forEach(function (node) {
             var /** @type {?} */ post = postStylesMap.get(node);
@@ -14745,7 +14745,7 @@ function flattenGroupPlayers(players) {
 function _flattenGroupPlayersRecur(players, finalPlayers) {
     for (var /** @type {?} */ i = 0; i < players.length; i++) {
         var /** @type {?} */ player = players[i];
-        if (player instanceof __WEBPACK_IMPORTED_MODULE_0__angular_animations__["g" /* ɵAnimationGroupPlayer */]) {
+        if (player instanceof __WEBPACK_IMPORTED_MODULE_0__angular_animations__["i" /* ɵAnimationGroupPlayer */]) {
             _flattenGroupPlayersRecur(player.players, finalPlayers);
         }
         else {

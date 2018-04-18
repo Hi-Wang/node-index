@@ -84,6 +84,29 @@ var AlertModelComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../views/app/components/animate/animate.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnimationsTab; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_animations__ = __webpack_require__("../../../animations/esm5/animations.js");
+// import { Component, Input } from '@angular/core';
+
+// @Component({
+//     template: '',
+//     animations: []
+// })
+var AnimationsTab = [
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* trigger */])('slide', [
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["f" /* state */])('down', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["g" /* style */])({})),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["f" /* state */])('up', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["g" /* style */])({}))
+    ])
+];
+// export class AnimationsTab {} 
+
+
+/***/ }),
+
 /***/ "../../../../../views/app/components/baby-room/baby-room.component.html":
 /***/ (function(module, exports) {
 
@@ -1383,6 +1406,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__go_top_go_top_component__ = __webpack_require__("../../../../../views/app/components/go-top/go-top.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_passValueService_pass_value_service__ = __webpack_require__("../../../../../views/app/services/passValueService/pass-value.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_login_model_login_model_component__ = __webpack_require__("../../../../../views/app/components/login-model/login-model.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__animate_animate__ = __webpack_require__("../../../../../views/app/components/animate/animate.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1408,6 +1432,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 // 登录
 
+// 动画
+
 var HomeModule = (function () {
     function HomeModule() {
     }
@@ -1429,7 +1455,8 @@ var HomeModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_12__message_room_message_room_component__["a" /* MessageRoomComponent */],
                 __WEBPACK_IMPORTED_MODULE_13__alert_model_alert_model_component__["a" /* AlertModelComponent */],
                 __WEBPACK_IMPORTED_MODULE_14__go_top_go_top_component__["a" /* GoTopComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__components_login_model_login_model_component__["a" /* LoginModelComponent */]
+                __WEBPACK_IMPORTED_MODULE_16__components_login_model_login_model_component__["a" /* LoginModelComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__animate_animate__["a" /* AnimationsTab */] //动画
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_15__services_passValueService_pass_value_service__["a" /* PassValueService */]

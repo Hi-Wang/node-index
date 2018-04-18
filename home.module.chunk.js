@@ -1281,7 +1281,7 @@ var HomeIndexComponent = (function () {
 /***/ "../../../../../views/app/components/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app\">\n  <header>     \n    <div class=\"col-md-2\">\n      <img src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/logo.fw.png\">\n    </div>\n    <div class=\"col-md-5 nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" [routerLink]='[item.url]'>\n          <div class=\"set_4_button1 raised hoverable\">\n            <div class=\"anim\"></div>\n            <span>{{item.name}}</span>\n          </div>\n        </li>\n      </ul>\n    </div>\n    <div class=\"col-md-5 right\">\n      <ul>\n        <li class=\"userName\" style=\"padding-left:0;margin-left:0;\" (click)=\"loginModel()\">\n          <a>{{user.name}}</a>\n        </li>\n        <li (click)=\"loginModel()\">\n          <div class=\"img\">\n              <img [src]=\"user.img\">\n          </div>\n        </li>\n      </ul>\n    </div>\n    <a href=\"https://github.com/Hi-Wang/node-index\" class=\"github-corner\" aria-label=\"View Source Code on Github\">\n      <svg width=\"55\" height=\"55\" viewBox=\"0 0 250 250\" style=\"fill:#BA68C8; color:#fff; position: fixed; top: 0; border: 0; right: 0; transform: scale(1, 1);\" aria-hidden=\"true\">\n        <path d=\"M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z\"></path>\n        <path d=\"M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2\" fill=\"currentColor\" style=\"transform-origin: 130px 106px;\" class=\"octo-arm\"></path>\n        <path d=\"M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z\" fill=\"currentColor\" class=\"octo-body\"></path>\n      </svg>\n    </a>\n  </header>\n\n  <!--router-->\n  <router-outlet class=\"section\"></router-outlet>\n  <router-outlet name=\"loginModel\"></router-outlet>\n</div>\n\n<!--<!doctype html>-->\n<!--<html lang=\"en\">-->\n<!--<head>-->\n  <!--<meta charset=\"utf-8\">-->\n  <!--<title>Hi</title>-->\n  <!--<base href=\"/\">-->\n\n  <!--&lt;!&ndash;<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">&ndash;&gt;-->\n\n  <!--&lt;!&ndash;<link rel=\"stylesheet\" href=\"https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />&ndash;&gt;-->\n  <!--&lt;!&ndash;<meta name=\"keywords\" content=\"Velvety Sign In Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements\" />&ndash;&gt;-->\n  <!--&lt;!&ndash;<link rel=\"stylesheet\" href=\"../../../assets/css/flexslider.css\" type=\"text/css\" media=\"screen\" /> &lt;!&ndash; Flexslider-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"../../../assets/css/font-awesome.css\" rel=\"stylesheet\">&lt;!&ndash; Font-awesome-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"../../../assets/css/style.css\" rel='stylesheet' type='text/css'/>&lt;!&ndash; Stylesheet-CSS &ndash;&gt;&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"//fonts.googleapis.com/css?family=Righteous\" rel=\"stylesheet\">&ndash;&gt;-->\n  <!--&lt;!&ndash;<link href=\"//fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700\" rel=\"stylesheet\">&ndash;&gt;-->\n\n  <!--&lt;!&ndash;<script type=\"application/x-javascript\"> addEventListener(\"load\", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>&ndash;&gt;-->\n  <!--<script src=\"https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js\"></script>-->\n  <!--&lt;!&ndash;<script src=\"https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js\"></script>&ndash;&gt;-->\n  <!--&lt;!&ndash;<script src=\"https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js\"></script>&ndash;&gt;-->\n\n<!--</head>-->\n<!--<body>-->\n\n<!--<div class=\"all\">-->\n  <!--<nav class=\"clearfix\">-->\n    <!--<div class='logo'>-->\n      <!--<span class=\"imgSpan\">-->\n        <!--<img src=\"../../assets/images/logo.fw.png\">-->\n      <!--</span>-->\n      <!--<span class=\"textSpan\">Hi, 小汪</span>-->\n\n    <!--</div>-->\n    <!--<ul class=\"clearfix\">-->\n      <!--<li [routerLink]=\"['home']\" routerLinkActive='active'><a>首页</a></li>-->\n      <!--<li [routerLink]=\"['about']\"><a>关于我</a></li>-->\n      <!--<li [routerLink]=\"['contact']\"><a>作品展示</a></li>-->\n      <!--<li [routerLink]=\"['http']\"><a>HTTP</a></li>-->\n      <!--<li [routerLink]=\"['callme']\"><a>给我留言</a></li>-->\n      <!--<li [routerLink]=\"['contacts']\"><a>重定向</a></li>-->\n    <!--</ul>-->\n  <!--</nav>-->\n\n  <!--<div>-->\n    <!--&lt;!&ndash;<router-outlet></router-outlet>&ndash;&gt;-->\n  <!--</div>-->\n\n<!--</div>-->\n\n\n<!--</body>-->\n<!--</html>-->\n"
+module.exports = "<div class=\"app\">\n  <header>     \n    <div class=\"col-md-2\">\n      <img src=\"https://hi-wang.oss-cn-hangzhou.aliyuncs.com/jingtai/logo.fw.png\">\n    </div>\n    <div class=\"col-md-5 nav\">\n      <ul>\n        <li *ngFor=\"let item of navList\" [routerLink]='[item.url]'>\n          <div class=\"set_4_button1 raised hoverable\">\n            <div class=\"anim\"></div>\n            <span>{{item.name}}</span>\n          </div>\n        </li>\n      </ul>\n    </div>\n    <div class=\"col-md-5 right\">\n      <ul>\n        <li class=\"userName\" style=\"padding-left:0;margin-left:0;\" (click)=\"loginModel()\">\n          <a>{{user.name}}</a>\n        </li>\n        <li (click)=\"loginModel()\">\n          <div class=\"img\">\n              <img [src]=\"user.img\">\n          </div>\n        </li>\n      </ul>\n    </div>\n    <a href=\"https://github.com/Hi-Wang/node-index\" class=\"github-corner\" aria-label=\"View Source Code on Github\">\n      <svg width=\"55\" height=\"55\" viewBox=\"0 0 250 250\" style=\"fill:#BA68C8; color:#fff; position: fixed; top: 0; border: 0; right: 0; transform: scale(1, 1);\" aria-hidden=\"true\">\n        <path d=\"M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z\"></path>\n        <path d=\"M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2\" fill=\"currentColor\" style=\"transform-origin: 130px 106px;\" class=\"octo-arm\"></path>\n        <path d=\"M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z\" fill=\"currentColor\" class=\"octo-body\"></path>\n      </svg>\n    </a>\n  </header>\n\n  <!--router-->\n  <router-outlet class=\"section\"></router-outlet>\n\n  <app-login-model></app-login-model>\n\n</div>\n"
 
 /***/ }),
 
@@ -1325,7 +1325,7 @@ var HomeComponent = (function () {
     function HomeComponent(router, actRouter) {
         this.router = router;
         this.actRouter = actRouter;
-        // this.Path = this.actRouter.children[0].routeConfig.path;
+        this.Path = this.actRouter.children[0].routeConfig.path;
         this.user = {
             name: '游客一枚',
             img: '../../../assets/images/message/touxiang.png'
@@ -1341,11 +1341,8 @@ var HomeComponent = (function () {
     HomeComponent.prototype.ngOnInit = function () {
     };
     HomeComponent.prototype.loginModel = function () {
-        // this.router.navigate([
-        //   [{outlest: {loginModel: LoginModelComponent}}]
-        //   // this.Path
-        // ]);
-        // this.router.navigate([this.Path,{outlest: {loginModel: 'loginModel'}}])
+        console.log(this.Path);
+        // this.router.navigate([{outlest: }])
     };
     HomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -1377,15 +1374,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ngx_echarts__ = __webpack_require__("../../../../ngx-echarts/ngx-echarts.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_routes__ = __webpack_require__("../../../../../views/app/components/home/home.routes.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_component__ = __webpack_require__("../../../../../views/app/components/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_model_login_model_component__ = __webpack_require__("../../../../../views/app/components/login-model/login-model.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__chatroom_chatroom_component__ = __webpack_require__("../../../../../views/app/components/chatroom/chatroom.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__home_index_home_index_component__ = __webpack_require__("../../../../../views/app/components/home-index/home-index.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__baby_room_baby_room_component__ = __webpack_require__("../../../../../views/app/components/baby-room/baby-room.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__demo_room_demo_room_component__ = __webpack_require__("../../../../../views/app/components/demo-room/demo-room.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__message_room_message_room_component__ = __webpack_require__("../../../../../views/app/components/message-room/message-room.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__alert_model_alert_model_component__ = __webpack_require__("../../../../../views/app/components/alert-model/alert-model.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__go_top_go_top_component__ = __webpack_require__("../../../../../views/app/components/go-top/go-top.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_passValueService_pass_value_service__ = __webpack_require__("../../../../../views/app/services/passValueService/pass-value.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__chatroom_chatroom_component__ = __webpack_require__("../../../../../views/app/components/chatroom/chatroom.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_index_home_index_component__ = __webpack_require__("../../../../../views/app/components/home-index/home-index.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__baby_room_baby_room_component__ = __webpack_require__("../../../../../views/app/components/baby-room/baby-room.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__demo_room_demo_room_component__ = __webpack_require__("../../../../../views/app/components/demo-room/demo-room.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__message_room_message_room_component__ = __webpack_require__("../../../../../views/app/components/message-room/message-room.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__alert_model_alert_model_component__ = __webpack_require__("../../../../../views/app/components/alert-model/alert-model.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__go_top_go_top_component__ = __webpack_require__("../../../../../views/app/components/go-top/go-top.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_passValueService_pass_value_service__ = __webpack_require__("../../../../../views/app/services/passValueService/pass-value.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_login_model_login_model_component__ = __webpack_require__("../../../../../views/app/components/login-model/login-model.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1400,8 +1397,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-// 出口路由
-
 
 
 
@@ -1410,6 +1405,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 // 服务
+
+// 登录
 
 var HomeModule = (function () {
     function HomeModule() {
@@ -1424,18 +1421,18 @@ var HomeModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* RouterModule */].forChild(__WEBPACK_IMPORTED_MODULE_6__home_routes__["a" /* HomeRoutes */])
             ],
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_8__login_model_login_model_component__["a" /* LoginModelComponent */],
                 __WEBPACK_IMPORTED_MODULE_7__home_component__["a" /* HomeComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__chatroom_chatroom_component__["a" /* ChatroomComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__home_index_home_index_component__["a" /* HomeIndexComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__baby_room_baby_room_component__["a" /* BabyRoomComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__demo_room_demo_room_component__["a" /* DemoRoomComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__message_room_message_room_component__["a" /* MessageRoomComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__alert_model_alert_model_component__["a" /* AlertModelComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__go_top_go_top_component__["a" /* GoTopComponent */]
+                __WEBPACK_IMPORTED_MODULE_8__chatroom_chatroom_component__["a" /* ChatroomComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__home_index_home_index_component__["a" /* HomeIndexComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__baby_room_baby_room_component__["a" /* BabyRoomComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__demo_room_demo_room_component__["a" /* DemoRoomComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__message_room_message_room_component__["a" /* MessageRoomComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__alert_model_alert_model_component__["a" /* AlertModelComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__go_top_go_top_component__["a" /* GoTopComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__components_login_model_login_model_component__["a" /* LoginModelComponent */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_16__services_passValueService_pass_value_service__["a" /* PassValueService */]
+                __WEBPACK_IMPORTED_MODULE_15__services_passValueService_pass_value_service__["a" /* PassValueService */]
             ],
             schemas: [__WEBPACK_IMPORTED_MODULE_0__angular_core__["CUSTOM_ELEMENTS_SCHEMA"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NO_ERRORS_SCHEMA"]]
         })
@@ -1458,8 +1455,6 @@ var HomeModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__baby_room_baby_room_component__ = __webpack_require__("../../../../../views/app/components/baby-room/baby-room.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__demo_room_demo_room_component__ = __webpack_require__("../../../../../views/app/components/demo-room/demo-room.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__message_room_message_room_component__ = __webpack_require__("../../../../../views/app/components/message-room/message-room.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_model_login_model_component__ = __webpack_require__("../../../../../views/app/components/login-model/login-model.component.ts");
-
 
 
 
@@ -1470,7 +1465,6 @@ var HomeRoutes = [
     {
         path: '',
         component: __WEBPACK_IMPORTED_MODULE_0__home_component__["a" /* HomeComponent */],
-        // outlet: 'loginModel',
         children: [
             {
                 path: '',
@@ -1478,14 +1472,7 @@ var HomeRoutes = [
             },
             {
                 path: 'chatRoom',
-                component: __WEBPACK_IMPORTED_MODULE_1__chatroom_chatroom_component__["a" /* ChatroomComponent */],
-                children: [
-                    {
-                        path: 'loginModel',
-                        component: __WEBPACK_IMPORTED_MODULE_6__login_model_login_model_component__["a" /* LoginModelComponent */],
-                        outlet: 'loginModel'
-                    }
-                ]
+                component: __WEBPACK_IMPORTED_MODULE_1__chatroom_chatroom_component__["a" /* ChatroomComponent */]
             },
             {
                 path: 'share',
@@ -1493,14 +1480,7 @@ var HomeRoutes = [
             },
             {
                 path: 'demoRoom',
-                component: __WEBPACK_IMPORTED_MODULE_4__demo_room_demo_room_component__["a" /* DemoRoomComponent */],
-                children: [
-                    {
-                        path: 'loginModel',
-                        component: __WEBPACK_IMPORTED_MODULE_6__login_model_login_model_component__["a" /* LoginModelComponent */],
-                        outlet: 'loginModel'
-                    }
-                ]
+                component: __WEBPACK_IMPORTED_MODULE_4__demo_room_demo_room_component__["a" /* DemoRoomComponent */]
             },
             {
                 path: 'messageRoom',
@@ -1516,7 +1496,7 @@ var HomeRoutes = [
 /***/ "../../../../../views/app/components/login-model/login-model.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"loginModel\">\n    <div class=\"fullDiv\" #fullDiv [@alert]=\"fullDisplay\" (mousewheel)=\"mousewheel($event)\">\n        <div class=\"full\" (click)='alertShowHide()'></div>\n        <div class=\"alert\" #alert>\n          <div class=\"header\">雁过留名</div>\n          <div class=\"input input1\">\n            <span>昵称</span><input #name type=\"text\" placeholder=\"告诉我，你叫啥？\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n          </div>\n          <div class=\"input input2\">\n            <span>邮箱</span><input #email type=\"text\" placeholder=\"邮箱地址（用于获取头像）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n          </div>\n          <div class=\"input input3\">\n            <span>博客</span><input #blog type=\"text\" placeholder=\"你的博客地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n          </div>\n          <div class=\"input input3\">\n            <span>Github</span><input #Github type=\"text\" placeholder=\"你的Github地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n          </div>\n          <div class=\"footer\">\n            <button (click)='alertShowHide()'>取消</button>\n            <button style=\"background:#1C97DF;\" (click)=\"save(name, email, blog, Github)\">确定</button>\n          </div>\n        </div>\n      </div>\n</div>\n\n"
+module.exports = "<div class=\"loginModel\">\n    <div class=\"loginFullDiv\" #fullDiv [@alert]=\"fullDisplay\" (mousewheel)=\"mousewheel($event)\">\n        <div class=\"loginFull\" (click)='alertShowHide()'></div>\n        <div class=\"loginAlert\" #alert>\n          <div class=\"header\">雁过留名</div>\n          <div class=\"input input1\">\n            <span>昵称</span><input #name type=\"text\" placeholder=\"告诉我，你叫啥？\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n          </div>\n          <div class=\"input input2\">\n            <span>邮箱</span><input #email type=\"text\" placeholder=\"邮箱地址（用于获取头像）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n          </div>\n          <div class=\"input input3\">\n            <span>博客</span><input #blog type=\"text\" placeholder=\"你的博客地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n          </div>\n          <div class=\"input input3\">\n            <span>Github</span><input #Github type=\"text\" placeholder=\"你的Github地址（选填）\" (focus)=\"inputStyleFocus($event)\" (blur)=\"inputStyleBlur($event)\">\n          </div>\n          <div class=\"footer\">\n            <button (click)='alertShowHide()'>取消</button>\n            <button style=\"background:#1C97DF;\" (click)=\"save(name, email, blog, Github)\">确定</button>\n          </div>\n        </div>\n      </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -1528,7 +1508,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".loginModel .full {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.6);\n  z-index: 1000; }\n\n.loginModel .alert {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 1001;\n  width: 400px;\n  height: 300px;\n  background: #fff;\n  transition: all 0.3s;\n  padding-top: 50px;\n  box-shadow: rgba(0, 0, 0, 0.4); }\n  .loginModel .alert .header {\n    height: 50px;\n    line-height: 50px;\n    margin-top: -50px;\n    text-align: center;\n    font-size: 16px;\n    font-weight: 600; }\n  .loginModel .alert .input {\n    padding: 10px 10px 10px 70px; }\n    .loginModel .alert .input span {\n      width: 60px;\n      margin-left: -60px;\n      display: inline-block;\n      font-size: 12px;\n      padding-right: 20px;\n      text-align: right; }\n    .loginModel .alert .input input {\n      width: 100%;\n      font-size: 12px;\n      border-radius: 4px;\n      padding-left: 10px;\n      border: 1px solid #ccc;\n      height: 30px;\n      outline: none;\n      -webkit-appearance: none;\n      box-shadow: 0px 0 3px rgba(0, 0, 0, 0.2) inset; }\n    .loginModel .alert .input input:focus {\n      border: 1px solid #1C97DF;\n      box-shadow: none; }\n  .loginModel .alert .footer {\n    padding: 10px;\n    text-align: center; }\n    .loginModel .alert .footer button {\n      font-size: 12px;\n      padding: 6px 18px;\n      border: none;\n      margin: 0 10px;\n      color: #fff;\n      border-radius: 4px; }\n", ""]);
+exports.push([module.i, ".loginModel .loginFull {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.6);\n  z-index: 90000; }\n\n.loginModel .loginAlert {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 90001;\n  width: 400px;\n  height: 300px;\n  background: #fff;\n  transition: all 0.3s;\n  padding-top: 50px;\n  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); }\n  .loginModel .loginAlert .header {\n    height: 50px;\n    line-height: 50px;\n    margin-top: -50px;\n    text-align: center;\n    font-size: 16px;\n    font-weight: 600; }\n  .loginModel .loginAlert .input {\n    padding: 10px 10px 10px 70px; }\n    .loginModel .loginAlert .input span {\n      width: 60px;\n      margin-left: -60px;\n      display: inline-block;\n      font-size: 12px;\n      padding-right: 20px;\n      text-align: right; }\n    .loginModel .loginAlert .input input {\n      width: 100%;\n      font-size: 12px;\n      border-radius: 4px;\n      padding-left: 10px;\n      border: 1px solid #ccc;\n      height: 30px;\n      outline: none;\n      -webkit-appearance: none;\n      box-shadow: 0px 0 3px rgba(0, 0, 0, 0.2) inset; }\n    .loginModel .loginAlert .input input:focus {\n      border: 1px solid #1C97DF;\n      box-shadow: none; }\n  .loginModel .loginAlert .footer {\n    padding: 10px;\n    text-align: center; }\n    .loginModel .loginAlert .footer button {\n      font-size: 12px;\n      padding: 6px 18px;\n      border: none;\n      margin: 0 10px;\n      color: #fff;\n      border-radius: 4px; }\n", ""]);
 
 // exports
 

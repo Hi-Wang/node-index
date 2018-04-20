@@ -97,9 +97,15 @@ var AlertModelComponent = (function () {
 //     animations: []
 // })
 var AnimationsTab = [
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* trigger */])('slide', [
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["f" /* state */])('down', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["g" /* style */])({})),
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["f" /* state */])('up', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["g" /* style */])({}))
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["j" /* trigger */])('slide', [
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["g" /* state */])('down', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* style */])({
+            opacity: '1'
+        })),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["g" /* state */])('up', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* style */])({
+            opacity: '0'
+        })),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["i" /* transition */])('down => up', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["e" /* animate */])('600ms cubic-bezier(0.4, 0, 0.2, 1)')),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["i" /* transition */])('up => down', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["e" /* animate */])('600ms cubic-bezier(0.4, 0, 0.2, 1)'))
     ])
 ];
 // export class AnimationsTab {} 
@@ -1333,6 +1339,7 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_model_login_model_component__ = __webpack_require__("../../../../../views/app/components/login-model/login-model.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1344,10 +1351,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var HomeComponent = (function () {
     function HomeComponent(router, actRouter) {
         this.router = router;
         this.actRouter = actRouter;
+        console.log(this.loginChild);
         this.Path = this.actRouter.children[0].routeConfig.path;
         this.user = {
             name: '游客一枚',
@@ -1367,6 +1376,10 @@ var HomeComponent = (function () {
         console.log(this.Path);
         // this.router.navigate([{outlest: }])
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__login_model_login_model_component__["a" /* LoginModelComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__login_model_login_model_component__["a" /* LoginModelComponent */])
+    ], HomeComponent.prototype, "loginChild", void 0);
     HomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-home',
@@ -1492,6 +1505,7 @@ var HomeRoutes = [
     {
         path: '',
         component: __WEBPACK_IMPORTED_MODULE_0__home_component__["a" /* HomeComponent */],
+        pathMatch: 'full',
         children: [
             {
                 path: '',
